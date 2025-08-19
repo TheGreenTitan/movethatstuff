@@ -13,30 +13,36 @@ const pool = new Pool({
     port: 5432,
 });
 const secretKey = 'your-secret-key'; // Replace with a secure key in production
-// Middleware to verify JWT and attach tenant_id
+// Middleware to verify JWT and attach tenant_id and role
 const authenticateToken = (req, res, next) => {
     const token = req.headers['authorization']?.split(' ')[1];
     if (!token) return res.status(401).send('Access denied. No token provided.');
     jwt.verify(token, secretKey, (err, user) => {
         if (err) return res.status(403).send('Invalid token.');
         req.user = user;
-        pool.query('SELECT tenant_id FROM users WHERE id = $1', [user.id], (err, result) => {
-            if (err || result.rowCount === 0) return res.status(500).send('Error fetching user tenant.');
+        pool.query('SELECT tenant_id, role FROM users WHERE id = $1', [user.id], (err, result) => {
+            if (err || result.rowCount === 0) return res.status(500).send('Error fetching user tenant and role.');
             req.tenantId = result.rows[0].tenant_id;
+            req.role = result.rows[0].role;
             next();
         });
     });
 };
+// Middleware for admin-only access
+const requireAdmin = (req, res, next) => {
+    if (req.role !== 'admin') return res.status(403).send('Admin access required.');
+    next();
+};
 app.post('/register', (req, res) => {
-    const { username, password, tenant_id } = req.body;
+    const { username, password, tenant_id, role } = req.body;
     if (!username || !password || !tenant_id) return res.status(400).send('Username, password, and tenant_id are required');
     pool.query('SELECT id FROM tenants WHERE id = $1', [tenant_id], (err, result) => {
         if (err || result.rowCount === 0) return res.status(400).send('Invalid tenant_id');
         bcrypt.hash(password, 10, (err, hashedPassword) => {
             if (err) return res.status(500).send(`Error hashing password: ${err.message}`);
             pool.query(
-                'INSERT INTO users (username, password, tenant_id) VALUES ($1, $2, $3) RETURNING id, username',
-                [username, hashedPassword, tenant_id],
+                'INSERT INTO users (username, password, tenant_id, role) VALUES ($1, $2, $3, $4) RETURNING id, username',
+                [username, hashedPassword, tenant_id, role || 'user'],
                 (err, result) => {
                     if (err) return res.status(500).send(`Error registering user: ${err.message}`);
                     res.status(201).json(result.rows[0]);
@@ -54,7 +60,7 @@ app.post('/login', (req, res) => {
             if (err) return res.status(500).send(`Error comparing password: ${err.message}`);
             console.log(`Password comparison for ${username}: ${password} vs ${user.password} = ${isMatch}`);
             if (!isMatch) return res.status(400).send('Invalid credentials');
-            const token = jwt.sign({ id: user.id, username: user.username }, secretKey, { expiresIn: '8h' });
+            const token = jwt.sign({ id: user.id, username: user.username, role: user.role }, secretKey, { expiresIn: '8h' });
             res.json({ token });
         });
     });

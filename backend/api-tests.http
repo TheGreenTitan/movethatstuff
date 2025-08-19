@@ -1,0 +1,12 @@
+### Login as admin
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "455454"
+}
+
+### Get all customers (authenticated)
+GET http://localhost:3000/customers
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTc1NTYwNDM1MywiZXhwIjoxNzU1NjMzMTUzfQ.DWyL5FjAG1pZFsEUtu8sFCrbXo2fezdbC76poAZ9kbE
