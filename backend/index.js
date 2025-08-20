@@ -2,6 +2,7 @@ const express = require('express');
 const { Pool } = require('pg');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const moment = require('moment-timezone');
 const app = express();
 const port = 3000;
 app.use(express.json()); // Middleware to parse JSON bodies
@@ -13,19 +14,24 @@ const pool = new Pool({
     port: 5432,
 });
 const secretKey = 'your-secret-key'; // Replace with a secure key in production
-// Middleware to verify JWT and attach tenant_id and role
+// Middleware to verify JWT and attach tenant_id, role, and tenant_timezone
 const authenticateToken = (req, res, next) => {
     const token = req.headers['authorization']?.split(' ')[1];
     if (!token) return res.status(401).send('Access denied. No token provided.');
     jwt.verify(token, secretKey, (err, user) => {
         if (err) return res.status(403).send('Invalid token.');
         req.user = user;
-        pool.query('SELECT tenant_id, role FROM users WHERE id = $1', [user.id], (err, result) => {
-            if (err || result.rowCount === 0) return res.status(500).send('Error fetching user tenant and role.');
-            req.tenantId = result.rows[0].tenant_id;
-            req.role = result.rows[0].role;
-            next();
-        });
+        pool.query(
+            'SELECT tenant_id, role, (SELECT timezone FROM tenants WHERE id = users.tenant_id) AS tenant_timezone FROM users WHERE id = $1',
+            [user.id],
+            (err, result) => {
+                if (err || result.rowCount === 0) return res.status(500).send('Error fetching user tenant and role.');
+                req.tenantId = result.rows[0].tenant_id;
+                req.role = result.rows[0].role;
+                req.tenantTimezone = result.rows[0].tenant_timezone || 'UTC'; // Fallback to UTC if null
+                next();
+            }
+        );
     });
 };
 // Middleware for admin-only access
@@ -69,7 +75,13 @@ app.post('/login', (req, res) => {
 app.get('/customers', authenticateToken, (req, res) => {
     pool.query('SELECT id, name, email, phone, company_name, is_commercial, source, created_at FROM customers WHERE tenant_id = $1', [req.tenantId], (err, result) => {
         if (err) return res.status(500).send(`Error fetching customers: ${err.message}`);
-        res.json(result.rows);
+        const rows = result.rows.map(row => {
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).toISOString();
+            }
+            return row;
+        });
+        res.json(rows);
     });
 });
 app.post('/customers', authenticateToken, (req, res) => {
@@ -80,7 +92,11 @@ app.post('/customers', authenticateToken, (req, res) => {
         [name, email, phone, company_name, is_commercial, source, req.tenantId],
         (err, result) => {
             if (err) return res.status(500).send(`Error creating customer: ${err.message}`);
-            res.status(201).json(result.rows[0]);
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).toISOString();
+            }
+            res.status(201).json(row);
         }
     );
 });
@@ -94,7 +110,11 @@ app.put('/customers/:id', authenticateToken, (req, res) => {
         (err, result) => {
             if (err) return res.status(500).send(`Error updating customer: ${err.message}`);
             if (result.rowCount === 0) return res.status(404).send('Customer not found');
-            res.json(result.rows[0]);
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).toISOString();
+            }
+            res.json(row);
         }
     );
 });
@@ -106,7 +126,11 @@ app.delete('/customers/:id', authenticateToken, (req, res) => {
         (err, result) => {
             if (err) return res.status(500).send(`Error deleting customer: ${err.message}`);
             if (result.rowCount === 0) return res.status(404).send('Customer not found');
-            res.status(200).json({ message: 'Customer deleted', data: result.rows[0] });
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).toISOString();
+            }
+            res.status(200).json({ message: 'Customer deleted', data: row });
         }
     );
 });
@@ -116,7 +140,16 @@ app.get('/opportunities', authenticateToken, (req, res) => {
         [req.tenantId],
         (err, result) => {
             if (err) return res.status(500).send(`Error fetching opportunities: ${err.message}`);
-            res.json(result.rows);
+            const rows = result.rows.map(row => {
+                if (row.created_at) {
+                    row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).toISOString();
+                }
+                if (row.move_date) {
+                    row.move_date = moment.utc(row.move_date).tz(req.tenantTimezone).toISOString();
+                }
+                return row;
+            });
+            res.json(rows);
         }
     );
 });
@@ -128,7 +161,14 @@ app.post('/opportunities', authenticateToken, (req, res) => {
         [customer_id, move_date, move_type, move_service, origin_address, destination_address, origin_stairs, dest_stairs, notes],
         (err, result) => {
             if (err) return res.status(500).send(`Error creating opportunity: ${err.message}`);
-            res.status(201).json(result.rows[0]);
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).toISOString();
+            }
+            if (row.move_date) {
+                row.move_date = moment.utc(row.move_date).tz(req.tenantTimezone).toISOString();
+            }
+            res.status(201).json(row);
         }
     );
 });
@@ -142,7 +182,14 @@ app.put('/opportunities/:id', authenticateToken, (req, res) => {
         (err, result) => {
             if (err) return res.status(500).send(`Error updating opportunity: ${err.message}`);
             if (result.rowCount === 0) return res.status(404).send('Opportunity not found');
-            res.json(result.rows[0]);
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).toISOString();
+            }
+            if (row.move_date) {
+                row.move_date = moment.utc(row.move_date).tz(req.tenantTimezone).toISOString();
+            }
+            res.json(row);
         }
     );
 });
@@ -154,7 +201,14 @@ app.delete('/opportunities/:id', authenticateToken, (req, res) => {
         (err, result) => {
             if (err) return res.status(500).send(`Error deleting opportunity: ${err.message}`);
             if (result.rowCount === 0) return res.status(404).send('Opportunity not found');
-            res.status(200).json({ message: 'Opportunity deleted', data: result.rows[0] });
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).toISOString();
+            }
+            if (row.move_date) {
+                row.move_date = moment.utc(row.move_date).tz(req.tenantTimezone).toISOString();
+            }
+            res.status(200).json({ message: 'Opportunity deleted', data: row });
         }
     );
 });
@@ -164,7 +218,16 @@ app.get('/estimates', authenticateToken, (req, res) => {
         [req.tenantId],
         (err, result) => {
             if (err) return res.status(500).send(`Error fetching estimates: ${err.message}`);
-            res.json(result.rows);
+            const rows = result.rows.map(row => {
+                if (row.created_at) {
+                    row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).toISOString();
+                }
+                if (row.move_date) {
+                    row.move_date = moment.utc(row.move_date).tz(req.tenantTimezone).toISOString();
+                }
+                return row;
+            });
+            res.json(rows);
         }
     );
 });
@@ -177,6 +240,12 @@ app.post('/estimates', authenticateToken, (req, res) => {
         (err, result) => {
             if (err) return res.status(500).send(`Error creating estimate: ${err.message}`);
             const estimate = result.rows[0];
+            if (estimate.created_at) {
+                estimate.created_at = moment.utc(estimate.created_at).tz(req.tenantTimezone).toISOString();
+            }
+            if (estimate.move_date) {
+                estimate.move_date = moment.utc(estimate.move_date).tz(req.tenantTimezone).toISOString();
+            }
             res.status(201).json(estimate);
         }
     );
@@ -192,6 +261,12 @@ app.put('/estimates/:id', authenticateToken, (req, res) => {
             if (err) return res.status(500).send(`Error updating estimate: ${err.message}`);
             if (result.rowCount === 0) return res.status(404).send('Estimate not found');
             const estimate = result.rows[0];
+            if (estimate.created_at) {
+                estimate.created_at = moment.utc(estimate.created_at).tz(req.tenantTimezone).toISOString();
+            }
+            if (estimate.move_date) {
+                estimate.move_date = moment.utc(estimate.move_date).tz(req.tenantTimezone).toISOString();
+            }
             res.json(estimate);
         }
     );
@@ -204,7 +279,14 @@ app.delete('/estimates/:id', authenticateToken, (req, res) => {
         (err, result) => {
             if (err) return res.status(500).send(`Error deleting estimate: ${err.message}`);
             if (result.rowCount === 0) return res.status(404).send('Estimate not found');
-            res.status(200).json({ message: 'Estimate deleted', data: result.rows[0] });
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).toISOString();
+            }
+            if (row.move_date) {
+                row.move_date = moment.utc(row.move_date).tz(req.tenantTimezone).toISOString();
+            }
+            res.status(200).json({ message: 'Estimate deleted', data: row });
         }
     );
 });

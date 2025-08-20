@@ -9,4 +9,4 @@ Content-Type: application/json
 
 ### Get all customers (authenticated)
 GET http://localhost:3000/customers
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImlhdCI6MTc1NTYwNDM1MywiZXhwIjoxNzU1NjMzMTUzfQ.DWyL5FjAG1pZFsEUtu8sFCrbXo2fezdbC76poAZ9kbE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1NTY1MTU0MywiZXhwIjoxNzU1NjgwMzQzfQ.o-yRFPGlABVB0Fgri9KaZqdQTIWLYQN_7WTPiY70Ezg
