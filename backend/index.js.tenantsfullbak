@@ -433,12 +433,6 @@ app.post('/estimates/:id/calculate', authenticateToken, async (req, res) => {
     }
 });
 // Admin-only endpoints for tenants
-app.get('/tenants', authenticateToken, requireAdmin, (req, res) => {
-    pool.query('SELECT * FROM tenants', (err, result) => {
-        if (err) return res.status(500).send(`Error fetching tenants: ${err.message}`);
-        res.json(result.rows);
-    });
-});
 app.post('/tenants', authenticateToken, requireAdmin, (req, res) => {
     const { name, timezone } = req.body;
     if (!name || !timezone) return res.status(400).send('name and timezone are required');
@@ -448,31 +442,6 @@ app.post('/tenants', authenticateToken, requireAdmin, (req, res) => {
         (err, result) => {
             if (err) return res.status(500).send(`Error creating tenant: ${err.message}`);
             res.status(201).json(result.rows[0]);
-        }
-    );
-});
-app.put('/tenants/:id', authenticateToken, requireAdmin, (req, res) => {
-    const id = req.params.id;
-    const { name, timezone } = req.body;
-    pool.query(
-        'UPDATE tenants SET name = $1, timezone = $2 WHERE id = $3 RETURNING *',
-        [name, timezone, id],
-        (err, result) => {
-            if (err) return res.status(500).send(`Error updating tenant: ${err.message}`);
-            if (result.rowCount === 0) return res.status(404).send('Tenant not found');
-            res.json(result.rows[0]);
-        }
-    );
-});
-app.delete('/tenants/:id', authenticateToken, requireAdmin, (req, res) => {
-    const id = req.params.id;
-    pool.query(
-        'DELETE FROM tenants WHERE id = $1 RETURNING *',
-        [id],
-        (err, result) => {
-            if (err) return res.status(500).send(`Error deleting tenant: ${err.message}`);
-            if (result.rowCount === 0) return res.status(404).send('Tenant not found');
-            res.status(200).json({ message: 'Tenant deleted', data: result.rows[0] });
         }
     );
 });
