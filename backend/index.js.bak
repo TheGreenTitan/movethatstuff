@@ -2,9 +2,24 @@ const express = require('express');
 const { Pool } = require('pg');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const moment = require('moment-timezone');
+const Joi = require('joi');
+const { Client } = require('@googlemaps/google-maps-services-js');
+const crypto = require('crypto');
+const twilio = require('twilio');
+require('dotenv').config(); // Load environment variables
+
+// =====================
+// 1. App Setup
+// =====================
 const app = express();
 const port = 3000;
 app.use(express.json()); // Middleware to parse JSON bodies
+app.use(express.urlencoded({ extended: true }));
+
+// =====================
+// 2. Database Pool
+// =====================
 const pool = new Pool({
     user: 'patrick',
     host: 'localhost',
@@ -12,24 +27,211 @@ const pool = new Pool({
     password: '455454',
     port: 5432,
 });
-const secretKey = 'your-secret-key'; // Replace with a secure key in production
-// Middleware to verify JWT and attach tenant_id
+const secretKey = process.env.SECRET_KEY; // Load from environment variable
+
+// =====================
+// 3. Middleware Functions
+// =====================
 const authenticateToken = (req, res, next) => {
     const token = req.headers['authorization']?.split(' ')[1];
     if (!token) return res.status(401).send('Access denied. No token provided.');
     jwt.verify(token, secretKey, (err, user) => {
         if (err) return res.status(403).send('Invalid token.');
         req.user = user;
-        pool.query('SELECT tenant_id FROM users WHERE id = $1', [user.id], (err, result) => {
-            if (err || result.rowCount === 0) return res.status(500).send('Error fetching user tenant.');
-            req.tenantId = result.rows[0].tenant_id;
-            next();
-        });
+        pool.query(
+            `SELECT tenant_id, 
+                    (SELECT timezone FROM tenants WHERE id = users.tenant_id) AS tenant_timezone,
+                    ARRAY_AGG(DISTINCT r.name) AS roles,
+                    ARRAY_AGG(DISTINCT p.name) FILTER (WHERE p.name IS NOT NULL) AS permissions
+             FROM users
+             LEFT JOIN user_roles ur ON users.id = ur.user_id
+             LEFT JOIN roles r ON ur.role_id = r.id
+             LEFT JOIN role_permissions rp ON r.id = rp.role_id
+             LEFT JOIN permissions p ON rp.permission_id = p.id
+             WHERE users.id = $1
+             GROUP BY users.id, tenant_id`,
+            [user.id],
+            (err, result) => {
+                if (err || result.rowCount === 0) return res.status(500).send('Error fetching user tenant, roles, and permissions.');
+                req.tenantId = result.rows[0].tenant_id;
+                req.roles = result.rows[0].roles || [];
+                req.permissions = new Set(result.rows[0].permissions || []);
+                req.tenantTimezone = result.rows[0].tenant_timezone || 'UTC'; // Fallback to UTC if null
+                next();
+            }
+        );
     });
 };
-app.post('/register', (req, res) => {
+const requirePermission = (permission) => (req, res, next) => {
+    if (!req.permissions.has(permission)) return res.status(403).send(`Permission "${permission}" required.`);
+    next();
+};
+const validate = (schema) => (req, res, next) => {
+    const { error } = schema.validate(req.body, { abortEarly: false });
+    if (error) return res.status(400).json({ error: error.details.map(d => d.message) });
+    next();
+};
+
+// =====================
+// 4. Validation Schemas
+// =====================
+const registerSchema = Joi.object({
+    username: Joi.string().min(3).max(50).required(),
+    password: Joi.string().min(6).required(),
+    tenant_id: Joi.number().integer().positive().required()
+});
+const loginSchema = Joi.object({
+    username: Joi.string().required(),
+    password: Joi.string().required()
+});
+const customerSchema = Joi.object({
+    name: Joi.string().min(1).max(255).required(),
+    email: Joi.string().email().required(),
+    phone: Joi.string().regex(/^\+?[\d\s-]{7,15}$/).optional(),
+    company_name: Joi.string().max(255).optional(),
+    is_commercial: Joi.boolean().optional(),
+    source: Joi.string().max(255).optional()
+});
+const opportunitySchema = Joi.object({
+    customer_id: Joi.number().integer().positive().required(),
+    move_date: Joi.date().iso().required(),
+    move_type: Joi.string().valid('house', 'apartment', 'commercial', 'storage').required(),
+    move_service: Joi.string().valid('moving', 'packing', 'moving and packing', 'storage', 'other').required(),
+    origin_address: Joi.string().max(255).optional(),
+    destination_address: Joi.string().max(255).optional(),
+    origin_stairs: Joi.boolean().optional(),
+    dest_stairs: Joi.boolean().optional(),
+    notes: Joi.string().optional()
+});
+const estimateSchema = Joi.object({
+    opportunity_id: Joi.number().integer().positive().required(),
+    move_date: Joi.date().iso().optional(),
+    move_type: Joi.string().valid('house', 'apartment', 'commercial', 'storage').optional(),
+    move_service: Joi.string().valid('moving', 'packing', 'moving and packing', 'storage', 'other').optional(),
+    origin_address: Joi.string().max(255).optional(),
+    destination_address: Joi.string().max(255).optional(),
+    origin_stairs: Joi.boolean().optional(),
+    dest_stairs: Joi.boolean().optional(),
+    notes: Joi.string().optional(),
+    estimated_cost: Joi.number().precision(2).optional(),
+    method: Joi.string().valid('inventory', 'size', 'hourly').required()
+});
+const inventoryItemSchema = Joi.object({
+    inventory_item_id: Joi.number().integer().positive().required(),
+    quantity: Joi.number().integer().min(1).required()
+});
+const residenceSizeSchema = Joi.object({
+    residence_size_id: Joi.number().integer().positive().required(),
+    quantity: Joi.number().integer().min(1).required()
+});
+const additionalServiceSchema = Joi.object({
+    additional_service_id: Joi.number().integer().positive().required(),
+    quantity: Joi.number().integer().min(1).required()
+});
+const calculateSchema = Joi.object({
+    estimated_hours: Joi.number().positive().optional(),
+    distance_miles: Joi.number().positive().optional()
+});
+const tenantSchema = Joi.object({
+    name: Joi.string().min(1).max(255).required(),
+    timezone: Joi.string().max(50).required(),
+    google_maps_api_key: Joi.string().max(255).optional()
+});
+const moverTeamSchema = Joi.object({
+    number_of_movers: Joi.number().integer().min(1).required(),
+    lbs_per_hour: Joi.number().precision(2).positive().required(),
+    price_per_hour: Joi.number().precision(2).positive().required()
+});
+const truckSchema = Joi.object({
+    unit_number: Joi.string().max(50).required(),
+    length_ft: Joi.number().integer().positive().required(),
+    volume_cf: Joi.number().precision(2).positive().required(),
+    mpg: Joi.number().precision(2).positive().required(),
+    has_lift_gate: Joi.boolean().optional(),
+    has_ramp: Joi.boolean().optional()
+});
+const fuelPriceTierSchema = Joi.object({
+    miles_min: Joi.number().precision(2).positive().required(),
+    miles_max: Joi.number().precision(2).optional(),
+    price_per_gallon: Joi.number().precision(2).positive().required()
+});
+const additionalServicesSchema = Joi.object({
+    name: Joi.string().max(255).required(),
+    price: Joi.number().precision(2).positive().required(),
+    movers_required: Joi.number().integer().min(0).optional()
+});
+const refreshSchema = Joi.object({
+    refresh_token: Joi.string().required()
+});
+const partialCustomerSchema = Joi.object({
+    name: Joi.string().min(1).max(255),
+    email: Joi.string().email(),
+    phone: Joi.string().regex(/^\+?[\d\s-]{7,15}$/),
+    company_name: Joi.string().max(255),
+    is_commercial: Joi.boolean(),
+    source: Joi.string().max(255)
+}).min(1);
+const partialOpportunitySchema = Joi.object({
+    customer_id: Joi.number().integer().positive(),
+    move_date: Joi.date().iso(),
+    move_type: Joi.string().valid('house', 'apartment', 'commercial', 'storage'),
+    move_service: Joi.string().valid('moving', 'packing', 'moving and packing', 'storage', 'other'),
+    origin_address: Joi.string().max(255),
+    destination_address: Joi.string().max(255),
+    origin_stairs: Joi.boolean(),
+    dest_stairs: Joi.boolean(),
+    notes: Joi.string()
+}).min(1);
+const partialEstimateSchema = Joi.object({
+    opportunity_id: Joi.number().integer().positive(),
+    move_date: Joi.date().iso(),
+    move_type: Joi.string().valid('house', 'apartment', 'commercial', 'storage'),
+    move_service: Joi.string().valid('moving', 'packing', 'moving and packing', 'storage', 'other'),
+    origin_address: Joi.string().max(255),
+    destination_address: Joi.string().max(255),
+    origin_stairs: Joi.boolean(),
+    dest_stairs: Joi.boolean(),
+    notes: Joi.string(),
+    estimated_cost: Joi.number().precision(2),
+    method: Joi.string().valid('inventory', 'size', 'hourly')
+}).min(1);
+const partialTenantSchema = Joi.object({
+    name: Joi.string().min(1).max(255),
+    timezone: Joi.string().max(50),
+    google_maps_api_key: Joi.string().max(255)
+}).min(1);
+const partialMoverTeamSchema = Joi.object({
+    number_of_movers: Joi.number().integer().min(1),
+    lbs_per_hour: Joi.number().precision(2).positive(),
+    price_per_hour: Joi.number().precision(2).positive()
+}).min(1);
+const partialTruckSchema = Joi.object({
+    unit_number: Joi.string().max(50),
+    length_ft: Joi.number().integer().positive(),
+    volume_cf: Joi.number().precision(2).positive(),
+    mpg: Joi.number().precision(2).positive(),
+    has_lift_gate: Joi.boolean(),
+    has_ramp: Joi.boolean()
+}).min(1);
+const partialFuelPriceTierSchema = Joi.object({
+    miles_min: Joi.number().precision(2).positive(),
+    miles_max: Joi.number().precision(2),
+    price_per_gallon: Joi.number().precision(2).positive()
+}).min(1);
+const partialAdditionalServicesSchema = Joi.object({
+    name: Joi.string().max(255),
+    price: Joi.number().precision(2).positive(),
+    movers_required: Joi.number().integer().min(0)
+}).min(1);
+const sendSmsSchema = Joi.object({
+    content: Joi.string().optional() // Optional; auto-generate if not provided
+});
+
+// =====================
+// 5. Auth Endpoints
+// =====================
+app.post('/register', validate(registerSchema), (req, res) => {
     const { username, password, tenant_id } = req.body;
-    if (!username || !password || !tenant_id) return res.status(400).send('Username, password, and tenant_id are required');
     pool.query('SELECT id FROM tenants WHERE id = $1', [tenant_id], (err, result) => {
         if (err || result.rowCount === 0) return res.status(400).send('Invalid tenant_id');
         bcrypt.hash(password, 10, (err, hashedPassword) => {
@@ -39,13 +241,23 @@ app.post('/register', (req, res) => {
                 [username, hashedPassword, tenant_id],
                 (err, result) => {
                     if (err) return res.status(500).send(`Error registering user: ${err.message}`);
-                    res.status(201).json(result.rows[0]);
+                    const userId = result.rows[0].id;
+                    // Assign default role: 'manager' (as per migration default)
+                    pool.query(
+                        `INSERT INTO user_roles (user_id, role_id) 
+                         SELECT $1, id FROM roles WHERE name = 'manager'`,
+                        [userId],
+                        (err) => {
+                            if (err) return res.status(500).send(`Error assigning default role: ${err.message}`);
+                            res.status(201).json(result.rows[0]);
+                        }
+                    );
                 }
             );
         });
     });
 });
-app.post('/login', (req, res) => {
+app.post('/login', validate(loginSchema), (req, res) => {
     const { username, password } = req.body;
     pool.query('SELECT * FROM users WHERE username = $1', [username], (err, result) => {
         if (err || result.rowCount === 0) return res.status(400).send('Invalid credentials');
@@ -54,159 +266,274 @@ app.post('/login', (req, res) => {
             if (err) return res.status(500).send(`Error comparing password: ${err.message}`);
             console.log(`Password comparison for ${username}: ${password} vs ${user.password} = ${isMatch}`);
             if (!isMatch) return res.status(400).send('Invalid credentials');
-            const token = jwt.sign({ id: user.id, username: user.username }, secretKey, { expiresIn: '1h' });
-            res.json({ token });
+            const accessToken = jwt.sign({ id: user.id, username: user.username }, secretKey, { expiresIn: '1h' });
+            const refreshToken = crypto.randomBytes(64).toString('hex');
+            pool.query(
+                'INSERT INTO refresh_tokens (user_id, token, expires_at) VALUES ($1, $2, CURRENT_TIMESTAMP + INTERVAL \'7 days\')',
+                [user.id, refreshToken],
+                (err) => {
+                    if (err) return res.status(500).send(`Error storing refresh token: ${err.message}`);
+                    res.json({ accessToken, refreshToken });
+                }
+            );
         });
     });
 });
-// Protected routes
-app.get('/customers', authenticateToken, (req, res) => {
+app.post('/refresh', validate(refreshSchema), (req, res) => {
+    const { refresh_token } = req.body;
+    pool.query(
+        'SELECT user_id FROM refresh_tokens WHERE token = $1 AND expires_at > CURRENT_TIMESTAMP',
+        [refresh_token],
+        (err, result) => {
+            if (err || result.rowCount === 0) return res.status(403).send('Invalid or expired refresh token.');
+            const userId = result.rows[0].user_id;
+            pool.query('SELECT username FROM users WHERE id = $1', [userId], (err, userResult) => {
+                if (err || userResult.rowCount === 0) return res.status(500).send('User not found.');
+                const username = userResult.rows[0].username;
+                const accessToken = jwt.sign({ id: userId, username }, secretKey, { expiresIn: '1h' });
+                res.json({ accessToken });
+            });
+        }
+    );
+});
+
+// =====================
+// 6. Customer Endpoints
+// =====================
+app.get('/customers', authenticateToken, requirePermission('view_customers'), (req, res) => {
     pool.query('SELECT id, name, email, phone, company_name, is_commercial, source, created_at FROM customers WHERE tenant_id = $1', [req.tenantId], (err, result) => {
         if (err) return res.status(500).send(`Error fetching customers: ${err.message}`);
-        res.json(result.rows);
+        const rows = result.rows.map(row => {
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            return row;
+        });
+        res.json(rows);
     });
 });
-app.post('/customers', authenticateToken, (req, res) => {
+app.post('/customers', authenticateToken, requirePermission('edit_customers'), validate(customerSchema), (req, res) => {
     const { name, email, phone, company_name, is_commercial, source } = req.body;
-    if (!name || !email) return res.status(400).send('Name and email are required');
     pool.query(
         'INSERT INTO customers (name, email, phone, company_name, is_commercial, source, tenant_id) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
         [name, email, phone, company_name, is_commercial, source, req.tenantId],
         (err, result) => {
             if (err) return res.status(500).send(`Error creating customer: ${err.message}`);
-            res.status(201).json(result.rows[0]);
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.status(201).json(row);
         }
     );
 });
-app.put('/customers/:id', authenticateToken, (req, res) => {
-    const id = req.params.id;
+app.put('/customers/:id', authenticateToken, requirePermission('edit_customers'), validate(partialCustomerSchema), (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) return res.status(400).send('Invalid customer ID');
     const { name, email, phone, company_name, is_commercial, source } = req.body;
-    if (!name || !email) return res.status(400).send('Name and email are required');
     pool.query(
-        'UPDATE customers SET name = $1, email = $2, phone = $3, company_name = $4, is_commercial = $5, source = $6 WHERE id = $7 AND tenant_id = $8 RETURNING *',
+        'UPDATE customers SET name = COALESCE($1, name), email = COALESCE($2, email), phone = COALESCE($3, phone), company_name = COALESCE($4, company_name), is_commercial = COALESCE($5, is_commercial), source = COALESCE($6, source) WHERE id = $7 AND tenant_id = $8 RETURNING *',
         [name, email, phone, company_name, is_commercial, source, id, req.tenantId],
         (err, result) => {
             if (err) return res.status(500).send(`Error updating customer: ${err.message}`);
             if (result.rowCount === 0) return res.status(404).send('Customer not found');
-            res.json(result.rows[0]);
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.json(row);
         }
     );
 });
-app.delete('/customers/:id', authenticateToken, (req, res) => {
-    const id = req.params.id;
+app.delete('/customers/:id', authenticateToken, requirePermission('edit_customers'), (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) return res.status(400).send('Invalid customer ID');
     pool.query(
         'DELETE FROM customers WHERE id = $1 AND tenant_id = $2 RETURNING *',
         [id, req.tenantId],
         (err, result) => {
             if (err) return res.status(500).send(`Error deleting customer: ${err.message}`);
             if (result.rowCount === 0) return res.status(404).send('Customer not found');
-            res.status(200).json({ message: 'Customer deleted', data: result.rows[0] });
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.status(200).json({ message: 'Customer deleted', data: row });
         }
     );
 });
-app.get('/opportunities', authenticateToken, (req, res) => {
+
+// =====================
+// 7. Opportunity Endpoints
+// =====================
+app.get('/opportunities', authenticateToken, requirePermission('view_opportunities'), (req, res) => {
     pool.query(
         'SELECT id, customer_id, move_date, move_type, move_service, origin_address, destination_address, origin_stairs, dest_stairs, notes, created_at FROM opportunities WHERE customer_id IN (SELECT id FROM customers WHERE tenant_id = $1)',
         [req.tenantId],
         (err, result) => {
             if (err) return res.status(500).send(`Error fetching opportunities: ${err.message}`);
-            res.json(result.rows);
+            const rows = result.rows.map(row => {
+                if (row.created_at) {
+                    row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+                }
+                if (row.move_date) {
+                    row.move_date = moment.utc(row.move_date).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+                }
+                return row;
+            });
+            res.json(rows);
         }
     );
 });
-app.post('/opportunities', authenticateToken, (req, res) => {
+app.post('/opportunities', authenticateToken, requirePermission('edit_opportunities'), validate(opportunitySchema), (req, res) => {
     const { customer_id, move_date, move_type, move_service, origin_address, destination_address, origin_stairs, dest_stairs, notes } = req.body;
-    if (!customer_id || !move_date || !move_type || !move_service) return res.status(400).send('customer_id, move_date, move_type, and move_service are required');
     pool.query(
         'INSERT INTO opportunities (customer_id, move_date, move_type, move_service, origin_address, destination_address, origin_stairs, dest_stairs, notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *',
         [customer_id, move_date, move_type, move_service, origin_address, destination_address, origin_stairs, dest_stairs, notes],
         (err, result) => {
             if (err) return res.status(500).send(`Error creating opportunity: ${err.message}`);
-            res.status(201).json(result.rows[0]);
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.move_date) {
+                row.move_date = moment.utc(row.move_date).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.status(201).json(row);
         }
     );
 });
-app.put('/opportunities/:id', authenticateToken, (req, res) => {
-    const id = req.params.id;
+app.put('/opportunities/:id', authenticateToken, requirePermission('edit_opportunities'), validate(partialOpportunitySchema), (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) return res.status(400).send('Invalid opportunity ID');
     const { customer_id, move_date, move_type, move_service, origin_address, destination_address, origin_stairs, dest_stairs, notes } = req.body;
-    if (!customer_id || !move_date || !move_type || !move_service) return res.status(400).send('customer_id, move_date, move_type, and move_service are required');
     pool.query(
-        'UPDATE opportunities SET customer_id = $1, move_date = $2, move_type = $3, move_service = $4, origin_address = $5, destination_address = $6, origin_stairs = $7, dest_stairs = $8, notes = $9 WHERE id = $10 RETURNING *',
+        'UPDATE opportunities SET customer_id = COALESCE($1, customer_id), move_date = COALESCE($2, move_date), move_type = COALESCE($3, move_type), move_service = COALESCE($4, move_service), origin_address = COALESCE($5, origin_address), destination_address = COALESCE($6, destination_address), origin_stairs = COALESCE($7, origin_stairs), dest_stairs = COALESCE($8, dest_stairs), notes = COALESCE($9, notes) WHERE id = $10 RETURNING *',
         [customer_id, move_date, move_type, move_service, origin_address, destination_address, origin_stairs, dest_stairs, notes, id],
         (err, result) => {
             if (err) return res.status(500).send(`Error updating opportunity: ${err.message}`);
             if (result.rowCount === 0) return res.status(404).send('Opportunity not found');
-            res.json(result.rows[0]);
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.move_date) {
+                row.move_date = moment.utc(row.move_date).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.json(row);
         }
     );
 });
-app.delete('/opportunities/:id', authenticateToken, (req, res) => {
-    const id = req.params.id;
+app.delete('/opportunities/:id', authenticateToken, requirePermission('edit_opportunities'), (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) return res.status(400).send('Invalid opportunity ID');
     pool.query(
         'DELETE FROM opportunities WHERE id = $1 RETURNING *',
         [id],
         (err, result) => {
             if (err) return res.status(500).send(`Error deleting opportunity: ${err.message}`);
             if (result.rowCount === 0) return res.status(404).send('Opportunity not found');
-            res.status(200).json({ message: 'Opportunity deleted', data: result.rows[0] });
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.move_date) {
+                row.move_date = moment.utc(row.move_date).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.status(200).json({ message: 'Opportunity deleted', data: row });
         }
     );
 });
-app.get('/estimates', authenticateToken, (req, res) => {
+
+// =====================
+// 8. Estimate Endpoints
+// =====================
+app.get('/estimates', authenticateToken, requirePermission('view_estimates'), (req, res) => {
     pool.query(
         'SELECT * FROM estimates WHERE opportunity_id IN (SELECT id FROM opportunities WHERE customer_id IN (SELECT id FROM customers WHERE tenant_id = $1))',
         [req.tenantId],
         (err, result) => {
             if (err) return res.status(500).send(`Error fetching estimates: ${err.message}`);
-            res.json(result.rows);
+            const rows = result.rows.map(row => {
+                if (row.created_at) {
+                    row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+                }
+                if (row.move_date) {
+                    row.move_date = moment.utc(row.move_date).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+                }
+                return row;
+            });
+            res.json(rows);
         }
     );
 });
-app.post('/estimates', authenticateToken, (req, res) => {
+app.post('/estimates', authenticateToken, requirePermission('edit_estimates'), validate(estimateSchema), (req, res) => {
     const { opportunity_id, move_date, move_type, move_service, origin_address, destination_address, origin_stairs, dest_stairs, notes, estimated_cost, method } = req.body;
-    if (!opportunity_id || !method) return res.status(400).send('opportunity_id and method are required');
     pool.query(
         'INSERT INTO estimates (opportunity_id, move_date, move_type, move_service, origin_address, destination_address, origin_stairs, dest_stairs, notes, estimated_cost, method) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING *',
         [opportunity_id, move_date, move_type, move_service, origin_address, destination_address, origin_stairs, dest_stairs, notes, estimated_cost, method],
         (err, result) => {
             if (err) return res.status(500).send(`Error creating estimate: ${err.message}`);
             const estimate = result.rows[0];
+            if (estimate.created_at) {
+                estimate.created_at = moment.utc(estimate.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (estimate.move_date) {
+                estimate.move_date = moment.utc(estimate.move_date).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
             res.status(201).json(estimate);
         }
     );
 });
-app.put('/estimates/:id', authenticateToken, (req, res) => {
-    const id = req.params.id;
+app.put('/estimates/:id', authenticateToken, requirePermission('edit_estimates'), validate(partialEstimateSchema), (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) return res.status(400).send('Invalid estimate ID');
     const { opportunity_id, move_date, move_type, move_service, origin_address, destination_address, origin_stairs, dest_stairs, notes, estimated_cost, method } = req.body;
-    if (!opportunity_id || !method) return res.status(400).send('opportunity_id and method are required');
     pool.query(
-        'UPDATE estimates SET opportunity_id = $1, move_date = $2, move_type = $3, move_service = $4, origin_address = $5, destination_address = $6, origin_stairs = $7, dest_stairs = $8, notes = $9, estimated_cost = $10, method = $11 WHERE id = $12 RETURNING *',
+        'UPDATE estimates SET opportunity_id = COALESCE($1, opportunity_id), move_date = COALESCE($2, move_date), move_type = COALESCE($3, move_type), move_service = COALESCE($4, move_service), origin_address = COALESCE($5, origin_address), destination_address = COALESCE($6, destination_address), origin_stairs = COALESCE($7, origin_stairs), dest_stairs = COALESCE($8, dest_stairs), notes = COALESCE($9, notes), estimated_cost = COALESCE($10, estimated_cost), method = COALESCE($11, method) WHERE id = $12 RETURNING *',
         [opportunity_id, move_date, move_type, move_service, origin_address, destination_address, origin_stairs, dest_stairs, notes, estimated_cost, method, id],
         (err, result) => {
             if (err) return res.status(500).send(`Error updating estimate: ${err.message}`);
             if (result.rowCount === 0) return res.status(404).send('Estimate not found');
             const estimate = result.rows[0];
+            if (estimate.created_at) {
+                estimate.created_at = moment.utc(estimate.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (estimate.move_date) {
+                estimate.move_date = moment.utc(estimate.move_date).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
             res.json(estimate);
         }
     );
 });
-app.delete('/estimates/:id', authenticateToken, (req, res) => {
-    const id = req.params.id;
+app.delete('/estimates/:id', authenticateToken, requirePermission('edit_estimates'), (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) return res.status(400).send('Invalid estimate ID');
     pool.query(
         'DELETE FROM estimates WHERE id = $1 RETURNING *',
         [id],
         (err, result) => {
             if (err) return res.status(500).send(`Error deleting estimate: ${err.message}`);
             if (result.rowCount === 0) return res.status(404).send('Estimate not found');
-            res.status(200).json({ message: 'Estimate deleted', data: result.rows[0] });
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.move_date) {
+                row.move_date = moment.utc(row.move_date).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.status(200).json({ message: 'Estimate deleted', data: row });
         }
     );
 });
-// New endpoint to add inventory items to an estimate
-app.post('/estimates/:id/inventory-items', authenticateToken, (req, res) => {
-    const estimateId = req.params.id;
+
+// =====================
+// 9. Estimate Detail Endpoints
+// =====================
+app.post('/estimates/:id/inventory-items', authenticateToken, requirePermission('edit_estimates'), validate(inventoryItemSchema), (req, res) => {
+    const estimateId = parseInt(req.params.id);
+    if (isNaN(estimateId)) return res.status(400).send('Invalid estimate ID');
     const { inventory_item_id, quantity } = req.body;
-    if (!inventory_item_id || !quantity) return res.status(400).send('inventory_item_id and quantity are required');
     pool.query(
         'INSERT INTO estimate_inventory_items (estimate_id, inventory_item_id, quantity) VALUES ($1, $2, $3) RETURNING *',
         [estimateId, inventory_item_id, quantity],
@@ -216,11 +543,10 @@ app.post('/estimates/:id/inventory-items', authenticateToken, (req, res) => {
         }
     );
 });
-// Similar endpoints for residence sizes and additional services
-app.post('/estimates/:id/residence-sizes', authenticateToken, (req, res) => {
-    const estimateId = req.params.id;
+app.post('/estimates/:id/residence-sizes', authenticateToken, requirePermission('edit_estimates'), validate(residenceSizeSchema), (req, res) => {
+    const estimateId = parseInt(req.params.id);
+    if (isNaN(estimateId)) return res.status(400).send('Invalid estimate ID');
     const { residence_size_id, quantity } = req.body;
-    if (!residence_size_id || !quantity) return res.status(400).send('residence_size_id and quantity are required');
     pool.query(
         'INSERT INTO estimate_residence_sizes (estimate_id, residence_size_id, quantity) VALUES ($1, $2, $3) RETURNING *',
         [estimateId, residence_size_id, quantity],
@@ -230,10 +556,10 @@ app.post('/estimates/:id/residence-sizes', authenticateToken, (req, res) => {
         }
     );
 });
-app.post('/estimates/:id/additional-services', authenticateToken, (req, res) => {
-    const estimateId = req.params.id;
+app.post('/estimates/:id/additional-services', authenticateToken, requirePermission('edit_estimates'), validate(additionalServiceSchema), (req, res) => {
+    const estimateId = parseInt(req.params.id);
+    if (isNaN(estimateId)) return res.status(400).send('Invalid estimate ID');
     const { additional_service_id, quantity } = req.body;
-    if (!additional_service_id || !quantity) return res.status(400).send('additional_service_id and quantity are required');
     pool.query(
         'INSERT INTO estimate_additional_services (estimate_id, additional_service_id, quantity) VALUES ($1, $2, $3) RETURNING *',
         [estimateId, additional_service_id, quantity],
@@ -243,102 +569,672 @@ app.post('/estimates/:id/additional-services', authenticateToken, (req, res) => 
         }
     );
 });
-// New endpoint to calculate the estimate
-app.post('/estimates/:id/calculate', authenticateToken, async (req, res) => {
-    const estimateId = req.params.id;
+
+// =====================
+// 10. Calculate Endpoint
+// =====================
+app.post('/estimates/:id/calculate', authenticateToken, requirePermission('edit_estimates'), validate(calculateSchema), async (req, res) => {
+    const estimateId = parseInt(req.params.id);
+    if (isNaN(estimateId)) return res.status(400).send('Invalid estimate ID');
     try {
-        // Fetch the estimate and its method
         const estimateRes = await pool.query('SELECT * FROM estimates WHERE id = $1', [estimateId]);
         if (estimateRes.rowCount === 0) return res.status(404).send('Estimate not found');
         const estimate = estimateRes.rows[0];
         const method = estimate.method;
-
+        let estimatedHours = parseFloat(req.body.estimated_hours) || parseFloat(estimate.estimated_hours) || 0;
+        let distance = parseFloat(req.body.distance_miles) || parseFloat(estimate.distance_miles) || 0;
+        let travelTime = parseFloat(estimate.travel_time) || 0;
         let totalWeight = 0;
         let totalVolume = 0;
         let additionalServicesCost = 0;
         let maxAdditionalMovers = 0;
-
+        let numberOfMovers = 2; // Default min
         if (method === 'inventory') {
             const inventoryRes = await pool.query('SELECT SUM(total_weight) AS tw, SUM(total_volume) AS tv FROM estimate_inventory_items WHERE estimate_id = $1', [estimateId]);
-            totalWeight = inventoryRes.rows[0].tw || 0;
-            totalVolume = inventoryRes.rows[0].tv || 0;
+            totalWeight = parseFloat(inventoryRes.rows[0].tw || '0');
+            totalVolume = parseFloat(inventoryRes.rows[0].tv || '0');
         } else if (method === 'size') {
             const sizeRes = await pool.query('SELECT SUM(total_weight) AS tw FROM estimate_residence_sizes WHERE estimate_id = $1', [estimateId]);
-            totalWeight = sizeRes.rows[0].tw || 0;
+            totalWeight = parseFloat(sizeRes.rows[0].tw || '0');
             totalVolume = totalWeight / 7; // Assuming 7 lbs per cf
         } else if (method === 'hourly') {
-            // For hourly, assume estimated_hours is provided in body or estimate, and calculate based on that
-            const { estimated_hours } = req.body;
-            if (!estimated_hours) return res.status(400).send('estimated_hours required for hourly method');
-            await pool.query('UPDATE estimates SET estimated_hours = $1 WHERE id = $2', [estimated_hours, estimateId]);
-            // Proceed to mover calculation based on hours
+            if (estimatedHours === 0) return res.status(400).send('estimated_hours required for hourly method');
         } else {
             return res.status(400).send('Invalid method');
         }
-
-        // Additional services (common to all)
-        const addRes = await pool.query('SELECT SUM(total_price) AS tp, MAX(movers_required) AS mm FROM estimate_additional_services WHERE estimate_id = $1', [estimateId]);
-        additionalServicesCost = addRes.rows[0].tp || 0;
-        maxAdditionalMovers = addRes.rows[0].mm || 0;
-
-        // Fetch mover teams and assignment rules for tenant
+        const addRes = await pool.query(
+            'SELECT SUM(eas.total_price) AS tp, MAX(ads.movers_required) AS mm FROM estimate_additional_services eas JOIN additional_services ads ON eas.additional_service_id = ads.id WHERE eas.estimate_id = $1 AND ads.tenant_id = $2',
+            [estimateId, req.tenantId]
+        );
+        additionalServicesCost = parseFloat(addRes.rows[0].tp || '0');
+        maxAdditionalMovers = parseInt(addRes.rows[0].mm || '0', 10);
         const teamsRes = await pool.query('SELECT * FROM mover_teams WHERE tenant_id = $1 ORDER BY number_of_movers', [req.tenantId]);
+        const teams = teamsRes.rows.map(t => ({
+            ...t,
+            number_of_movers: parseInt(t.number_of_movers, 10),
+            lbs_per_hour: parseFloat(t.lbs_per_hour),
+            price_per_hour: parseFloat(t.price_per_hour)
+        }));
         const rulesRes = await pool.query('SELECT * FROM mover_assignment_rules WHERE tenant_id = $1 ORDER BY hours_min', [req.tenantId]);
-        const teams = teamsRes.rows;
-        const rules = rulesRes.rows;
-
-        // Iterative calculation for movers and hours
-        let numberOfMovers = 2; // Start with min
-        let estimatedHours = totalWeight / teams.find(t => t.number_of_movers === numberOfMovers).lbs_per_hour;
-        estimatedHours = Math.ceil(estimatedHours * 4) / 4; // Round up to nearest 0.25
-
-        let iterations = 0;
-        while (iterations < 5) { // Prevent infinite loop
+        const rules = rulesRes.rows.map(r => ({
+            ...r,
+            hours_min: parseFloat(r.hours_min),
+            hours_max: parseFloat(r.hours_max),
+            number_of_movers: parseInt(r.number_of_movers, 10)
+        }));
+        if (method !== 'hourly') {
+            estimatedHours = totalWeight / teams.find(t => t.number_of_movers === numberOfMovers).lbs_per_hour;
+            estimatedHours = Math.ceil(estimatedHours * 4) / 4; // Round up to nearest 0.25
+            let iterations = 0;
+            while (iterations < 5) { // Prevent infinite loop
+                const rule = rules.find(r => estimatedHours > r.hours_min && estimatedHours <= r.hours_max);
+                if (!rule) break; // No matching rule
+                if (rule.number_of_movers === numberOfMovers) break;
+                numberOfMovers = rule.number_of_movers;
+                const team = teams.find(t => t.number_of_movers === numberOfMovers);
+                if (!team) break;
+                estimatedHours = totalWeight / team.lbs_per_hour;
+                estimatedHours = Math.ceil(estimatedHours * 4) / 4;
+                iterations++;
+            }
+        } else {
             const rule = rules.find(r => estimatedHours > r.hours_min && estimatedHours <= r.hours_max);
-            if (!rule) break; // No matching rule
-            if (rule.number_of_movers === numberOfMovers) break;
-            numberOfMovers = rule.number_of_movers;
-            const team = teams.find(t => t.number_of_movers === numberOfMovers);
-            if (!team) break;
-            estimatedHours = totalWeight / team.lbs_per_hour;
-            estimatedHours = Math.ceil(estimatedHours * 4) / 4;
-            iterations++;
+            if (rule) numberOfMovers = rule.number_of_movers;
         }
-
         numberOfMovers = Math.max(numberOfMovers, maxAdditionalMovers); // Adjust for additional services
-
         const team = teams.find(t => t.number_of_movers === numberOfMovers);
         const laborCost = estimatedHours * (team ? team.price_per_hour : 0);
-
-        // Trucks
-        const trucksRes = await pool.query('SELECT * FROM trucks WHERE tenant_id = $1 ORDER BY volume_cf DESC LIMIT 1', [req.tenantId]); // Assume largest truck
-        const truckVolume = trucksRes.rows[0] ? trucksRes.rows[0].volume_cf : 1250; // Default
-        let numberOfTrucks = Math.ceil(totalVolume / truckVolume);
+        let numberOfTrucks = 1; // Default for hourly
+        if (method !== 'hourly') {
+            const trucksRes = await pool.query('SELECT * FROM trucks WHERE tenant_id = $1 ORDER BY volume_cf DESC LIMIT 1', [req.tenantId]); // Assume largest truck
+            const truck = trucksRes.rows[0] ? {
+                volume_cf: parseFloat(trucksRes.rows[0].volume_cf),
+                mpg: parseFloat(trucksRes.rows[0].mpg)
+            } : { volume_cf: 1250, mpg: 8 }; // Default
+            numberOfTrucks = Math.ceil(totalVolume / truck.volume_cf);
+        }
         const truckCost = (numberOfTrucks > 1) ? (numberOfTrucks - 1) * 200 : 0; // $200 per additional
-
-        // Fuel (placeholder - no maps yet)
-        const distance = estimate.distance_miles || 0; // Assume set elsewhere
+        const tenantRes = await pool.query('SELECT google_maps_api_key, address FROM tenants WHERE id = $1', [req.tenantId]);
+        const apiKey = tenantRes.rows[0].google_maps_api_key;
+        const depotAddress = tenantRes.rows[0].address;
+        let originAddress = estimate.origin_address;
+        let destinationAddress = estimate.destination_address;
+        if (!originAddress || !destinationAddress) {
+            const oppRes = await pool.query('SELECT origin_address, destination_address FROM opportunities WHERE id = $1', [estimate.opportunity_id]);
+            if (oppRes.rowCount > 0) {
+                if (!originAddress) originAddress = oppRes.rows[0].origin_address;
+                if (!destinationAddress) destinationAddress = oppRes.rows[0].destination_address;
+            }
+        }
+        if (apiKey && depotAddress && originAddress && destinationAddress) {
+            const client = new Client({});
+            const legs = [
+                { origin: depotAddress, destination: originAddress },
+                { origin: originAddress, destination: destinationAddress },
+                { origin: destinationAddress, destination: depotAddress }
+            ];
+            let totalDistanceMeters = 0;
+            let totalDurationSeconds = 0;
+            for (const leg of legs) {
+                const response = await client.distMatrix({
+                    params: {
+                        origins: [leg.origin],
+                        destinations: [leg.destination],
+                        mode: 'driving',
+                        key: apiKey
+                    },
+                    timeout: 1000 // optional
+                });
+                const data = response.data.rows[0].elements[0];
+                if (data.status !== 'OK') {
+                    console.error(`Distance Matrix error for leg ${leg.origin} to ${leg.destination} : ${data.status}`);
+                    continue; // Skip this leg if error, but proceed with others
+                }
+                totalDistanceMeters += data.distance.value;
+                totalDurationSeconds += data.duration.value;
+            }
+            distance = totalDistanceMeters / 1609.34; // Convert to miles
+            travelTime = totalDurationSeconds / 3600; // Convert to hours
+        } else {
+            travelTime = distance / 30; // Assume 30 mph average
+        }
         const tiersRes = await pool.query('SELECT * FROM fuel_price_tiers WHERE tenant_id = $1 ORDER BY miles_min', [req.tenantId]);
-        const tiers = tiersRes.rows;
-        const tier = tiers.find(t => (t.miles_min <= distance && (t.miles_max === null || distance < t.miles_max)));
-        const mpg = trucksRes.rows[0] ? trucksRes.rows[0].mpg : 8;
+        const tiers = tiersRes.rows.map(t => ({
+            ...t,
+            miles_min: parseFloat(t.miles_min),
+            miles_max: t.miles_max ? parseFloat(t.miles_max) : null,
+            price_per_gallon: parseFloat(t.price_per_gallon)
+        }));
+        const trucksRes = await pool.query('SELECT * FROM trucks WHERE tenant_id = $1 ORDER BY volume_cf DESC LIMIT 1', [req.tenantId]);
+        const mpg = trucksRes.rows[0] ? parseFloat(trucksRes.rows[0].mpg) : 8;
         const gallons = distance / mpg;
+        const tier = tiers.find(t => (t.miles_min <= distance && (t.miles_max === null || distance < t.miles_max)));
         const fuelCost = gallons * (tier ? tier.price_per_gallon : 0);
-
-        // Total cost
         const totalCost = laborCost + truckCost + fuelCost + additionalServicesCost;
-
-        // Update estimate
         await pool.query(
-            'UPDATE estimates SET total_weight = $1, total_volume = $2, estimated_hours = $3, labor_cost = $4, truck_cost = $5, fuel_cost = $6, additional_services_cost = $7, total_cost = $8, number_of_movers = $9, number_of_trucks = $10 WHERE id = $11',
-            [totalWeight, totalVolume, estimatedHours, laborCost, truckCost, fuelCost, additionalServicesCost, totalCost, numberOfMovers, numberOfTrucks, estimateId]
+            'UPDATE estimates SET total_weight = $1, total_volume = $2, estimated_hours = $3, labor_cost = $4, truck_cost = $5, fuel_cost = $6, additional_services_cost = $7, total_cost = $8, number_of_movers = $9, number_of_trucks = $10, distance_miles = $11, travel_time = $12 WHERE id = $13',
+            [totalWeight, totalVolume, estimatedHours, laborCost, truckCost, fuelCost, additionalServicesCost, totalCost, numberOfMovers, numberOfTrucks, distance, travelTime, estimateId]
         );
-
         res.json({ message: 'Estimate calculated successfully' });
     } catch (err) {
         res.status(500).send(`Error calculating estimate: ${err.message}`);
     }
 });
+
+// =====================
+// 11. Tenant Endpoints
+// =====================
+app.get('/tenants', authenticateToken, requirePermission('manage_tenants'), (req, res) => {
+    pool.query('SELECT * FROM tenants', (err, result) => {
+        if (err) return res.status(500).send(`Error fetching tenants: ${err.message}`);
+        res.json(result.rows);
+    });
+});
+app.post('/tenants', authenticateToken, requirePermission('manage_tenants'), validate(tenantSchema), (req, res) => {
+    const { name, timezone, google_maps_api_key } = req.body;
+    pool.query(
+        'INSERT INTO tenants (name, timezone, google_maps_api_key) VALUES ($1, $2, $3) RETURNING *',
+        [name, timezone, google_maps_api_key],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error creating tenant: ${err.message}`);
+            res.status(201).json(result.rows[0]);
+        }
+    );
+});
+app.put('/tenants/:id', authenticateToken, requirePermission('manage_tenants'), validate(partialTenantSchema), (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) return res.status(400).send('Invalid tenant ID');
+    const { name, timezone, google_maps_api_key } = req.body;
+    pool.query(
+        'UPDATE tenants SET name = COALESCE($1, name), timezone = COALESCE($2, timezone), google_maps_api_key = COALESCE($3, google_maps_api_key) WHERE id = $4 RETURNING *',
+        [name, timezone, google_maps_api_key, id],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error updating tenant: ${err.message}`);
+            if (result.rowCount === 0) return res.status(404).send('Tenant not found');
+            res.json(result.rows[0]);
+        }
+    );
+});
+app.delete('/tenants/:id', authenticateToken, requirePermission('manage_tenants'), (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) return res.status(400).send('Invalid tenant ID');
+    pool.query(
+        'DELETE FROM tenants WHERE id = $1 RETURNING *',
+        [id],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error deleting tenant: ${err.message}`);
+            if (result.rowCount === 0) return res.status(404).send('Tenant not found');
+            res.status(200).json({ message: 'Tenant deleted', data: result.rows[0] });
+        }
+    );
+});
+
+// =====================
+// 12. Settings: Mover Teams Endpoints
+// =====================
+app.get('/settings/mover-teams', authenticateToken, requirePermission('view_settings'), (req, res) => {
+    pool.query('SELECT id, number_of_movers, lbs_per_hour, price_per_hour, created_at, updated_at FROM mover_teams WHERE tenant_id = $1', [req.tenantId], (err, result) => {
+        if (err) return res.status(500).send(`Error fetching mover teams: ${err.message}`);
+        const rows = result.rows.map(row => {
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.updated_at) {
+                row.updated_at = moment.utc(row.updated_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            return row;
+        });
+        res.json(rows);
+    });
+});
+app.post('/settings/mover-teams', authenticateToken, requirePermission('edit_settings'), validate(moverTeamSchema), (req, res) => {
+    const { number_of_movers, lbs_per_hour, price_per_hour } = req.body;
+    pool.query(
+        'INSERT INTO mover_teams (tenant_id, number_of_movers, lbs_per_hour, price_per_hour) VALUES ($1, $2, $3, $4) RETURNING *',
+        [req.tenantId, number_of_movers, lbs_per_hour, price_per_hour],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error creating mover team: ${err.message}`);
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.updated_at) {
+                row.updated_at = moment.utc(row.updated_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.status(201).json(row);
+        }
+    );
+});
+app.put('/settings/mover-teams/:id', authenticateToken, requirePermission('edit_settings'), validate(partialMoverTeamSchema), (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) return res.status(400).send('Invalid mover team ID');
+    const { number_of_movers, lbs_per_hour, price_per_hour } = req.body;
+    pool.query(
+        'UPDATE mover_teams SET number_of_movers = COALESCE($1, number_of_movers), lbs_per_hour = COALESCE($2, lbs_per_hour), price_per_hour = COALESCE($3, price_per_hour), updated_at = CURRENT_TIMESTAMP WHERE id = $4 AND tenant_id = $5 RETURNING *',
+        [number_of_movers, lbs_per_hour, price_per_hour, id, req.tenantId],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error updating mover team: ${err.message}`);
+            if (result.rowCount === 0) return res.status(404).send('Mover team not found');
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.updated_at) {
+                row.updated_at = moment.utc(row.updated_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.json(row);
+        }
+    );
+});
+app.delete('/settings/mover-teams/:id', authenticateToken, requirePermission('edit_settings'), (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) return res.status(400).send('Invalid mover team ID');
+    pool.query(
+        'DELETE FROM mover_teams WHERE id = $1 AND tenant_id = $2 RETURNING *',
+        [id, req.tenantId],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error deleting mover team: ${err.message}`);
+            if (result.rowCount === 0) return res.status(404).send('Mover team not found');
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.updated_at) {
+                row.updated_at = moment.utc(row.updated_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.status(200).json({ message: 'Mover team deleted', data: row });
+        }
+    );
+});
+
+// =====================
+// 13. Settings: Trucks Endpoints
+// =====================
+app.get('/settings/trucks', authenticateToken, requirePermission('view_settings'), (req, res) => {
+    pool.query('SELECT id, unit_number, length_ft, volume_cf, mpg, has_lift_gate, has_ramp, created_at, updated_at FROM trucks WHERE tenant_id = $1', [req.tenantId], (err, result) => {
+        if (err) return res.status(500).send(`Error fetching trucks: ${err.message}`);
+        const rows = result.rows.map(row => {
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.updated_at) {
+                row.updated_at = moment.utc(row.updated_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            return row;
+        });
+        res.json(rows);
+    });
+});
+app.post('/settings/trucks', authenticateToken, requirePermission('edit_settings'), validate(truckSchema), (req, res) => {
+    const { unit_number, length_ft, volume_cf, mpg, has_lift_gate, has_ramp } = req.body;
+    pool.query(
+        'INSERT INTO trucks (tenant_id, unit_number, length_ft, volume_cf, mpg, has_lift_gate, has_ramp) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
+        [req.tenantId, unit_number, length_ft, volume_cf, mpg, has_lift_gate || false, has_ramp || false],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error creating truck: ${err.message}`);
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.updated_at) {
+                row.updated_at = moment.utc(row.updated_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.status(201).json(row);
+        }
+    );
+});
+app.put('/settings/trucks/:id', authenticateToken, requirePermission('edit_settings'), validate(partialTruckSchema), (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) return res.status(400).send('Invalid truck ID');
+    const { unit_number, length_ft, volume_cf, mpg, has_lift_gate, has_ramp } = req.body;
+    pool.query(
+        'UPDATE trucks SET unit_number = COALESCE($1, unit_number), length_ft = COALESCE($2, length_ft), volume_cf = COALESCE($3, volume_cf), mpg = COALESCE($4, mpg), has_lift_gate = COALESCE($5, has_lift_gate), has_ramp = COALESCE($6, has_ramp), updated_at = CURRENT_TIMESTAMP WHERE id = $7 AND tenant_id = $8 RETURNING *',
+        [unit_number, length_ft, volume_cf, mpg, has_lift_gate, has_ramp, id, req.tenantId],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error updating truck: ${err.message}`);
+            if (result.rowCount === 0) return res.status(404).send('Truck not found');
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.updated_at) {
+                row.updated_at = moment.utc(row.updated_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.json(row);
+        }
+    );
+});
+app.delete('/settings/trucks/:id', authenticateToken, requirePermission('edit_settings'), (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) return res.status(400).send('Invalid truck ID');
+    pool.query(
+        'DELETE FROM trucks WHERE id = $1 AND tenant_id = $2 RETURNING *',
+        [id, req.tenantId],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error deleting truck: ${err.message}`);
+            if (result.rowCount === 0) return res.status(404).send('Truck not found');
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.updated_at) {
+                row.updated_at = moment.utc(row.updated_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.status(200).json({ message: 'Truck deleted', data: row });
+        }
+    );
+});
+
+// =====================
+// 14. Settings: Fuel Price Tiers Endpoints
+// =====================
+app.get('/settings/fuel-price-tiers', authenticateToken, requirePermission('view_settings'), (req, res) => {
+    pool.query('SELECT id, miles_min, miles_max, price_per_gallon, created_at, updated_at FROM fuel_price_tiers WHERE tenant_id = $1', [req.tenantId], (err, result) => {
+        if (err) return res.status(500).send(`Error fetching fuel price tiers: ${err.message}`);
+        const rows = result.rows.map(row => {
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.updated_at) {
+                row.updated_at = moment.utc(row.updated_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            return row;
+        });
+        res.json(rows);
+    });
+});
+app.post('/settings/fuel-price-tiers', authenticateToken, requirePermission('edit_settings'), validate(fuelPriceTierSchema), (req, res) => {
+    const { miles_min, miles_max, price_per_gallon } = req.body;
+    pool.query(
+        'INSERT INTO fuel_price_tiers (tenant_id, miles_min, miles_max, price_per_gallon) VALUES ($1, $2, $3, $4) RETURNING *',
+        [req.tenantId, miles_min, miles_max, price_per_gallon],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error creating fuel price tier: ${err.message}`);
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.updated_at) {
+                row.updated_at = moment.utc(row.updated_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.status(201).json(row);
+        }
+    );
+});
+app.put('/settings/fuel-price-tiers/:id', authenticateToken, requirePermission('edit_settings'), validate(partialFuelPriceTierSchema), (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) return res.status(400).send('Invalid fuel price tier ID');
+    const { miles_min, miles_max, price_per_gallon } = req.body;
+    pool.query(
+        'UPDATE fuel_price_tiers SET miles_min = COALESCE($1, miles_min), miles_max = COALESCE($2, miles_max), price_per_gallon = COALESCE($3, price_per_gallon), updated_at = CURRENT_TIMESTAMP WHERE id = $4 AND tenant_id = $5 RETURNING *',
+        [miles_min, miles_max, price_per_gallon, id, req.tenantId],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error updating fuel price tier: ${err.message}`);
+            if (result.rowCount === 0) return res.status(404).send('Fuel price tier not found');
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.updated_at) {
+                row.updated_at = moment.utc(row.updated_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.json(row);
+        }
+    );
+});
+app.delete('/settings/fuel-price-tiers/:id', authenticateToken, requirePermission('edit_settings'), (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) return res.status(400).send('Invalid fuel price tier ID');
+    pool.query(
+        'DELETE FROM fuel_price_tiers WHERE id = $1 AND tenant_id = $2 RETURNING *',
+        [id, req.tenantId],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error deleting fuel price tier: ${err.message}`);
+            if (result.rowCount === 0) return res.status(404).send('Fuel price tier not found');
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.updated_at) {
+                row.updated_at = moment.utc(row.updated_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.status(200).json({ message: 'Fuel price tier deleted', data: row });
+        }
+    );
+});
+
+// =====================
+// 15. Settings: Additional Services Endpoints
+// =====================
+app.get('/settings/additional-services', authenticateToken, requirePermission('view_settings'), (req, res) => {
+    pool.query('SELECT id, name, price, movers_required, created_at, updated_at FROM additional_services WHERE tenant_id = $1', [req.tenantId], (err, result) => {
+        if (err) return res.status(500).send(`Error fetching additional services: ${err.message}`);
+        const rows = result.rows.map(row => {
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.updated_at) {
+                row.updated_at = moment.utc(row.updated_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            return row;
+        });
+        res.json(rows);
+    });
+});
+app.post('/settings/additional-services', authenticateToken, requirePermission('edit_settings'), validate(additionalServicesSchema), (req, res) => {
+    const { name, price, movers_required } = req.body;
+    pool.query(
+        'INSERT INTO additional_services (tenant_id, name, price, movers_required) VALUES ($1, $2, $3, $4) RETURNING *',
+        [req.tenantId, name, price, movers_required || 0],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error creating additional service: ${err.message}`);
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.updated_at) {
+                row.updated_at = moment.utc(row.updated_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.status(201).json(row);
+        }
+    );
+});
+app.put('/settings/additional-services/:id', authenticateToken, requirePermission('edit_settings'), validate(partialAdditionalServicesSchema), (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) return res.status(400).send('Invalid additional service ID');
+    const { name, price, movers_required } = req.body;
+    pool.query(
+        'UPDATE additional_services SET name = COALESCE($1, name), price = COALESCE($2, price), movers_required = COALESCE($3, movers_required), updated_at = CURRENT_TIMESTAMP WHERE id = $4 AND tenant_id = $5 RETURNING *',
+        [name, price, movers_required, id, req.tenantId],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error updating additional service: ${err.message}`);
+            if (result.rowCount === 0) return res.status(404).send('Additional service not found');
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.updated_at) {
+                row.updated_at = moment.utc(row.updated_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.json(row);
+        }
+    );
+});
+app.delete('/settings/additional-services/:id', authenticateToken, requirePermission('edit_settings'), (req, res) => {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) return res.status(400).send('Invalid additional service ID');
+    pool.query(
+        'DELETE FROM additional_services WHERE id = $1 AND tenant_id = $2 RETURNING *',
+        [id, req.tenantId],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error deleting additional service: ${err.message}`);
+            if (result.rowCount === 0) return res.status(404).send('Additional service not found');
+            const row = result.rows[0];
+            if (row.created_at) {
+                row.created_at = moment.utc(row.created_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            if (row.updated_at) {
+                row.updated_at = moment.utc(row.updated_at).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+            }
+            res.status(200).json({ message: 'Additional service deleted', data: row });
+        }
+    );
+});
+
+// =====================
+// 16. Reporting Endpoints
+// =====================
+app.get('/reports/estimates', authenticateToken, requirePermission('view_reports'), (req, res) => {
+    pool.query(
+        `SELECT DATE_TRUNC('month', created_at) AS month,
+                COUNT(id) AS estimate_count,
+                SUM(total_cost) AS total_revenue
+         FROM estimates
+         WHERE opportunity_id IN (SELECT id FROM opportunities WHERE customer_id IN (SELECT id FROM customers WHERE tenant_id = $1))
+         GROUP BY month
+         ORDER BY month DESC`,
+        [req.tenantId],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error generating estimate report: ${err.message}`);
+            const rows = result.rows.map(row => {
+                if (row.month) {
+                    row.month = moment.utc(row.month).tz(req.tenantTimezone).format('YYYY-MM');
+                }
+                row.estimate_count = parseInt(row.estimate_count, 10);
+                row.total_revenue = parseFloat(row.total_revenue || '0').toFixed(2);
+                return row;
+            });
+            res.json(rows);
+        }
+    );
+});
+
+// =====================
+// 17. Twilio Setup and SMS Endpoints
+// =====================
+const twilioClient = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN);
+
+app.post('/estimates/:id/send-sms', authenticateToken, requirePermission('edit_estimates'), validate(sendSmsSchema), async (req, res) => {
+    const estimateId = parseInt(req.params.id);
+    if (isNaN(estimateId)) return res.status(400).send('Invalid estimate ID');
+    const { content } = req.body;
+    try {
+        // Check tenant communications enabled
+        const tenantRes = await pool.query('SELECT enable_communications FROM tenants WHERE id = $1', [req.tenantId]);
+        if (!tenantRes.rows[0].enable_communications) return res.status(403).send('Communications not enabled for this tenant.');
+        // Fetch customer phone
+        const phoneRes = await pool.query(
+            `SELECT c.phone 
+             FROM estimates e
+             JOIN opportunities o ON e.opportunity_id = o.id
+             JOIN customers c ON o.customer_id = c.id
+             WHERE e.id = $1 AND c.tenant_id = $2`,
+            [estimateId, req.tenantId]
+        );
+        if (phoneRes.rowCount === 0 || !phoneRes.rows[0].phone) return res.status(404).send('Customer phone not found or invalid.');
+        const phone = phoneRes.rows[0].phone;
+        // Generate short-lived customer token for portal link
+        const customerToken = jwt.sign({ estimate_id: estimateId, type: 'customer_view' }, secretKey, { expiresIn: '24h' });
+        const portalLink = `https://crm.movethatstuff.com/portal/estimates/${estimateId}?token=${customerToken}`;
+        // Use provided content or default
+        const message = content || `Your MoveThatStuff estimate is ready: ${portalLink}. Reply STOP to opt-out.`;
+        // Send SMS
+        await twilioClient.messages.create({
+            body: message,
+            from: process.env.TWILIO_PHONE_NUMBER,
+            to: phone
+        });
+        // Log to messages table
+        await pool.query(
+            'INSERT INTO messages (estimate_id, sender_type, channel, content, tenant_id) VALUES ($1, $2, $3, $4, $5)',
+            [estimateId, 'agent', 'sms', message, req.tenantId]
+        );
+        res.json({ message: 'SMS sent successfully' });
+    } catch (err) {
+        res.status(500).send(`Error sending SMS: ${err.message}`);
+    }
+});
+
+
+
+// =====================
+// 18. Twilio Inbound Webhook
+// =====================
+app.post('/twilio/webhook', (req, res) => {
+    const { From: fromPhone, Body: content } = req.body;
+    if (!fromPhone || !content) return res.status(400).send('Invalid webhook payload');
+    // Basic validation (add full Twilio signature validation later for production)
+    // For now, assume valid; respond with empty TwiML
+    res.type('text/xml').send('<Response/>');
+    // Find matching customer/estimate (latest estimate for phone)
+    pool.query(
+        `SELECT e.id AS estimate_id, c.tenant_id
+         FROM customers c
+         JOIN opportunities o ON c.id = o.customer_id
+         JOIN estimates e ON o.id = e.opportunity_id
+         WHERE c.phone = $1
+         ORDER BY e.created_at DESC LIMIT 1`,
+        [fromPhone],
+        (err, result) => {
+            if (err || result.rowCount === 0) {
+                console.error(`Error finding estimate for inbound SMS from ${fromPhone}: ${err ? err.message : 'No match'}`);
+                return; // Log but don't fail webhook
+            }
+            const { estimate_id, tenant_id } = result.rows[0];
+            // Log to messages table
+            pool.query(
+                'INSERT INTO messages (estimate_id, sender_type, channel, content, tenant_id) VALUES ($1, $2, $3, $4, $5)',
+                [estimate_id, 'customer', 'sms', content, tenant_id],
+                (insertErr) => {
+                    if (insertErr) console.error(`Error logging inbound SMS: ${insertErr.message}`);
+                }
+            );
+        }
+    );
+});
+
+
+
+// =====================
+// 19. Notifications Endpoint
+// =====================
+app.get('/notifications', authenticateToken, requirePermission('view_messages'), (req, res) => {
+    pool.query(
+        `SELECT 
+            m.estimate_id,
+            COUNT(*) AS unread_count,
+            MAX(m.timestamp) AS latest_timestamp,
+            (SELECT content FROM messages WHERE id = (SELECT MAX(id) FROM messages WHERE estimate_id = m.estimate_id AND is_read = FALSE)) AS latest_content
+         FROM messages m
+         WHERE m.tenant_id = $1 AND m.is_read = FALSE AND m.sender_type = 'customer'  -- Only customer messages for notifications
+         GROUP BY m.estimate_id
+         ORDER BY latest_timestamp DESC`,
+        [req.tenantId],
+        (err, result) => {
+            if (err) return res.status(500).send(`Error fetching notifications: ${err.message}`);
+            const notifications = result.rows.map(row => {
+                if (row.latest_timestamp) {
+                    row.latest_timestamp = moment.utc(row.latest_timestamp).tz(req.tenantTimezone).format('YYYY-MM-DDTHH:mm:ssZ');
+                }
+                row.unread_count = parseInt(row.unread_count, 10);
+                row.latest_content = row.latest_content ? row.latest_content.substring(0, 50) + '...' : '';  // Truncate summary
+                return row;
+            });
+            res.json(notifications);
+        }
+    );
+});
+
+
+
+
+
+
+
+
+// =====================
+// 20. Root Endpoint and Server Start
+// =====================
 app.get('/', (req, res) => {
     pool.query('SELECT NOW()', (err, result) => {
         if (err) return res.send(`Error connecting to database: ${err.message}`);
