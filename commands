@@ -23,9 +23,7 @@ List of tables: \dt
 OTHER
 curl -X POST http://23.95.137.146:3000/auth/login -H "Content-Type: application/json" -d '{"username": "admin", "password": "455454"}'
 
-GITHUB
-Username; TheGreenTitan
-Access token (password): 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
+
 
 
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsInRlbmFudElkIjoxLCJpYXQiOjE3NTg2MjYyOTIsImV4cCI6MTc1ODYyOTg5Mn0.bJYBIT_XCmsH65cOs5tIpVijA3PIgp92lXa8yBFp4xM
