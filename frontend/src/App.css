@@ -1,0 +1,49 @@
+:root {
+  --primary-color: #ff4f00;
+  --secondary-color: #232323;
+}
+
+.sidebar {
+  height: 100vh; /* Full height */
+  background-color: var(--secondary-color) !important;
+  color: rgb(206, 8, 8) !important;
+  border-right: 1px solid #ffffff;
+}
+
+.sidebar .nav-link {
+  color: white !important;
+}
+
+.sidebar .nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Example usage */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+}
+
+.navbar {
+  background-color: var(--secondary-color) !important;
+}
+
+.navbar-brand, .nav-link {
+  color: white !important;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1); /* Make toggler icon white */
+}
+
+/* Dark buttons for edit/delete */
+.btn-dark {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: white;
+}
+
+.pac-container {
+  z-index: 1055 !important; /* Higher than modal (1050) */
+}

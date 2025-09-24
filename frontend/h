@@ -1,0 +1,1001 @@
+-- Logs begin at Wed 2025-08-20 05:23:21 EDT, end at Mon 2025-09-01 15:17:25 EDT. --
+Aug 31 06:48:53 racknerd-1fba473 node[434865]: [dotenv@17.2.1] injecting env (10) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+Aug 31 06:48:54 racknerd-1fba473 node[434865]: [dotenv@17.2.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+Aug 31 06:48:54 racknerd-1fba473 node[434865]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:48:54 racknerd-1fba473 node[434865]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:48:54 racknerd-1fba473 node[434865]:                           ^^^^^
+Aug 31 06:48:54 racknerd-1fba473 node[434865]: SyntaxError: await is only valid in async function
+Aug 31 06:48:54 racknerd-1fba473 node[434865]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:48:54 racknerd-1fba473 node[434865]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:48:54 racknerd-1fba473 node[434865]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:48:54 racknerd-1fba473 node[434865]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:48:54 racknerd-1fba473 node[434865]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:48:54 racknerd-1fba473 node[434865]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:48:54 racknerd-1fba473 node[434865]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:48:54 racknerd-1fba473 node[434865]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:48:54 racknerd-1fba473 node[434865]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:48:54 racknerd-1fba473 node[434865]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:48:54 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:48:54 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:49:04 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 35.
+Aug 31 06:49:04 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:49:04 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:49:04 racknerd-1fba473 node[434899]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Aug 31 06:49:04 racknerd-1fba473 node[434899]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+Aug 31 06:49:04 racknerd-1fba473 node[434899]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:49:04 racknerd-1fba473 node[434899]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:49:04 racknerd-1fba473 node[434899]:                           ^^^^^
+Aug 31 06:49:04 racknerd-1fba473 node[434899]: SyntaxError: await is only valid in async function
+Aug 31 06:49:04 racknerd-1fba473 node[434899]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:49:04 racknerd-1fba473 node[434899]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:49:04 racknerd-1fba473 node[434899]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:49:04 racknerd-1fba473 node[434899]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:49:04 racknerd-1fba473 node[434899]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:49:04 racknerd-1fba473 node[434899]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:49:04 racknerd-1fba473 node[434899]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:49:04 racknerd-1fba473 node[434899]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:49:04 racknerd-1fba473 node[434899]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:49:04 racknerd-1fba473 node[434899]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:49:04 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:49:04 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:49:14 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 36.
+Aug 31 06:49:14 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:49:14 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:49:14 racknerd-1fba473 node[434929]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+Aug 31 06:49:15 racknerd-1fba473 node[434929]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+Aug 31 06:49:15 racknerd-1fba473 node[434929]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:49:15 racknerd-1fba473 node[434929]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:49:15 racknerd-1fba473 node[434929]:                           ^^^^^
+Aug 31 06:49:15 racknerd-1fba473 node[434929]: SyntaxError: await is only valid in async function
+Aug 31 06:49:15 racknerd-1fba473 node[434929]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:49:15 racknerd-1fba473 node[434929]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:49:15 racknerd-1fba473 node[434929]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:49:15 racknerd-1fba473 node[434929]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:49:15 racknerd-1fba473 node[434929]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:49:15 racknerd-1fba473 node[434929]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:49:15 racknerd-1fba473 node[434929]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:49:15 racknerd-1fba473 node[434929]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:49:15 racknerd-1fba473 node[434929]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:49:15 racknerd-1fba473 node[434929]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:49:15 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:49:15 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:49:25 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 37.
+Aug 31 06:49:25 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:49:25 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:49:25 racknerd-1fba473 node[434960]: [dotenv@17.2.1] injecting env (10) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+Aug 31 06:49:25 racknerd-1fba473 node[434960]: [dotenv@17.2.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+Aug 31 06:49:25 racknerd-1fba473 node[434960]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:49:25 racknerd-1fba473 node[434960]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:49:25 racknerd-1fba473 node[434960]:                           ^^^^^
+Aug 31 06:49:25 racknerd-1fba473 node[434960]: SyntaxError: await is only valid in async function
+Aug 31 06:49:25 racknerd-1fba473 node[434960]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:49:25 racknerd-1fba473 node[434960]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:49:25 racknerd-1fba473 node[434960]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:49:25 racknerd-1fba473 node[434960]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:49:25 racknerd-1fba473 node[434960]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:49:25 racknerd-1fba473 node[434960]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:49:25 racknerd-1fba473 node[434960]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:49:25 racknerd-1fba473 node[434960]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:49:25 racknerd-1fba473 node[434960]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:49:25 racknerd-1fba473 node[434960]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:49:25 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:49:25 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:49:35 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 38.
+Aug 31 06:49:35 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:49:35 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:49:35 racknerd-1fba473 node[434993]: [dotenv@17.2.1] injecting env (10) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+Aug 31 06:49:36 racknerd-1fba473 node[434993]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+Aug 31 06:49:36 racknerd-1fba473 node[434993]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:49:36 racknerd-1fba473 node[434993]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:49:36 racknerd-1fba473 node[434993]:                           ^^^^^
+Aug 31 06:49:36 racknerd-1fba473 node[434993]: SyntaxError: await is only valid in async function
+Aug 31 06:49:36 racknerd-1fba473 node[434993]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:49:36 racknerd-1fba473 node[434993]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:49:36 racknerd-1fba473 node[434993]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:49:36 racknerd-1fba473 node[434993]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:49:36 racknerd-1fba473 node[434993]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:49:36 racknerd-1fba473 node[434993]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:49:36 racknerd-1fba473 node[434993]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:49:36 racknerd-1fba473 node[434993]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:49:36 racknerd-1fba473 node[434993]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:49:36 racknerd-1fba473 node[434993]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:49:36 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:49:36 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:49:46 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 39.
+Aug 31 06:49:46 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:49:46 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:49:46 racknerd-1fba473 node[435024]: [dotenv@17.2.1] injecting env (10) from .env -- tip: ⚙️  override existing env vars with { override: true }
+Aug 31 06:49:46 racknerd-1fba473 node[435024]: [dotenv@17.2.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+Aug 31 06:49:46 racknerd-1fba473 node[435024]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:49:46 racknerd-1fba473 node[435024]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:49:46 racknerd-1fba473 node[435024]:                           ^^^^^
+Aug 31 06:49:46 racknerd-1fba473 node[435024]: SyntaxError: await is only valid in async function
+Aug 31 06:49:46 racknerd-1fba473 node[435024]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:49:46 racknerd-1fba473 node[435024]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:49:46 racknerd-1fba473 node[435024]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:49:46 racknerd-1fba473 node[435024]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:49:46 racknerd-1fba473 node[435024]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:49:46 racknerd-1fba473 node[435024]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:49:46 racknerd-1fba473 node[435024]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:49:46 racknerd-1fba473 node[435024]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:49:46 racknerd-1fba473 node[435024]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:49:46 racknerd-1fba473 node[435024]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:49:46 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:49:46 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:49:56 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 40.
+Aug 31 06:49:56 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:49:56 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:49:56 racknerd-1fba473 node[435050]: [dotenv@17.2.1] injecting env (10) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+Aug 31 06:49:57 racknerd-1fba473 node[435050]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+Aug 31 06:49:57 racknerd-1fba473 node[435050]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:49:57 racknerd-1fba473 node[435050]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:49:57 racknerd-1fba473 node[435050]:                           ^^^^^
+Aug 31 06:49:57 racknerd-1fba473 node[435050]: SyntaxError: await is only valid in async function
+Aug 31 06:49:57 racknerd-1fba473 node[435050]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:49:57 racknerd-1fba473 node[435050]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:49:57 racknerd-1fba473 node[435050]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:49:57 racknerd-1fba473 node[435050]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:49:57 racknerd-1fba473 node[435050]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:49:57 racknerd-1fba473 node[435050]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:49:57 racknerd-1fba473 node[435050]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:49:57 racknerd-1fba473 node[435050]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:49:57 racknerd-1fba473 node[435050]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:49:57 racknerd-1fba473 node[435050]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:49:57 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:49:57 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:50:07 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 41.
+Aug 31 06:50:07 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:50:07 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:50:07 racknerd-1fba473 node[435080]: [dotenv@17.2.1] injecting env (10) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Aug 31 06:50:07 racknerd-1fba473 node[435080]: [dotenv@17.2.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+Aug 31 06:50:07 racknerd-1fba473 node[435080]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:50:07 racknerd-1fba473 node[435080]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:50:07 racknerd-1fba473 node[435080]:                           ^^^^^
+Aug 31 06:50:07 racknerd-1fba473 node[435080]: SyntaxError: await is only valid in async function
+Aug 31 06:50:07 racknerd-1fba473 node[435080]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:50:07 racknerd-1fba473 node[435080]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:50:07 racknerd-1fba473 node[435080]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:50:07 racknerd-1fba473 node[435080]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:50:07 racknerd-1fba473 node[435080]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:50:07 racknerd-1fba473 node[435080]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:50:07 racknerd-1fba473 node[435080]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:50:07 racknerd-1fba473 node[435080]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:50:07 racknerd-1fba473 node[435080]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:50:07 racknerd-1fba473 node[435080]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:50:07 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:50:07 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:50:17 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 42.
+Aug 31 06:50:17 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:50:17 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:50:17 racknerd-1fba473 node[435110]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+Aug 31 06:50:18 racknerd-1fba473 node[435110]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+Aug 31 06:50:18 racknerd-1fba473 node[435110]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:50:18 racknerd-1fba473 node[435110]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:50:18 racknerd-1fba473 node[435110]:                           ^^^^^
+Aug 31 06:50:18 racknerd-1fba473 node[435110]: SyntaxError: await is only valid in async function
+Aug 31 06:50:18 racknerd-1fba473 node[435110]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:50:18 racknerd-1fba473 node[435110]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:50:18 racknerd-1fba473 node[435110]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:50:18 racknerd-1fba473 node[435110]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:50:18 racknerd-1fba473 node[435110]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:50:18 racknerd-1fba473 node[435110]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:50:18 racknerd-1fba473 node[435110]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:50:18 racknerd-1fba473 node[435110]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:50:18 racknerd-1fba473 node[435110]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:50:18 racknerd-1fba473 node[435110]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:50:18 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:50:18 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:50:28 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 43.
+Aug 31 06:50:28 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:50:28 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:50:28 racknerd-1fba473 node[435140]: [dotenv@17.2.1] injecting env (10) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+Aug 31 06:50:28 racknerd-1fba473 node[435140]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+Aug 31 06:50:28 racknerd-1fba473 node[435140]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:50:28 racknerd-1fba473 node[435140]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:50:28 racknerd-1fba473 node[435140]:                           ^^^^^
+Aug 31 06:50:28 racknerd-1fba473 node[435140]: SyntaxError: await is only valid in async function
+Aug 31 06:50:28 racknerd-1fba473 node[435140]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:50:28 racknerd-1fba473 node[435140]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:50:28 racknerd-1fba473 node[435140]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:50:28 racknerd-1fba473 node[435140]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:50:28 racknerd-1fba473 node[435140]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:50:28 racknerd-1fba473 node[435140]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:50:28 racknerd-1fba473 node[435140]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:50:28 racknerd-1fba473 node[435140]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:50:28 racknerd-1fba473 node[435140]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:50:28 racknerd-1fba473 node[435140]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:50:28 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:50:28 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:50:38 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 44.
+Aug 31 06:50:38 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:50:38 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:50:38 racknerd-1fba473 node[435166]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+Aug 31 06:50:39 racknerd-1fba473 node[435166]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+Aug 31 06:50:39 racknerd-1fba473 node[435166]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:50:39 racknerd-1fba473 node[435166]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:50:39 racknerd-1fba473 node[435166]:                           ^^^^^
+Aug 31 06:50:39 racknerd-1fba473 node[435166]: SyntaxError: await is only valid in async function
+Aug 31 06:50:39 racknerd-1fba473 node[435166]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:50:39 racknerd-1fba473 node[435166]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:50:39 racknerd-1fba473 node[435166]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:50:39 racknerd-1fba473 node[435166]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:50:39 racknerd-1fba473 node[435166]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:50:39 racknerd-1fba473 node[435166]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:50:39 racknerd-1fba473 node[435166]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:50:39 racknerd-1fba473 node[435166]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:50:39 racknerd-1fba473 node[435166]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:50:39 racknerd-1fba473 node[435166]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:50:39 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:50:39 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:50:49 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 45.
+Aug 31 06:50:49 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:50:49 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:50:49 racknerd-1fba473 node[435193]: [dotenv@17.2.1] injecting env (10) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+Aug 31 06:50:49 racknerd-1fba473 node[435193]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+Aug 31 06:50:49 racknerd-1fba473 node[435193]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:50:49 racknerd-1fba473 node[435193]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:50:49 racknerd-1fba473 node[435193]:                           ^^^^^
+Aug 31 06:50:49 racknerd-1fba473 node[435193]: SyntaxError: await is only valid in async function
+Aug 31 06:50:49 racknerd-1fba473 node[435193]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:50:49 racknerd-1fba473 node[435193]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:50:49 racknerd-1fba473 node[435193]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:50:49 racknerd-1fba473 node[435193]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:50:49 racknerd-1fba473 node[435193]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:50:49 racknerd-1fba473 node[435193]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:50:49 racknerd-1fba473 node[435193]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:50:49 racknerd-1fba473 node[435193]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:50:49 racknerd-1fba473 node[435193]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:50:49 racknerd-1fba473 node[435193]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:50:49 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:50:49 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:50:59 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 46.
+Aug 31 06:50:59 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:50:59 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:50:59 racknerd-1fba473 node[435222]: [dotenv@17.2.1] injecting env (10) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+Aug 31 06:51:00 racknerd-1fba473 node[435222]: [dotenv@17.2.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+Aug 31 06:51:00 racknerd-1fba473 node[435222]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:51:00 racknerd-1fba473 node[435222]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:51:00 racknerd-1fba473 node[435222]:                           ^^^^^
+Aug 31 06:51:00 racknerd-1fba473 node[435222]: SyntaxError: await is only valid in async function
+Aug 31 06:51:00 racknerd-1fba473 node[435222]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:51:00 racknerd-1fba473 node[435222]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:51:00 racknerd-1fba473 node[435222]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:51:00 racknerd-1fba473 node[435222]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:51:00 racknerd-1fba473 node[435222]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:51:00 racknerd-1fba473 node[435222]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:51:00 racknerd-1fba473 node[435222]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:51:00 racknerd-1fba473 node[435222]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:51:00 racknerd-1fba473 node[435222]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:51:00 racknerd-1fba473 node[435222]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:51:00 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:51:00 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:51:10 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 47.
+Aug 31 06:51:10 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:51:10 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:51:10 racknerd-1fba473 node[435252]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+Aug 31 06:51:10 racknerd-1fba473 node[435252]: [dotenv@17.2.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+Aug 31 06:51:10 racknerd-1fba473 node[435252]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:51:10 racknerd-1fba473 node[435252]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:51:10 racknerd-1fba473 node[435252]:                           ^^^^^
+Aug 31 06:51:10 racknerd-1fba473 node[435252]: SyntaxError: await is only valid in async function
+Aug 31 06:51:10 racknerd-1fba473 node[435252]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:51:10 racknerd-1fba473 node[435252]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:51:10 racknerd-1fba473 node[435252]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:51:10 racknerd-1fba473 node[435252]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:51:10 racknerd-1fba473 node[435252]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:51:10 racknerd-1fba473 node[435252]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:51:10 racknerd-1fba473 node[435252]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:51:10 racknerd-1fba473 node[435252]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:51:10 racknerd-1fba473 node[435252]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:51:10 racknerd-1fba473 node[435252]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:51:10 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:51:10 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:51:20 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 48.
+Aug 31 06:51:20 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:51:20 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:51:20 racknerd-1fba473 node[435282]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 📡 auto-backup env with Radar: https://dotenvx.com/radar
+Aug 31 06:51:21 racknerd-1fba473 node[435282]: [dotenv@17.2.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Aug 31 06:51:21 racknerd-1fba473 node[435282]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:51:21 racknerd-1fba473 node[435282]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:51:21 racknerd-1fba473 node[435282]:                           ^^^^^
+Aug 31 06:51:21 racknerd-1fba473 node[435282]: SyntaxError: await is only valid in async function
+Aug 31 06:51:21 racknerd-1fba473 node[435282]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:51:21 racknerd-1fba473 node[435282]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:51:21 racknerd-1fba473 node[435282]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:51:21 racknerd-1fba473 node[435282]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:51:21 racknerd-1fba473 node[435282]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:51:21 racknerd-1fba473 node[435282]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:51:21 racknerd-1fba473 node[435282]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:51:21 racknerd-1fba473 node[435282]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:51:21 racknerd-1fba473 node[435282]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:51:21 racknerd-1fba473 node[435282]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:51:21 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:51:21 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:51:31 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 49.
+Aug 31 06:51:31 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:51:31 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:51:31 racknerd-1fba473 node[435316]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+Aug 31 06:51:31 racknerd-1fba473 node[435316]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+Aug 31 06:51:31 racknerd-1fba473 node[435316]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:51:31 racknerd-1fba473 node[435316]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:51:31 racknerd-1fba473 node[435316]:                           ^^^^^
+Aug 31 06:51:31 racknerd-1fba473 node[435316]: SyntaxError: await is only valid in async function
+Aug 31 06:51:31 racknerd-1fba473 node[435316]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:51:31 racknerd-1fba473 node[435316]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:51:31 racknerd-1fba473 node[435316]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:51:31 racknerd-1fba473 node[435316]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:51:31 racknerd-1fba473 node[435316]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:51:31 racknerd-1fba473 node[435316]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:51:31 racknerd-1fba473 node[435316]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:51:31 racknerd-1fba473 node[435316]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:51:31 racknerd-1fba473 node[435316]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:51:31 racknerd-1fba473 node[435316]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:51:31 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:51:31 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:51:41 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 50.
+Aug 31 06:51:41 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:51:41 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:51:41 racknerd-1fba473 node[435350]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+Aug 31 06:51:42 racknerd-1fba473 node[435350]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+Aug 31 06:51:42 racknerd-1fba473 node[435350]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:51:42 racknerd-1fba473 node[435350]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:51:42 racknerd-1fba473 node[435350]:                           ^^^^^
+Aug 31 06:51:42 racknerd-1fba473 node[435350]: SyntaxError: await is only valid in async function
+Aug 31 06:51:42 racknerd-1fba473 node[435350]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:51:42 racknerd-1fba473 node[435350]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:51:42 racknerd-1fba473 node[435350]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:51:42 racknerd-1fba473 node[435350]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:51:42 racknerd-1fba473 node[435350]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:51:42 racknerd-1fba473 node[435350]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:51:42 racknerd-1fba473 node[435350]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:51:42 racknerd-1fba473 node[435350]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:51:42 racknerd-1fba473 node[435350]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:51:42 racknerd-1fba473 node[435350]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:51:42 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:51:42 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:51:52 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 51.
+Aug 31 06:51:52 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:51:52 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:51:52 racknerd-1fba473 node[435381]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+Aug 31 06:51:52 racknerd-1fba473 node[435381]: [dotenv@17.2.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+Aug 31 06:51:52 racknerd-1fba473 node[435381]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:51:52 racknerd-1fba473 node[435381]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:51:52 racknerd-1fba473 node[435381]:                           ^^^^^
+Aug 31 06:51:52 racknerd-1fba473 node[435381]: SyntaxError: await is only valid in async function
+Aug 31 06:51:52 racknerd-1fba473 node[435381]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:51:52 racknerd-1fba473 node[435381]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:51:52 racknerd-1fba473 node[435381]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:51:52 racknerd-1fba473 node[435381]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:51:52 racknerd-1fba473 node[435381]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:51:52 racknerd-1fba473 node[435381]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:51:52 racknerd-1fba473 node[435381]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:51:52 racknerd-1fba473 node[435381]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:51:52 racknerd-1fba473 node[435381]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:51:52 racknerd-1fba473 node[435381]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:51:52 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:51:52 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:52:02 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 52.
+Aug 31 06:52:02 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:52:02 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:52:02 racknerd-1fba473 node[435416]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 📡 auto-backup env with Radar: https://dotenvx.com/radar
+Aug 31 06:52:03 racknerd-1fba473 node[435416]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Aug 31 06:52:03 racknerd-1fba473 node[435416]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:52:03 racknerd-1fba473 node[435416]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:52:03 racknerd-1fba473 node[435416]:                           ^^^^^
+Aug 31 06:52:03 racknerd-1fba473 node[435416]: SyntaxError: await is only valid in async function
+Aug 31 06:52:03 racknerd-1fba473 node[435416]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:52:03 racknerd-1fba473 node[435416]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:52:03 racknerd-1fba473 node[435416]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:52:03 racknerd-1fba473 node[435416]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:52:03 racknerd-1fba473 node[435416]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:52:03 racknerd-1fba473 node[435416]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:52:03 racknerd-1fba473 node[435416]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:52:03 racknerd-1fba473 node[435416]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:52:03 racknerd-1fba473 node[435416]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:52:03 racknerd-1fba473 node[435416]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:52:03 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:52:03 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:52:13 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 53.
+Aug 31 06:52:13 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:52:13 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:52:13 racknerd-1fba473 node[435454]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Aug 31 06:52:13 racknerd-1fba473 node[435454]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+Aug 31 06:52:13 racknerd-1fba473 node[435454]: /var/www/movethatstuff/backend/routes/estimateRoutes.js:271
+Aug 31 06:52:13 racknerd-1fba473 node[435454]:         const originGeo = await geocodeAddress(originFull);
+Aug 31 06:52:13 racknerd-1fba473 node[435454]:                           ^^^^^
+Aug 31 06:52:13 racknerd-1fba473 node[435454]: SyntaxError: await is only valid in async function
+Aug 31 06:52:13 racknerd-1fba473 node[435454]:     at wrapSafe (internal/modules/cjs/loader.js:1029:16)
+Aug 31 06:52:13 racknerd-1fba473 node[435454]:     at Module._compile (internal/modules/cjs/loader.js:1078:27)
+Aug 31 06:52:13 racknerd-1fba473 node[435454]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:52:13 racknerd-1fba473 node[435454]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 31 06:52:13 racknerd-1fba473 node[435454]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 31 06:52:13 racknerd-1fba473 node[435454]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 31 06:52:13 racknerd-1fba473 node[435454]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 31 06:52:13 racknerd-1fba473 node[435454]:     at Object.<anonymous> (/var/www/movethatstuff/backend/index.js:38:24)
+Aug 31 06:52:13 racknerd-1fba473 node[435454]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 31 06:52:13 racknerd-1fba473 node[435454]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 31 06:52:13 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 31 06:52:13 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 31 06:52:23 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 54.
+Aug 31 06:52:23 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:52:23 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:52:23 racknerd-1fba473 node[435528]: [dotenv@17.2.1] injecting env (10) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+Aug 31 06:52:24 racknerd-1fba473 node[435528]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 📡 auto-backup env with Radar: https://dotenvx.com/radar
+Aug 31 06:52:24 racknerd-1fba473 node[435528]: info: Server running on port 3000 {"timestamp":"2025-08-31T10:52:24.341Z"}
+Aug 31 06:53:05 racknerd-1fba473 node[435528]: info: GET /reports/estimates - IP: ::1 {"timestamp":"2025-08-31T10:53:05.535Z"}
+Aug 31 06:53:08 racknerd-1fba473 node[435528]: info: GET /estimates - IP: ::1 {"timestamp":"2025-08-31T10:53:08.282Z"}
+Aug 31 06:53:08 racknerd-1fba473 node[435528]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T10:53:08.285Z"}
+Aug 31 06:53:10 racknerd-1fba473 node[435528]: info: GET /estimates/32 - IP: ::1 {"timestamp":"2025-08-31T10:53:10.374Z"}
+Aug 31 06:53:10 racknerd-1fba473 node[435528]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T10:53:10.418Z"}
+Aug 31 06:53:25 racknerd-1fba473 node[435528]: info: GET /estimates/32 - IP: ::1 {"timestamp":"2025-08-31T10:53:25.531Z"}
+Aug 31 06:53:25 racknerd-1fba473 node[435528]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T10:53:25.583Z"}
+Aug 31 06:54:12 racknerd-1fba473 systemd[1]: Stopping MoveThatStuff CRM Backend Service...
+Aug 31 06:54:12 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Succeeded.
+Aug 31 06:54:12 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 06:54:12 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 06:54:12 racknerd-1fba473 node[435647]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 📡 observe env with Radar: https://dotenvx.com/radar
+Aug 31 06:54:12 racknerd-1fba473 node[435647]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+Aug 31 06:54:12 racknerd-1fba473 node[435647]: info: Server running on port 3000 {"timestamp":"2025-08-31T10:54:12.784Z"}
+Aug 31 06:54:15 racknerd-1fba473 node[435647]: info: GET /estimates/32 - IP: ::1 {"timestamp":"2025-08-31T10:54:15.221Z"}
+Aug 31 06:54:15 racknerd-1fba473 node[435647]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T10:54:15.363Z"}
+Aug 31 07:04:15 racknerd-1fba473 node[435647]: info: POST /login - IP: ::ffff:23.95.137.146 {"timestamp":"2025-08-31T11:04:15.181Z"}
+Aug 31 07:05:24 racknerd-1fba473 node[435647]: info: POST /api/login - IP: ::ffff:23.95.137.146 {"timestamp":"2025-08-31T11:05:24.719Z"}
+Aug 31 07:06:12 racknerd-1fba473 node[435647]: info: GET /estimates/32 - IP: ::1 {"timestamp":"2025-08-31T11:06:12.609Z"}
+Aug 31 07:06:12 racknerd-1fba473 node[435647]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T11:06:12.658Z"}
+Aug 31 07:10:12 racknerd-1fba473 node[435647]: info: POST /auth/login - IP: ::ffff:23.95.137.146 {"timestamp":"2025-08-31T11:10:12.162Z"}
+Aug 31 07:10:12 racknerd-1fba473 node[435647]: info: Login attempt for user: admin {"timestamp":"2025-08-31T11:10:12.165Z"}
+Aug 31 07:10:12 racknerd-1fba473 node[435647]: info: Password comparison for admin: true {"timestamp":"2025-08-31T11:10:12.225Z"}
+Aug 31 07:10:12 racknerd-1fba473 node[435647]: info: Login successful for admin. Access token generated. {"timestamp":"2025-08-31T11:10:12.229Z"}
+Aug 31 07:10:44 racknerd-1fba473 node[435647]: info: POST /estimates - IP: ::ffff:23.95.137.146 {"timestamp":"2025-08-31T11:10:44.531Z"}
+Aug 31 07:13:37 racknerd-1fba473 node[435647]: info: POST /auth/login - IP: ::ffff:23.95.137.146 {"timestamp":"2025-08-31T11:13:37.302Z"}
+Aug 31 07:13:37 racknerd-1fba473 node[435647]: info: Login attempt for user: admin {"timestamp":"2025-08-31T11:13:37.303Z"}
+Aug 31 07:13:37 racknerd-1fba473 node[435647]: info: Password comparison for admin: true {"timestamp":"2025-08-31T11:13:37.365Z"}
+Aug 31 07:13:37 racknerd-1fba473 node[435647]: info: Login successful for admin. Access token generated. {"timestamp":"2025-08-31T11:13:37.369Z"}
+Aug 31 07:14:11 racknerd-1fba473 node[435647]: info: POST /estimates - IP: ::ffff:23.95.137.146 {"timestamp":"2025-08-31T11:14:11.744Z"}
+Aug 31 07:14:12 racknerd-1fba473 node[435647]: error: Error creating estimate: column "depot_travel_time" of relation "estimates" does not exist - Stack: error: column "depot_travel_time" of relation "estimates" does not exist
+Aug 31 07:14:12 racknerd-1fba473 node[435647]:     at Parser.parseErrorMessage (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:285:98)
+Aug 31 07:14:12 racknerd-1fba473 node[435647]:     at Parser.handlePacket (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:122:29)
+Aug 31 07:14:12 racknerd-1fba473 node[435647]:     at Parser.parse (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:35:38)
+Aug 31 07:14:12 racknerd-1fba473 node[435647]:     at Socket.<anonymous> (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/index.js:11:42)
+Aug 31 07:14:12 racknerd-1fba473 node[435647]:     at Socket.emit (events.js:400:28)
+Aug 31 07:14:12 racknerd-1fba473 node[435647]:     at addChunk (internal/streams/readable.js:293:12)
+Aug 31 07:14:12 racknerd-1fba473 node[435647]:     at readableAddChunk (internal/streams/readable.js:267:9)
+Aug 31 07:14:12 racknerd-1fba473 node[435647]:     at Socket.Readable.push (internal/streams/readable.js:206:10)
+Aug 31 07:14:12 racknerd-1fba473 node[435647]:     at TCP.onStreamRead (internal/stream_base_commons.js:188:23) {"timestamp":"2025-08-31T11:14:12.129Z"}
+Aug 31 07:14:26 racknerd-1fba473 node[435647]: info: POST /estimates - IP: ::ffff:23.95.137.146 {"timestamp":"2025-08-31T11:14:26.783Z"}
+Aug 31 07:14:27 racknerd-1fba473 node[435647]: error: Error creating estimate: column "depot_travel_time" of relation "estimates" does not exist - Stack: error: column "depot_travel_time" of relation "estimates" does not exist
+Aug 31 07:14:27 racknerd-1fba473 node[435647]:     at Parser.parseErrorMessage (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:285:98)
+Aug 31 07:14:27 racknerd-1fba473 node[435647]:     at Parser.handlePacket (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:122:29)
+Aug 31 07:14:27 racknerd-1fba473 node[435647]:     at Parser.parse (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:35:38)
+Aug 31 07:14:27 racknerd-1fba473 node[435647]:     at Socket.<anonymous> (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/index.js:11:42)
+Aug 31 07:14:27 racknerd-1fba473 node[435647]:     at Socket.emit (events.js:400:28)
+Aug 31 07:14:27 racknerd-1fba473 node[435647]:     at addChunk (internal/streams/readable.js:293:12)
+Aug 31 07:14:27 racknerd-1fba473 node[435647]:     at readableAddChunk (internal/streams/readable.js:267:9)
+Aug 31 07:14:27 racknerd-1fba473 node[435647]:     at Socket.Readable.push (internal/streams/readable.js:206:10)
+Aug 31 07:14:27 racknerd-1fba473 node[435647]:     at TCP.onStreamRead (internal/stream_base_commons.js:188:23) {"timestamp":"2025-08-31T11:14:27.014Z"}
+Aug 31 07:18:02 racknerd-1fba473 systemd[1]: Stopping MoveThatStuff CRM Backend Service...
+Aug 31 07:18:02 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Succeeded.
+Aug 31 07:18:02 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 07:18:02 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 07:18:02 racknerd-1fba473 node[436136]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+Aug 31 07:18:03 racknerd-1fba473 node[436136]: [dotenv@17.2.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Aug 31 07:18:03 racknerd-1fba473 node[436136]: info: Server running on port 3000 {"timestamp":"2025-08-31T11:18:03.343Z"}
+Aug 31 07:18:36 racknerd-1fba473 node[436136]: info: POST /auth/login - IP: ::ffff:23.95.137.146 {"timestamp":"2025-08-31T11:18:36.098Z"}
+Aug 31 07:18:36 racknerd-1fba473 node[436136]: info: Login attempt for user: admin {"timestamp":"2025-08-31T11:18:36.102Z"}
+Aug 31 07:18:36 racknerd-1fba473 node[436136]: info: Password comparison for admin: true {"timestamp":"2025-08-31T11:18:36.167Z"}
+Aug 31 07:18:36 racknerd-1fba473 node[436136]: info: Login successful for admin. Access token generated. {"timestamp":"2025-08-31T11:18:36.173Z"}
+Aug 31 07:22:36 racknerd-1fba473 node[436136]: info: POST /estimates - IP: ::ffff:23.95.137.146 {"timestamp":"2025-08-31T11:22:36.279Z"}
+Aug 31 07:22:36 racknerd-1fba473 node[436136]: error: Error creating estimate: INSERT has more target columns than expressions - Stack: error: INSERT has more target columns than expressions
+Aug 31 07:22:36 racknerd-1fba473 node[436136]:     at Parser.parseErrorMessage (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:285:98)
+Aug 31 07:22:36 racknerd-1fba473 node[436136]:     at Parser.handlePacket (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:122:29)
+Aug 31 07:22:36 racknerd-1fba473 node[436136]:     at Parser.parse (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:35:38)
+Aug 31 07:22:36 racknerd-1fba473 node[436136]:     at Socket.<anonymous> (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/index.js:11:42)
+Aug 31 07:22:36 racknerd-1fba473 node[436136]:     at Socket.emit (events.js:400:28)
+Aug 31 07:22:36 racknerd-1fba473 node[436136]:     at addChunk (internal/streams/readable.js:293:12)
+Aug 31 07:22:36 racknerd-1fba473 node[436136]:     at readableAddChunk (internal/streams/readable.js:267:9)
+Aug 31 07:22:36 racknerd-1fba473 node[436136]:     at Socket.Readable.push (internal/streams/readable.js:206:10)
+Aug 31 07:22:36 racknerd-1fba473 node[436136]:     at TCP.onStreamRead (internal/stream_base_commons.js:188:23) {"timestamp":"2025-08-31T11:22:36.695Z"}
+Aug 31 07:22:44 racknerd-1fba473 node[436136]: info: POST /estimates - IP: ::ffff:23.95.137.146 {"timestamp":"2025-08-31T11:22:44.630Z"}
+Aug 31 07:22:44 racknerd-1fba473 node[436136]: error: Error creating estimate: INSERT has more target columns than expressions - Stack: error: INSERT has more target columns than expressions
+Aug 31 07:22:44 racknerd-1fba473 node[436136]:     at Parser.parseErrorMessage (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:285:98)
+Aug 31 07:22:44 racknerd-1fba473 node[436136]:     at Parser.handlePacket (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:122:29)
+Aug 31 07:22:44 racknerd-1fba473 node[436136]:     at Parser.parse (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:35:38)
+Aug 31 07:22:44 racknerd-1fba473 node[436136]:     at Socket.<anonymous> (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/index.js:11:42)
+Aug 31 07:22:44 racknerd-1fba473 node[436136]:     at Socket.emit (events.js:400:28)
+Aug 31 07:22:44 racknerd-1fba473 node[436136]:     at addChunk (internal/streams/readable.js:293:12)
+Aug 31 07:22:44 racknerd-1fba473 node[436136]:     at readableAddChunk (internal/streams/readable.js:267:9)
+Aug 31 07:22:44 racknerd-1fba473 node[436136]:     at Socket.Readable.push (internal/streams/readable.js:206:10)
+Aug 31 07:22:44 racknerd-1fba473 node[436136]:     at TCP.onStreamRead (internal/stream_base_commons.js:188:23) {"timestamp":"2025-08-31T11:22:44.870Z"}
+Aug 31 07:27:27 racknerd-1fba473 systemd[1]: Stopping MoveThatStuff CRM Backend Service...
+Aug 31 07:27:27 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Succeeded.
+Aug 31 07:27:27 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 07:27:27 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 07:27:27 racknerd-1fba473 node[436479]: [dotenv@17.2.1] injecting env (10) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+Aug 31 07:27:28 racknerd-1fba473 node[436479]: [dotenv@17.2.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Aug 31 07:27:28 racknerd-1fba473 node[436479]: info: Server running on port 3000 {"timestamp":"2025-08-31T11:27:28.283Z"}
+Aug 31 07:28:51 racknerd-1fba473 node[436479]: info: POST /auth/login - IP: ::1 {"timestamp":"2025-08-31T11:28:51.946Z"}
+Aug 31 07:28:51 racknerd-1fba473 node[436479]: info: Login attempt for user: admin {"timestamp":"2025-08-31T11:28:51.953Z"}
+Aug 31 07:28:52 racknerd-1fba473 node[436479]: info: Password comparison for admin: true {"timestamp":"2025-08-31T11:28:52.030Z"}
+Aug 31 07:28:52 racknerd-1fba473 node[436479]: info: Login successful for admin. Access token generated. {"timestamp":"2025-08-31T11:28:52.034Z"}
+Aug 31 07:28:52 racknerd-1fba473 node[436479]: info: GET /reports/estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T11:28:52.078Z"}
+Aug 31 07:28:53 racknerd-1fba473 node[436479]: info: GET /estimates - IP: ::1 {"timestamp":"2025-08-31T11:28:53.269Z"}
+Aug 31 07:28:53 racknerd-1fba473 node[436479]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T11:28:53.270Z"}
+Aug 31 07:28:54 racknerd-1fba473 node[436479]: info: GET /estimates/32 - IP: ::1 {"timestamp":"2025-08-31T11:28:54.115Z"}
+Aug 31 07:28:54 racknerd-1fba473 node[436479]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T11:28:54.155Z"}
+Aug 31 07:29:07 racknerd-1fba473 node[436479]: info: GET /estimates/32 - IP: ::1 {"timestamp":"2025-08-31T11:29:07.255Z"}
+Aug 31 07:29:07 racknerd-1fba473 node[436479]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T11:29:07.307Z"}
+Aug 31 07:29:57 racknerd-1fba473 node[436479]: info: POST /auth/login - IP: ::ffff:23.95.137.146 {"timestamp":"2025-08-31T11:29:57.570Z"}
+Aug 31 07:29:57 racknerd-1fba473 node[436479]: info: Login attempt for user: admin {"timestamp":"2025-08-31T11:29:57.574Z"}
+Aug 31 07:29:57 racknerd-1fba473 node[436479]: info: Password comparison for admin: true {"timestamp":"2025-08-31T11:29:57.636Z"}
+Aug 31 07:29:57 racknerd-1fba473 node[436479]: info: Login successful for admin. Access token generated. {"timestamp":"2025-08-31T11:29:57.638Z"}
+Aug 31 07:30:28 racknerd-1fba473 node[436479]: info: POST /estimates - IP: ::ffff:23.95.137.146 {"timestamp":"2025-08-31T11:30:28.647Z"}
+Aug 31 07:30:29 racknerd-1fba473 node[436479]: error: Error creating estimate: insert or update on table "estimates" violates foreign key constraint "opportunities_customer_id_fkey" - Stack: error: insert or update on table "estimates" violates foreign key constraint "opportunities_customer_id_fkey"
+Aug 31 07:30:29 racknerd-1fba473 node[436479]:     at Parser.parseErrorMessage (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:285:98)
+Aug 31 07:30:29 racknerd-1fba473 node[436479]:     at Parser.handlePacket (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:122:29)
+Aug 31 07:30:29 racknerd-1fba473 node[436479]:     at Parser.parse (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:35:38)
+Aug 31 07:30:29 racknerd-1fba473 node[436479]:     at Socket.<anonymous> (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/index.js:11:42)
+Aug 31 07:30:29 racknerd-1fba473 node[436479]:     at Socket.emit (events.js:400:28)
+Aug 31 07:30:29 racknerd-1fba473 node[436479]:     at addChunk (internal/streams/readable.js:293:12)
+Aug 31 07:30:29 racknerd-1fba473 node[436479]:     at readableAddChunk (internal/streams/readable.js:267:9)
+Aug 31 07:30:29 racknerd-1fba473 node[436479]:     at Socket.Readable.push (internal/streams/readable.js:206:10)
+Aug 31 07:30:29 racknerd-1fba473 node[436479]:     at TCP.onStreamRead (internal/stream_base_commons.js:188:23) {"timestamp":"2025-08-31T11:30:29.033Z"}
+Aug 31 07:35:01 racknerd-1fba473 node[436479]: info: POST /auth/login - IP: ::ffff:23.95.137.146 {"timestamp":"2025-08-31T11:35:01.103Z"}
+Aug 31 07:35:01 racknerd-1fba473 node[436479]: info: Login attempt for user: admin {"timestamp":"2025-08-31T11:35:01.104Z"}
+Aug 31 07:35:01 racknerd-1fba473 node[436479]: info: Password comparison for admin: true {"timestamp":"2025-08-31T11:35:01.173Z"}
+Aug 31 07:35:01 racknerd-1fba473 node[436479]: info: Login successful for admin. Access token generated. {"timestamp":"2025-08-31T11:35:01.176Z"}
+Aug 31 07:35:44 racknerd-1fba473 node[436479]: info: POST /estimates - IP: ::ffff:23.95.137.146 {"timestamp":"2025-08-31T11:35:44.962Z"}
+Aug 31 07:35:45 racknerd-1fba473 node[436479]: error: Error creating estimate: insert or update on table "estimates" violates foreign key constraint "opportunities_customer_id_fkey" - Stack: error: insert or update on table "estimates" violates foreign key constraint "opportunities_customer_id_fkey"
+Aug 31 07:35:45 racknerd-1fba473 node[436479]:     at Parser.parseErrorMessage (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:285:98)
+Aug 31 07:35:45 racknerd-1fba473 node[436479]:     at Parser.handlePacket (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:122:29)
+Aug 31 07:35:45 racknerd-1fba473 node[436479]:     at Parser.parse (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:35:38)
+Aug 31 07:35:45 racknerd-1fba473 node[436479]:     at Socket.<anonymous> (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/index.js:11:42)
+Aug 31 07:35:45 racknerd-1fba473 node[436479]:     at Socket.emit (events.js:400:28)
+Aug 31 07:35:45 racknerd-1fba473 node[436479]:     at addChunk (internal/streams/readable.js:293:12)
+Aug 31 07:35:45 racknerd-1fba473 node[436479]:     at readableAddChunk (internal/streams/readable.js:267:9)
+Aug 31 07:35:45 racknerd-1fba473 node[436479]:     at Socket.Readable.push (internal/streams/readable.js:206:10)
+Aug 31 07:35:45 racknerd-1fba473 node[436479]:     at TCP.onStreamRead (internal/stream_base_commons.js:188:23) {"timestamp":"2025-08-31T11:35:45.165Z"}
+Aug 31 07:38:58 racknerd-1fba473 node[436479]: info: POST /estimates - IP: ::ffff:23.95.137.146 {"timestamp":"2025-08-31T11:38:58.940Z"}
+Aug 31 07:39:32 racknerd-1fba473 node[436479]: info: GET /estimates - IP: ::1 {"timestamp":"2025-08-31T11:39:32.288Z"}
+Aug 31 07:39:32 racknerd-1fba473 node[436479]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T11:39:32.321Z"}
+Aug 31 07:39:37 racknerd-1fba473 node[436479]: info: GET /estimates/38 - IP: ::1 {"timestamp":"2025-08-31T11:39:37.448Z"}
+Aug 31 07:39:37 racknerd-1fba473 node[436479]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T11:39:37.488Z"}
+Aug 31 07:39:44 racknerd-1fba473 node[436479]: info: GET /estimates/38 - IP: ::1 {"timestamp":"2025-08-31T11:39:44.544Z"}
+Aug 31 07:39:44 racknerd-1fba473 node[436479]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T11:39:44.590Z"}
+Aug 31 07:41:01 racknerd-1fba473 node[436479]: info: GET /estimates - IP: ::1 {"timestamp":"2025-08-31T11:41:01.628Z"}
+Aug 31 07:41:01 racknerd-1fba473 node[436479]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T11:41:01.657Z"}
+Aug 31 07:41:13 racknerd-1fba473 node[436479]: info: GET /estimates/32 - IP: ::1 {"timestamp":"2025-08-31T11:41:13.874Z"}
+Aug 31 07:41:13 racknerd-1fba473 node[436479]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T11:41:13.922Z"}
+Aug 31 07:41:19 racknerd-1fba473 node[436479]: info: GET /customers - IP: ::1 {"timestamp":"2025-08-31T11:41:19.288Z"}
+Aug 31 07:41:19 racknerd-1fba473 node[436479]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T11:41:19.290Z"}
+Aug 31 07:41:21 racknerd-1fba473 node[436479]: info: GET /estimates/38 - IP: ::1 {"timestamp":"2025-08-31T11:41:21.760Z"}
+Aug 31 07:41:21 racknerd-1fba473 node[436479]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T11:41:21.798Z"}
+Aug 31 07:44:52 racknerd-1fba473 node[436479]: info: GET /.env - IP: ::1 {"timestamp":"2025-08-31T11:44:52.632Z"}
+Aug 31 07:45:37 racknerd-1fba473 node[436479]: info: GET /estimates/38 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T11:45:37.545Z"}
+Aug 31 07:45:37 racknerd-1fba473 node[436479]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-08-31T11:45:37.644Z"}
+Aug 31 07:45:41 racknerd-1fba473 node[436479]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T11:45:41.104Z"}
+Aug 31 07:45:41 racknerd-1fba473 node[436479]: info: GET /customers - IP: ::1 {"timestamp":"2025-08-31T11:45:41.105Z"}
+Aug 31 07:45:42 racknerd-1fba473 node[436479]: info: GET /estimates/32 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T11:45:42.593Z"}
+Aug 31 07:45:42 racknerd-1fba473 node[436479]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-08-31T11:45:42.633Z"}
+Aug 31 11:30:43 racknerd-1fba473 systemd[1]: Stopping MoveThatStuff CRM Backend Service...
+Aug 31 11:30:43 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Succeeded.
+Aug 31 11:30:43 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 31 11:30:43 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 31 11:30:43 racknerd-1fba473 node[440651]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+Aug 31 11:30:44 racknerd-1fba473 node[440651]: [dotenv@17.2.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+Aug 31 11:30:44 racknerd-1fba473 node[440651]: info: Server running on port 3000 {"timestamp":"2025-08-31T15:30:44.226Z"}
+Aug 31 11:30:56 racknerd-1fba473 node[440651]: info: POST /auth/login - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:30:56.191Z"}
+Aug 31 11:30:56 racknerd-1fba473 node[440651]: info: Login attempt for user: admin {"timestamp":"2025-08-31T15:30:56.198Z"}
+Aug 31 11:30:56 racknerd-1fba473 node[440651]: info: Password comparison for admin: true {"timestamp":"2025-08-31T15:30:56.271Z"}
+Aug 31 11:30:56 racknerd-1fba473 node[440651]: info: Login successful for admin. Access token generated. {"timestamp":"2025-08-31T15:30:56.280Z"}
+Aug 31 11:30:56 racknerd-1fba473 node[440651]: info: GET /reports/estimates - IP: ::1 {"timestamp":"2025-08-31T15:30:56.327Z"}
+Aug 31 11:30:58 racknerd-1fba473 node[440651]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:30:58.196Z"}
+Aug 31 11:30:58 racknerd-1fba473 node[440651]: info: GET /customers - IP: ::1 {"timestamp":"2025-08-31T15:30:58.200Z"}
+Aug 31 11:30:59 racknerd-1fba473 node[440651]: info: GET /estimates/32 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:30:59.550Z"}
+Aug 31 11:30:59 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-08-31T15:30:59.592Z"}
+Aug 31 11:33:00 racknerd-1fba473 node[440651]: info: GET /estimates/32 - IP: ::1 {"timestamp":"2025-08-31T15:33:00.923Z"}
+Aug 31 11:33:01 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:33:01.019Z"}
+Aug 31 11:36:48 racknerd-1fba473 node[440651]: info: GET /estimates/32 - IP: ::1 {"timestamp":"2025-08-31T15:36:48.973Z"}
+Aug 31 11:36:49 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:36:49.070Z"}
+Aug 31 11:37:13 racknerd-1fba473 node[440651]: info: GET /estimates/32 - IP: ::1 {"timestamp":"2025-08-31T15:37:13.072Z"}
+Aug 31 11:37:13 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:37:13.132Z"}
+Aug 31 11:37:25 racknerd-1fba473 node[440651]: info: GET /estimates - IP: ::1 {"timestamp":"2025-08-31T15:37:25.012Z"}
+Aug 31 11:37:25 racknerd-1fba473 node[440651]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:37:25.016Z"}
+Aug 31 11:37:29 racknerd-1fba473 node[440651]: info: GET /estimates/10 - IP: ::1 {"timestamp":"2025-08-31T15:37:29.152Z"}
+Aug 31 11:37:29 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:37:29.191Z"}
+Aug 31 11:37:33 racknerd-1fba473 node[440651]: info: GET /estimates - IP: ::1 {"timestamp":"2025-08-31T15:37:33.497Z"}
+Aug 31 11:37:33 racknerd-1fba473 node[440651]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:37:33.498Z"}
+Aug 31 11:37:35 racknerd-1fba473 node[440651]: info: GET /estimates/21 - IP: ::1 {"timestamp":"2025-08-31T15:37:35.700Z"}
+Aug 31 11:37:35 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:37:35.748Z"}
+Aug 31 11:37:45 racknerd-1fba473 node[440651]: info: GET /estimates/21 - IP: ::1 {"timestamp":"2025-08-31T15:37:45.444Z"}
+Aug 31 11:37:45 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:37:45.486Z"}
+Aug 31 11:39:19 racknerd-1fba473 node[440651]: info: GET /estimates/21 - IP: ::1 {"timestamp":"2025-08-31T15:39:19.364Z"}
+Aug 31 11:39:19 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:39:19.470Z"}
+Aug 31 11:39:34 racknerd-1fba473 node[440651]: info: GET /reports/estimates - IP: ::1 {"timestamp":"2025-08-31T15:39:34.473Z"}
+Aug 31 11:39:36 racknerd-1fba473 node[440651]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:39:36.043Z"}
+Aug 31 11:39:36 racknerd-1fba473 node[440651]: info: GET /customers - IP: ::1 {"timestamp":"2025-08-31T15:39:36.045Z"}
+Aug 31 11:39:37 racknerd-1fba473 node[440651]: info: GET /estimates/32 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:39:37.956Z"}
+Aug 31 11:39:38 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-08-31T15:39:37.999Z"}
+Aug 31 11:40:44 racknerd-1fba473 node[440651]: info: GET /estimates/21 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:40:44.406Z"}
+Aug 31 11:40:44 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-08-31T15:40:44.475Z"}
+Aug 31 11:41:11 racknerd-1fba473 node[440651]: info: GET /estimates/21 - IP: ::1 {"timestamp":"2025-08-31T15:41:11.379Z"}
+Aug 31 11:41:11 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:41:11.435Z"}
+Aug 31 11:41:30 racknerd-1fba473 node[440651]: info: GET /estimates/21 - IP: ::1 {"timestamp":"2025-08-31T15:41:30.051Z"}
+Aug 31 11:41:30 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:41:30.100Z"}
+Aug 31 11:41:49 racknerd-1fba473 node[440651]: info: GET /estimates - IP: ::1 {"timestamp":"2025-08-31T15:41:49.669Z"}
+Aug 31 11:41:49 racknerd-1fba473 node[440651]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:41:49.679Z"}
+Aug 31 11:41:52 racknerd-1fba473 node[440651]: info: GET /estimates/38 - IP: ::1 {"timestamp":"2025-08-31T15:41:52.142Z"}
+Aug 31 11:41:52 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:41:52.182Z"}
+Aug 31 11:42:10 racknerd-1fba473 node[440651]: info: GET /estimates - IP: ::1 {"timestamp":"2025-08-31T15:42:10.878Z"}
+Aug 31 11:42:10 racknerd-1fba473 node[440651]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:42:10.880Z"}
+Aug 31 11:42:13 racknerd-1fba473 node[440651]: info: GET /estimates/38 - IP: ::1 {"timestamp":"2025-08-31T15:42:13.115Z"}
+Aug 31 11:42:13 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:42:13.157Z"}
+Aug 31 11:42:16 racknerd-1fba473 node[440651]: info: GET /estimates - IP: ::1 {"timestamp":"2025-08-31T15:42:16.626Z"}
+Aug 31 11:42:16 racknerd-1fba473 node[440651]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:42:16.634Z"}
+Aug 31 11:42:31 racknerd-1fba473 node[440651]: info: PUT /estimates/38 - IP: ::1 {"timestamp":"2025-08-31T15:42:31.132Z"}
+Aug 31 11:42:49 racknerd-1fba473 node[440651]: info: PUT /estimates/38 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:42:49.045Z"}
+Aug 31 11:42:56 racknerd-1fba473 node[440651]: info: GET /customers - IP: ::1 {"timestamp":"2025-08-31T15:42:56.495Z"}
+Aug 31 11:42:56 racknerd-1fba473 node[440651]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:42:56.497Z"}
+Aug 31 11:44:38 racknerd-1fba473 node[440651]: info: GET /estimates - IP: ::1 {"timestamp":"2025-08-31T15:44:38.776Z"}
+Aug 31 11:44:38 racknerd-1fba473 node[440651]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:44:38.779Z"}
+Aug 31 11:44:43 racknerd-1fba473 node[440651]: info: GET /estimates - IP: ::1 {"timestamp":"2025-08-31T15:44:43.668Z"}
+Aug 31 11:44:43 racknerd-1fba473 node[440651]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:44:43.671Z"}
+Aug 31 11:44:49 racknerd-1fba473 node[440651]: info: PUT /estimates/38 - IP: ::1 {"timestamp":"2025-08-31T15:44:49.326Z"}
+Aug 31 11:44:56 racknerd-1fba473 node[440651]: info: GET /estimates/35 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:44:56.635Z"}
+Aug 31 11:44:56 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-08-31T15:44:56.676Z"}
+Aug 31 11:45:30 racknerd-1fba473 node[440651]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:45:30.992Z"}
+Aug 31 11:45:37 racknerd-1fba473 node[440651]: info: GET /customers/3 - IP: ::1 {"timestamp":"2025-08-31T15:45:37.342Z"}
+Aug 31 11:45:37 racknerd-1fba473 node[440651]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:45:37.345Z"}
+Aug 31 11:45:40 racknerd-1fba473 node[440651]: info: GET /customers - IP: ::1 {"timestamp":"2025-08-31T15:45:40.515Z"}
+Aug 31 11:45:40 racknerd-1fba473 node[440651]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:45:40.518Z"}
+Aug 31 11:45:45 racknerd-1fba473 node[440651]: info: GET /intake/sources - IP: ::1 {"timestamp":"2025-08-31T15:45:45.853Z"}
+Aug 31 11:46:24 racknerd-1fba473 node[440651]: info: GET /intake/residence-sizes?move_type=house - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:46:24.494Z"}
+Aug 31 11:46:30 racknerd-1fba473 node[440651]: info: POST /intake - IP: ::1 {"timestamp":"2025-08-31T15:46:30.751Z"}
+Aug 31 11:46:30 racknerd-1fba473 node[440651]: info: Received source in intake POST: referral {"timestamp":"2025-08-31T15:46:30.754Z"}
+Aug 31 11:46:30 racknerd-1fba473 node[440651]: info: Source lookup result for 'referral': 1 rows {"timestamp":"2025-08-31T15:46:30.757Z"}
+Aug 31 11:46:31 racknerd-1fba473 node[440651]: info: GET /estimates/39 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-31T15:46:31.427Z"}
+Aug 31 11:46:31 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-08-31T15:46:31.466Z"}
+Sep 01 08:41:26 racknerd-1fba473 node[440651]: info: GET /.env - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T12:41:26.773Z"}
+Sep 01 08:41:52 racknerd-1fba473 node[440651]: info: GET /config/config.yml - IP: ::1 {"timestamp":"2025-09-01T12:41:52.402Z"}
+Sep 01 08:41:52 racknerd-1fba473 node[440651]: info: GET /config/tsconfig.json - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T12:41:52.864Z"}
+Sep 01 08:41:53 racknerd-1fba473 node[440651]: info: GET /config/config.js - IP: ::1 {"timestamp":"2025-09-01T12:41:53.282Z"}
+Sep 01 10:32:01 racknerd-1fba473 node[440651]: info: POST /auth/login - IP: ::1 {"timestamp":"2025-09-01T14:32:01.102Z"}
+Sep 01 10:32:01 racknerd-1fba473 node[440651]: info: Login attempt for user: admin {"timestamp":"2025-09-01T14:32:01.123Z"}
+Sep 01 10:32:01 racknerd-1fba473 node[440651]: info: Password comparison for admin: true {"timestamp":"2025-09-01T14:32:01.248Z"}
+Sep 01 10:32:01 racknerd-1fba473 node[440651]: info: Login successful for admin. Access token generated. {"timestamp":"2025-09-01T14:32:01.279Z"}
+Sep 01 10:32:01 racknerd-1fba473 node[440651]: info: GET /reports/estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:32:01.325Z"}
+Sep 01 10:32:02 racknerd-1fba473 node[440651]: info: GET /customers - IP: ::1 {"timestamp":"2025-09-01T14:32:02.709Z"}
+Sep 01 10:32:02 racknerd-1fba473 node[440651]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:32:02.722Z"}
+Sep 01 10:32:04 racknerd-1fba473 node[440651]: info: GET /estimates/32 - IP: ::1 {"timestamp":"2025-09-01T14:32:04.547Z"}
+Sep 01 10:32:04 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:32:04.592Z"}
+Sep 01 10:32:07 racknerd-1fba473 node[440651]: info: GET /customers - IP: ::1 {"timestamp":"2025-09-01T14:32:07.931Z"}
+Sep 01 10:32:07 racknerd-1fba473 node[440651]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:32:07.933Z"}
+Sep 01 10:32:10 racknerd-1fba473 node[440651]: info: GET /estimates/34 - IP: ::1 {"timestamp":"2025-09-01T14:32:10.892Z"}
+Sep 01 10:32:10 racknerd-1fba473 node[440651]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:32:10.933Z"}
+Sep 01 10:38:21 racknerd-1fba473 systemd[1]: Stopping MoveThatStuff CRM Backend Service...
+Sep 01 10:38:21 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Succeeded.
+Sep 01 10:38:21 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Sep 01 10:38:21 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Sep 01 10:38:21 racknerd-1fba473 node[460615]: [dotenv@17.2.1] injecting env (10) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Sep 01 10:38:21 racknerd-1fba473 node[460615]: [dotenv@17.2.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Sep 01 10:38:22 racknerd-1fba473 node[460615]: info: Server running on port 3000 {"timestamp":"2025-09-01T14:38:22.035Z"}
+Sep 01 10:38:31 racknerd-1fba473 node[460615]: info: POST /estimates/[ID]/calculate - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T14:38:31.657Z"}
+Sep 01 10:38:58 racknerd-1fba473 node[460615]: info: POST /auth/login - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T14:38:58.731Z"}
+Sep 01 10:38:58 racknerd-1fba473 node[460615]: info: Login attempt for user: admin {"timestamp":"2025-09-01T14:38:58.733Z"}
+Sep 01 10:38:58 racknerd-1fba473 node[460615]: info: Password comparison for admin: true {"timestamp":"2025-09-01T14:38:58.803Z"}
+Sep 01 10:38:58 racknerd-1fba473 node[460615]: info: Login successful for admin. Access token generated. {"timestamp":"2025-09-01T14:38:58.811Z"}
+Sep 01 10:39:29 racknerd-1fba473 node[460615]: info: GET /estimates - IP: ::1 {"timestamp":"2025-09-01T14:39:29.863Z"}
+Sep 01 10:39:29 racknerd-1fba473 node[460615]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:39:29.874Z"}
+Sep 01 10:39:34 racknerd-1fba473 node[460615]: info: GET /estimates/39 - IP: ::1 {"timestamp":"2025-09-01T14:39:34.652Z"}
+Sep 01 10:39:34 racknerd-1fba473 node[460615]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:39:34.693Z"}
+Sep 01 10:39:46 racknerd-1fba473 node[460615]: info: GET /customers - IP: ::1 {"timestamp":"2025-09-01T14:39:46.438Z"}
+Sep 01 10:39:50 racknerd-1fba473 node[460615]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:39:50.172Z"}
+Sep 01 10:40:10 racknerd-1fba473 node[460615]: info: POST /estimates/39/calculate - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T14:40:10.408Z"}
+Sep 01 10:40:28 racknerd-1fba473 node[460615]: info: POST /auth/login - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T14:40:28.733Z"}
+Sep 01 10:40:28 racknerd-1fba473 node[460615]: info: Login attempt for user: admin {"timestamp":"2025-09-01T14:40:28.735Z"}
+Sep 01 10:40:28 racknerd-1fba473 node[460615]: info: Password comparison for admin: true {"timestamp":"2025-09-01T14:40:28.802Z"}
+Sep 01 10:40:28 racknerd-1fba473 node[460615]: info: Login successful for admin. Access token generated. {"timestamp":"2025-09-01T14:40:28.806Z"}
+Sep 01 10:40:49 racknerd-1fba473 node[460615]: info: POST /estimates/39/calculate - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T14:40:49.025Z"}
+Sep 01 10:40:57 racknerd-1fba473 node[460615]: info: GET /estimates/39 - IP: ::1 {"timestamp":"2025-09-01T14:40:57.285Z"}
+Sep 01 10:40:57 racknerd-1fba473 node[460615]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:40:57.327Z"}
+Sep 01 10:41:03 racknerd-1fba473 node[460615]: info: GET /customers - IP: ::1 {"timestamp":"2025-09-01T14:41:03.676Z"}
+Sep 01 10:41:05 racknerd-1fba473 node[460615]: info: GET /customers/47 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:41:05.369Z"}
+Sep 01 10:41:05 racknerd-1fba473 node[460615]: info: GET /estimates - IP: ::1 {"timestamp":"2025-09-01T14:41:05.371Z"}
+Sep 01 10:41:07 racknerd-1fba473 node[460615]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:41:07.693Z"}
+Sep 01 10:41:09 racknerd-1fba473 node[460615]: info: GET /customers - IP: ::1 {"timestamp":"2025-09-01T14:41:09.345Z"}
+Sep 01 10:41:09 racknerd-1fba473 node[460615]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:41:09.347Z"}
+Sep 01 10:41:12 racknerd-1fba473 node[460615]: info: GET /estimates/5 - IP: ::1 {"timestamp":"2025-09-01T14:41:12.920Z"}
+Sep 01 10:41:12 racknerd-1fba473 node[460615]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:41:12.959Z"}
+Sep 01 10:41:16 racknerd-1fba473 node[460615]: info: GET /estimates/5 - IP: ::1 {"timestamp":"2025-09-01T14:41:16.072Z"}
+Sep 01 10:41:16 racknerd-1fba473 node[460615]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:41:16.113Z"}
+Sep 01 10:41:20 racknerd-1fba473 node[460615]: info: GET /customers - IP: ::1 {"timestamp":"2025-09-01T14:41:20.022Z"}
+Sep 01 10:41:20 racknerd-1fba473 node[460615]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:41:20.024Z"}
+Sep 01 10:41:36 racknerd-1fba473 node[460615]: info: POST /estimates/5/calculate - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T14:41:36.115Z"}
+Sep 01 10:41:36 racknerd-1fba473 node[460615]: error: Geocoding error: Geocoding failed: ZERO_RESULTS {"timestamp":"2025-09-01T14:41:36.335Z"}
+Sep 01 10:41:36 racknerd-1fba473 node[460615]: error: Geocoding error: Geocoding failed: ZERO_RESULTS {"timestamp":"2025-09-01T14:41:36.444Z"}
+Sep 01 10:41:40 racknerd-1fba473 node[460615]: info: GET /estimates/5 - IP: ::1 {"timestamp":"2025-09-01T14:41:40.344Z"}
+Sep 01 10:41:40 racknerd-1fba473 node[460615]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:41:40.385Z"}
+Sep 01 10:41:43 racknerd-1fba473 node[460615]: info: GET /estimates/5 - IP: ::1 {"timestamp":"2025-09-01T14:41:43.522Z"}
+Sep 01 10:41:43 racknerd-1fba473 node[460615]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:41:43.563Z"}
+Sep 01 10:41:52 racknerd-1fba473 node[460615]: info: GET /estimates - IP: ::1 {"timestamp":"2025-09-01T14:41:52.543Z"}
+Sep 01 10:41:52 racknerd-1fba473 node[460615]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:41:52.546Z"}
+Sep 01 10:41:55 racknerd-1fba473 node[460615]: info: GET /estimates/35 - IP: ::1 {"timestamp":"2025-09-01T14:41:55.578Z"}
+Sep 01 10:41:55 racknerd-1fba473 node[460615]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:41:55.619Z"}
+Sep 01 10:47:54 racknerd-1fba473 systemd[1]: Stopping MoveThatStuff CRM Backend Service...
+Sep 01 10:47:54 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Succeeded.
+Sep 01 10:47:54 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Sep 01 10:47:54 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Sep 01 10:47:54 racknerd-1fba473 node[461057]: [dotenv@17.2.1] injecting env (10) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+Sep 01 10:47:54 racknerd-1fba473 node[461057]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+Sep 01 10:47:54 racknerd-1fba473 node[461057]: info: Server running on port 3000 {"timestamp":"2025-09-01T14:47:54.717Z"}
+Sep 01 10:47:59 racknerd-1fba473 node[461057]: info: GET /estimates/34 - IP: ::1 {"timestamp":"2025-09-01T14:47:59.707Z"}
+Sep 01 10:47:59 racknerd-1fba473 node[461057]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:47:59.805Z"}
+Sep 01 10:48:05 racknerd-1fba473 node[461057]: info: GET /customers - IP: ::1 {"timestamp":"2025-09-01T14:48:05.560Z"}
+Sep 01 10:48:05 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:48:05.563Z"}
+Sep 01 10:48:08 racknerd-1fba473 node[461057]: info: GET /estimates/39 - IP: ::1 {"timestamp":"2025-09-01T14:48:08.575Z"}
+Sep 01 10:48:08 racknerd-1fba473 node[461057]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:48:08.619Z"}
+Sep 01 10:49:04 racknerd-1fba473 node[461057]: info: POST /estimates - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T14:49:04.259Z"}
+Sep 01 10:52:29 racknerd-1fba473 node[461057]: info: POST /auth/login - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T14:52:29.759Z"}
+Sep 01 10:52:29 racknerd-1fba473 node[461057]: info: Login attempt for user: admin {"timestamp":"2025-09-01T14:52:29.763Z"}
+Sep 01 10:52:29 racknerd-1fba473 node[461057]: info: Password comparison for admin: true {"timestamp":"2025-09-01T14:52:29.824Z"}
+Sep 01 10:52:29 racknerd-1fba473 node[461057]: info: Login successful for admin. Access token generated. {"timestamp":"2025-09-01T14:52:29.829Z"}
+Sep 01 10:54:04 racknerd-1fba473 node[461057]: info: GET /customers - IP: ::1 {"timestamp":"2025-09-01T14:54:04.235Z"}
+Sep 01 10:54:04 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:54:04.237Z"}
+Sep 01 10:54:26 racknerd-1fba473 node[461057]: info: POST /estimates/30/calculate - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T14:54:26.366Z"}
+Sep 01 10:54:36 racknerd-1fba473 node[461057]: info: GET /estimates/30 - IP: ::1 {"timestamp":"2025-09-01T14:54:36.910Z"}
+Sep 01 10:54:36 racknerd-1fba473 node[461057]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:54:36.952Z"}
+Sep 01 10:54:50 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::1 {"timestamp":"2025-09-01T14:54:50.161Z"}
+Sep 01 10:54:50 racknerd-1fba473 node[461057]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:54:50.165Z"}
+Sep 01 10:54:55 racknerd-1fba473 node[461057]: info: GET /estimates/34 - IP: ::1 {"timestamp":"2025-09-01T14:54:55.539Z"}
+Sep 01 10:54:55 racknerd-1fba473 node[461057]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:54:55.579Z"}
+Sep 01 10:55:29 racknerd-1fba473 node[461057]: info: POST /estimates/30/calculate - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T14:55:29.168Z"}
+Sep 01 10:55:33 racknerd-1fba473 node[461057]: info: GET /estimates/34 - IP: ::1 {"timestamp":"2025-09-01T14:55:33.567Z"}
+Sep 01 10:55:33 racknerd-1fba473 node[461057]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:55:33.619Z"}
+Sep 01 10:55:41 racknerd-1fba473 node[461057]: info: GET /customers - IP: ::1 {"timestamp":"2025-09-01T14:55:41.929Z"}
+Sep 01 10:55:41 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:55:41.932Z"}
+Sep 01 10:55:48 racknerd-1fba473 node[461057]: info: DELETE /estimates/16 - IP: ::1 {"timestamp":"2025-09-01T14:55:48.260Z"}
+Sep 01 10:55:48 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:55:48.306Z"}
+Sep 01 10:55:51 racknerd-1fba473 node[461057]: info: DELETE /estimates/15 - IP: ::1 {"timestamp":"2025-09-01T14:55:51.824Z"}
+Sep 01 10:55:51 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:55:51.865Z"}
+Sep 01 10:55:55 racknerd-1fba473 node[461057]: info: DELETE /estimates/32 - IP: ::1 {"timestamp":"2025-09-01T14:55:55.603Z"}
+Sep 01 10:55:55 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:55:55.644Z"}
+Sep 01 10:55:57 racknerd-1fba473 node[461057]: info: DELETE /estimates/33 - IP: ::1 {"timestamp":"2025-09-01T14:55:57.506Z"}
+Sep 01 10:55:57 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:55:57.546Z"}
+Sep 01 10:55:59 racknerd-1fba473 node[461057]: info: DELETE /estimates/30 - IP: ::1 {"timestamp":"2025-09-01T14:55:59.557Z"}
+Sep 01 10:55:59 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:55:59.595Z"}
+Sep 01 10:56:03 racknerd-1fba473 node[461057]: info: DELETE /estimates/12 - IP: ::1 {"timestamp":"2025-09-01T14:56:03.935Z"}
+Sep 01 10:56:03 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:56:03.983Z"}
+Sep 01 10:56:08 racknerd-1fba473 node[461057]: info: DELETE /estimates/17 - IP: ::1 {"timestamp":"2025-09-01T14:56:08.357Z"}
+Sep 01 10:56:08 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:56:08.397Z"}
+Sep 01 10:56:11 racknerd-1fba473 node[461057]: info: DELETE /estimates/18 - IP: ::1 {"timestamp":"2025-09-01T14:56:11.015Z"}
+Sep 01 10:56:11 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:56:11.053Z"}
+Sep 01 10:56:14 racknerd-1fba473 node[461057]: info: DELETE /estimates/19 - IP: ::1 {"timestamp":"2025-09-01T14:56:14.303Z"}
+Sep 01 10:56:14 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:56:14.343Z"}
+Sep 01 10:56:16 racknerd-1fba473 node[461057]: info: DELETE /estimates/20 - IP: ::1 {"timestamp":"2025-09-01T14:56:16.730Z"}
+Sep 01 10:56:16 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:56:16.769Z"}
+Sep 01 10:56:19 racknerd-1fba473 node[461057]: info: DELETE /estimates/22 - IP: ::1 {"timestamp":"2025-09-01T14:56:19.310Z"}
+Sep 01 10:56:19 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:56:19.349Z"}
+Sep 01 10:56:21 racknerd-1fba473 node[461057]: info: DELETE /estimates/21 - IP: ::1 {"timestamp":"2025-09-01T14:56:21.988Z"}
+Sep 01 10:56:22 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:56:22.026Z"}
+Sep 01 10:56:24 racknerd-1fba473 node[461057]: info: DELETE /estimates/23 - IP: ::1 {"timestamp":"2025-09-01T14:56:24.220Z"}
+Sep 01 10:56:24 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:56:24.266Z"}
+Sep 01 10:56:26 racknerd-1fba473 node[461057]: info: DELETE /estimates/24 - IP: ::1 {"timestamp":"2025-09-01T14:56:26.821Z"}
+Sep 01 10:56:26 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:56:26.858Z"}
+Sep 01 10:56:28 racknerd-1fba473 node[461057]: info: DELETE /estimates/25 - IP: ::1 {"timestamp":"2025-09-01T14:56:28.966Z"}
+Sep 01 10:56:29 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:56:29.015Z"}
+Sep 01 10:56:32 racknerd-1fba473 node[461057]: info: DELETE /estimates/27 - IP: ::1 {"timestamp":"2025-09-01T14:56:32.158Z"}
+Sep 01 10:56:32 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:56:32.198Z"}
+Sep 01 10:56:34 racknerd-1fba473 node[461057]: info: DELETE /estimates/28 - IP: ::1 {"timestamp":"2025-09-01T14:56:34.238Z"}
+Sep 01 10:56:34 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:56:34.277Z"}
+Sep 01 10:56:36 racknerd-1fba473 node[461057]: info: DELETE /estimates/29 - IP: ::1 {"timestamp":"2025-09-01T14:56:36.468Z"}
+Sep 01 10:56:36 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:56:36.506Z"}
+Sep 01 10:56:56 racknerd-1fba473 node[461057]: info: DELETE /estimates/39 - IP: ::1 {"timestamp":"2025-09-01T14:56:56.085Z"}
+Sep 01 10:56:56 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:56:56.131Z"}
+Sep 01 10:56:59 racknerd-1fba473 node[461057]: info: DELETE /estimates/35 - IP: ::1 {"timestamp":"2025-09-01T14:56:59.770Z"}
+Sep 01 10:56:59 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:56:59.809Z"}
+Sep 01 10:57:02 racknerd-1fba473 node[461057]: info: DELETE /estimates/34 - IP: ::1 {"timestamp":"2025-09-01T14:57:02.014Z"}
+Sep 01 10:57:02 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:57:02.053Z"}
+Sep 01 10:57:04 racknerd-1fba473 node[461057]: info: DELETE /estimates/31 - IP: ::1 {"timestamp":"2025-09-01T14:57:04.210Z"}
+Sep 01 10:57:04 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:57:04.254Z"}
+Sep 01 10:57:08 racknerd-1fba473 node[461057]: info: DELETE /estimates/14 - IP: ::1 {"timestamp":"2025-09-01T14:57:08.168Z"}
+Sep 01 10:57:08 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:57:08.207Z"}
+Sep 01 10:57:13 racknerd-1fba473 node[461057]: info: GET /estimates/26 - IP: ::1 {"timestamp":"2025-09-01T14:57:13.432Z"}
+Sep 01 10:57:13 racknerd-1fba473 node[461057]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:57:13.469Z"}
+Sep 01 10:57:25 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::1 {"timestamp":"2025-09-01T14:57:25.642Z"}
+Sep 01 10:57:25 racknerd-1fba473 node[461057]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:57:25.673Z"}
+Sep 01 10:57:30 racknerd-1fba473 node[461057]: info: DELETE /estimates/38 - IP: ::1 {"timestamp":"2025-09-01T14:57:30.370Z"}
+Sep 01 10:57:30 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:57:30.413Z"}
+Sep 01 10:57:32 racknerd-1fba473 node[461057]: info: DELETE /estimates/5 - IP: ::1 {"timestamp":"2025-09-01T14:57:32.241Z"}
+Sep 01 10:57:32 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:57:32.279Z"}
+Sep 01 10:57:34 racknerd-1fba473 node[461057]: info: DELETE /estimates/13 - IP: ::1 {"timestamp":"2025-09-01T14:57:34.458Z"}
+Sep 01 10:57:34 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:57:34.496Z"}
+Sep 01 10:57:36 racknerd-1fba473 node[461057]: info: DELETE /estimates/10 - IP: ::1 {"timestamp":"2025-09-01T14:57:36.435Z"}
+Sep 01 10:57:36 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:57:36.472Z"}
+Sep 01 10:57:38 racknerd-1fba473 node[461057]: info: DELETE /estimates/9 - IP: ::1 {"timestamp":"2025-09-01T14:57:38.608Z"}
+Sep 01 10:57:38 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:57:38.645Z"}
+Sep 01 10:57:41 racknerd-1fba473 node[461057]: info: DELETE /estimates/7 - IP: ::1 {"timestamp":"2025-09-01T14:57:41.184Z"}
+Sep 01 10:57:41 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:57:41.225Z"}
+Sep 01 10:57:42 racknerd-1fba473 node[461057]: info: DELETE /estimates/6 - IP: ::1 {"timestamp":"2025-09-01T14:57:42.828Z"}
+Sep 01 10:57:42 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:57:42.865Z"}
+Sep 01 10:57:53 racknerd-1fba473 node[461057]: info: GET /intake/sources - IP: ::1 {"timestamp":"2025-09-01T14:57:53.790Z"}
+Sep 01 10:58:13 racknerd-1fba473 node[461057]: info: GET /intake/residence-sizes?move_type=apartment - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:58:13.297Z"}
+Sep 01 10:58:15 racknerd-1fba473 node[461057]: info: POST /intake - IP: ::1 {"timestamp":"2025-09-01T14:58:15.941Z"}
+Sep 01 10:58:15 racknerd-1fba473 node[461057]: info: Received source in intake POST: google ads {"timestamp":"2025-09-01T14:58:15.947Z"}
+Sep 01 10:58:15 racknerd-1fba473 node[461057]: info: Source lookup result for 'google ads': 1 rows {"timestamp":"2025-09-01T14:58:15.951Z"}
+Sep 01 10:58:16 racknerd-1fba473 node[461057]: info: GET /estimates/40 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:58:16.545Z"}
+Sep 01 10:58:16 racknerd-1fba473 node[461057]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-09-01T14:58:16.585Z"}
+Sep 01 10:59:12 racknerd-1fba473 node[461057]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T14:59:12.730Z"}
+Sep 01 10:59:12 racknerd-1fba473 node[461057]: info: GET /customers - IP: ::1 {"timestamp":"2025-09-01T14:59:12.765Z"}
+Sep 01 11:08:17 racknerd-1fba473 systemd[1]: Stopping MoveThatStuff CRM Backend Service...
+Sep 01 11:08:17 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Succeeded.
+Sep 01 11:08:17 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Sep 01 11:08:17 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Sep 01 11:08:17 racknerd-1fba473 node[461756]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Sep 01 11:08:17 racknerd-1fba473 node[461756]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+Sep 01 11:08:17 racknerd-1fba473 node[461756]: info: Server running on port 3000 {"timestamp":"2025-09-01T15:08:17.847Z"}
+Sep 01 11:08:22 racknerd-1fba473 node[461756]: info: GET /estimates/40 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:08:22.503Z"}
+Sep 01 11:08:22 racknerd-1fba473 node[461756]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-09-01T15:08:22.576Z"}
+Sep 01 11:08:25 racknerd-1fba473 node[461756]: info: GET /estimates/40 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:08:25.344Z"}
+Sep 01 11:08:25 racknerd-1fba473 node[461756]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-09-01T15:08:25.389Z"}
+Sep 01 11:08:39 racknerd-1fba473 node[461756]: info: POST /auth/login - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T15:08:39.417Z"}
+Sep 01 11:08:39 racknerd-1fba473 node[461756]: info: Login attempt for user: admin {"timestamp":"2025-09-01T15:08:39.419Z"}
+Sep 01 11:08:39 racknerd-1fba473 node[461756]: info: Password comparison for admin: true {"timestamp":"2025-09-01T15:08:39.488Z"}
+Sep 01 11:08:39 racknerd-1fba473 node[461756]: info: Login successful for admin. Access token generated. {"timestamp":"2025-09-01T15:08:39.493Z"}
+Sep 01 11:09:44 racknerd-1fba473 node[461756]: info: POST /estimates/40/calculate - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T15:09:44.028Z"}
+Sep 01 11:09:48 racknerd-1fba473 node[461756]: info: GET /estimates/40 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:09:48.207Z"}
+Sep 01 11:09:48 racknerd-1fba473 node[461756]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-09-01T15:09:48.251Z"}
+Sep 01 11:10:41 racknerd-1fba473 node[461756]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:10:41.322Z"}
+Sep 01 11:10:41 racknerd-1fba473 node[461756]: info: GET /customers - IP: ::1 {"timestamp":"2025-09-01T15:10:41.326Z"}
+Sep 01 11:10:43 racknerd-1fba473 node[461756]: info: GET /estimates/26 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:10:43.136Z"}
+Sep 01 11:10:43 racknerd-1fba473 node[461756]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-09-01T15:10:43.188Z"}
+Sep 01 11:10:46 racknerd-1fba473 node[461756]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:10:46.407Z"}
+Sep 01 11:10:46 racknerd-1fba473 node[461756]: info: GET /customers - IP: ::1 {"timestamp":"2025-09-01T15:10:46.410Z"}
+Sep 01 11:11:23 racknerd-1fba473 node[461756]: info: POST /estimates/26/calculate - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T15:11:23.989Z"}
+Sep 01 11:11:28 racknerd-1fba473 node[461756]: info: GET /estimates/26 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:11:28.268Z"}
+Sep 01 11:11:28 racknerd-1fba473 node[461756]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-09-01T15:11:28.313Z"}
+Sep 01 11:20:38 racknerd-1fba473 node[461756]: info: GET /estimates/26 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:20:38.526Z"}
+Sep 01 11:20:38 racknerd-1fba473 node[461756]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-09-01T15:20:38.573Z"}
+Sep 01 11:21:42 racknerd-1fba473 node[461756]: info: GET /estimates/39 - IP: ::1 {"timestamp":"2025-09-01T15:21:42.422Z"}
+Sep 01 11:21:45 racknerd-1fba473 node[461756]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:21:45.097Z"}
+Sep 01 11:21:45 racknerd-1fba473 node[461756]: info: GET /customers - IP: ::1 {"timestamp":"2025-09-01T15:21:45.101Z"}
+Sep 01 11:21:47 racknerd-1fba473 node[461756]: info: GET /estimates/26 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:21:47.249Z"}
+Sep 01 11:21:47 racknerd-1fba473 node[461756]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-09-01T15:21:47.291Z"}
+Sep 01 11:21:49 racknerd-1fba473 node[461756]: info: GET /estimates/26 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:21:49.310Z"}
+Sep 01 11:21:49 racknerd-1fba473 node[461756]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-09-01T15:21:49.365Z"}
+Sep 01 11:29:49 racknerd-1fba473 node[461756]: info: GET /estimates/26 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:29:49.169Z"}
+Sep 01 11:29:49 racknerd-1fba473 node[461756]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-09-01T15:29:49.276Z"}
+Sep 01 11:30:15 racknerd-1fba473 node[461756]: info: GET /estimates/26 - IP: ::1 {"timestamp":"2025-09-01T15:30:15.947Z"}
+Sep 01 11:30:16 racknerd-1fba473 node[461756]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:30:16.004Z"}
+Sep 01 11:30:56 racknerd-1fba473 node[461756]: info: GET /estimates/26 - IP: ::1 {"timestamp":"2025-09-01T15:30:56.388Z"}
+Sep 01 11:30:56 racknerd-1fba473 node[461756]: info: GET /tenants/1 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:30:56.448Z"}
+Sep 01 11:49:27 racknerd-1fba473 systemd[1]: Stopping MoveThatStuff CRM Backend Service...
+Sep 01 11:49:27 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Succeeded.
+Sep 01 11:49:27 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Sep 01 11:49:27 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Sep 01 11:49:27 racknerd-1fba473 node[462978]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+Sep 01 11:49:28 racknerd-1fba473 node[462978]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+Sep 01 11:49:28 racknerd-1fba473 node[462978]: info: Server running on port 3000 {"timestamp":"2025-09-01T15:49:28.169Z"}
+Sep 01 11:49:39 racknerd-1fba473 node[462978]: info: POST /auth/login - IP: ::1 {"timestamp":"2025-09-01T15:49:39.928Z"}
+Sep 01 11:49:39 racknerd-1fba473 node[462978]: info: Login attempt for user: admin {"timestamp":"2025-09-01T15:49:39.933Z"}
+Sep 01 11:49:40 racknerd-1fba473 node[462978]: info: Password comparison for admin: true {"timestamp":"2025-09-01T15:49:40.002Z"}
+Sep 01 11:49:40 racknerd-1fba473 node[462978]: info: Login successful for admin. Access token generated. {"timestamp":"2025-09-01T15:49:40.013Z"}
+Sep 01 11:49:40 racknerd-1fba473 node[462978]: info: GET /reports/estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:49:40.053Z"}
+Sep 01 11:49:41 racknerd-1fba473 node[462978]: info: GET /estimates - IP: ::1 {"timestamp":"2025-09-01T15:49:41.583Z"}
+Sep 01 11:49:41 racknerd-1fba473 node[462978]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:49:41.587Z"}
+Sep 01 11:49:42 racknerd-1fba473 node[462978]: info: GET /estimates/40 - IP: ::1 {"timestamp":"2025-09-01T15:49:42.890Z"}
+Sep 01 11:49:42 racknerd-1fba473 node[462978]: error: Error fetching estimate: permission denied for table estimate_stops - Stack: error: permission denied for table estimate_stops
+Sep 01 11:49:42 racknerd-1fba473 node[462978]:     at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11
+Sep 01 11:49:42 racknerd-1fba473 node[462978]:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+Sep 01 11:49:42 racknerd-1fba473 node[462978]:     at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:168:26 {"timestamp":"2025-09-01T15:49:42.898Z"}
+Sep 01 11:49:45 racknerd-1fba473 node[462978]: info: GET /estimates/40 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:49:45.253Z"}
+Sep 01 11:49:45 racknerd-1fba473 node[462978]: error: Error fetching estimate: permission denied for table estimate_stops - Stack: error: permission denied for table estimate_stops
+Sep 01 11:49:45 racknerd-1fba473 node[462978]:     at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11
+Sep 01 11:49:45 racknerd-1fba473 node[462978]:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+Sep 01 11:49:45 racknerd-1fba473 node[462978]:     at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:168:26 {"timestamp":"2025-09-01T15:49:45.266Z"}
+Sep 01 11:49:46 racknerd-1fba473 node[462978]: info: GET /estimates/40 - IP: ::1 {"timestamp":"2025-09-01T15:49:46.340Z"}
+Sep 01 11:49:46 racknerd-1fba473 node[462978]: error: Error fetching estimate: permission denied for table estimate_stops - Stack: error: permission denied for table estimate_stops
+Sep 01 11:49:46 racknerd-1fba473 node[462978]:     at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11
+Sep 01 11:49:46 racknerd-1fba473 node[462978]:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+Sep 01 11:49:46 racknerd-1fba473 node[462978]:     at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:168:26 {"timestamp":"2025-09-01T15:49:46.355Z"}
+Sep 01 11:49:47 racknerd-1fba473 node[462978]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:49:47.091Z"}
+Sep 01 11:49:47 racknerd-1fba473 node[462978]: info: GET /estimates - IP: ::1 {"timestamp":"2025-09-01T15:49:47.094Z"}
+Sep 01 11:49:48 racknerd-1fba473 node[462978]: info: GET /estimates/26 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:49:48.337Z"}
+Sep 01 11:49:48 racknerd-1fba473 node[462978]: error: Error fetching estimate: permission denied for table estimate_stops - Stack: error: permission denied for table estimate_stops
+Sep 01 11:49:48 racknerd-1fba473 node[462978]:     at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11
+Sep 01 11:49:48 racknerd-1fba473 node[462978]:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+Sep 01 11:49:48 racknerd-1fba473 node[462978]:     at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:168:26 {"timestamp":"2025-09-01T15:49:48.344Z"}
+Sep 01 11:49:49 racknerd-1fba473 node[462978]: info: GET /customers - IP: ::1 {"timestamp":"2025-09-01T15:49:49.631Z"}
+Sep 01 11:49:49 racknerd-1fba473 node[462978]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:49:49.634Z"}
+Sep 01 11:49:51 racknerd-1fba473 node[462978]: info: GET /estimates/26 - IP: ::1 {"timestamp":"2025-09-01T15:49:51.293Z"}
+Sep 01 11:49:51 racknerd-1fba473 node[462978]: error: Error fetching estimate: permission denied for table estimate_stops - Stack: error: permission denied for table estimate_stops
+Sep 01 11:49:51 racknerd-1fba473 node[462978]:     at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11
+Sep 01 11:49:51 racknerd-1fba473 node[462978]:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+Sep 01 11:49:51 racknerd-1fba473 node[462978]:     at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:168:26 {"timestamp":"2025-09-01T15:49:51.299Z"}
+Sep 01 11:49:59 racknerd-1fba473 node[462978]: info: GET /estimates/26 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:49:59.227Z"}
+Sep 01 11:49:59 racknerd-1fba473 node[462978]: error: Error fetching estimate: permission denied for table estimate_stops - Stack: error: permission denied for table estimate_stops
+Sep 01 11:49:59 racknerd-1fba473 node[462978]:     at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11
+Sep 01 11:49:59 racknerd-1fba473 node[462978]:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+Sep 01 11:49:59 racknerd-1fba473 node[462978]:     at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:168:26 {"timestamp":"2025-09-01T15:49:59.238Z"}
+Sep 01 11:50:00 racknerd-1fba473 node[462978]: info: GET /customers - IP: ::1 {"timestamp":"2025-09-01T15:50:00.557Z"}
+Sep 01 11:50:00 racknerd-1fba473 node[462978]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T15:50:00.560Z"}
+Sep 01 11:50:01 racknerd-1fba473 node[462978]: info: GET /estimates/26 - IP: ::1 {"timestamp":"2025-09-01T15:50:01.481Z"}
+Sep 01 11:50:01 racknerd-1fba473 node[462978]: error: Error fetching estimate: permission denied for table estimate_stops - Stack: error: permission denied for table estimate_stops
+Sep 01 11:50:01 racknerd-1fba473 node[462978]:     at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11
+Sep 01 11:50:01 racknerd-1fba473 node[462978]:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+Sep 01 11:50:01 racknerd-1fba473 node[462978]:     at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:168:26 {"timestamp":"2025-09-01T15:50:01.489Z"}
+Sep 01 14:10:31 racknerd-1fba473 node[462978]: info: POST /auth/login - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T18:10:31.479Z"}
+Sep 01 14:10:31 racknerd-1fba473 node[462978]: info: Login attempt for user: admin {"timestamp":"2025-09-01T18:10:31.482Z"}
+Sep 01 14:10:31 racknerd-1fba473 node[462978]: info: Password comparison for admin: true {"timestamp":"2025-09-01T18:10:31.545Z"}
+Sep 01 14:10:31 racknerd-1fba473 node[462978]: info: Login successful for admin. Access token generated. {"timestamp":"2025-09-01T18:10:31.550Z"}
+Sep 01 14:10:31 racknerd-1fba473 node[462978]: info: GET /reports/estimates - IP: ::1 {"timestamp":"2025-09-01T18:10:31.590Z"}
+Sep 01 14:10:33 racknerd-1fba473 node[462978]: info: GET /customers - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T18:10:33.075Z"}
+Sep 01 14:10:33 racknerd-1fba473 node[462978]: info: GET /estimates - IP: ::1 {"timestamp":"2025-09-01T18:10:33.079Z"}
+Sep 01 14:10:34 racknerd-1fba473 node[462978]: info: GET /estimates/26 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T18:10:34.510Z"}
+Sep 01 14:10:34 racknerd-1fba473 node[462978]: error: Error fetching estimate: permission denied for table estimate_stops - Stack: error: permission denied for table estimate_stops
+Sep 01 14:10:34 racknerd-1fba473 node[462978]:     at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11
+Sep 01 14:10:34 racknerd-1fba473 node[462978]:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+Sep 01 14:10:34 racknerd-1fba473 node[462978]:     at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:168:26 {"timestamp":"2025-09-01T18:10:34.520Z"}
+Sep 01 14:10:48 racknerd-1fba473 node[462978]: info: GET /estimates/26 - IP: ::1 {"timestamp":"2025-09-01T18:10:48.243Z"}
+Sep 01 14:11:45 racknerd-1fba473 node[462978]: info: GET /estimates - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T18:11:45.589Z"}
+Sep 01 14:11:45 racknerd-1fba473 node[462978]: info: GET /customers - IP: ::1 {"timestamp":"2025-09-01T18:11:45.624Z"}
+Sep 01 14:12:47 racknerd-1fba473 node[462978]: info: POST /auth/login - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T18:12:47.390Z"}
+Sep 01 14:12:47 racknerd-1fba473 node[462978]: info: Login attempt for user: admin {"timestamp":"2025-09-01T18:12:47.391Z"}
+Sep 01 14:12:47 racknerd-1fba473 node[462978]: info: Password comparison for admin: true {"timestamp":"2025-09-01T18:12:47.448Z"}
+Sep 01 14:12:47 racknerd-1fba473 node[462978]: info: Login successful for admin. Access token generated. {"timestamp":"2025-09-01T18:12:47.451Z"}
+Sep 01 14:13:29 racknerd-1fba473 node[462978]: info: POST /estimates/26/stops - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T18:13:29.425Z"}
+Sep 01 14:13:29 racknerd-1fba473 node[462978]: error: Error adding stop: permission denied for table estimate_stops - Stack: error: permission denied for table estimate_stops
+Sep 01 14:13:29 racknerd-1fba473 node[462978]:     at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11
+Sep 01 14:13:29 racknerd-1fba473 node[462978]:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+Sep 01 14:13:29 racknerd-1fba473 node[462978]:     at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:596:32 {"timestamp":"2025-09-01T18:13:29.434Z"}
+Sep 01 14:15:00 racknerd-1fba473 systemd[1]: Stopping MoveThatStuff CRM Backend Service...
+Sep 01 14:15:00 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Succeeded.
+Sep 01 14:15:00 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Sep 01 14:15:00 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Sep 01 14:15:00 racknerd-1fba473 node[466200]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 📡 auto-backup env with Radar: https://dotenvx.com/radar
+Sep 01 14:15:01 racknerd-1fba473 node[466200]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+Sep 01 14:15:01 racknerd-1fba473 node[466200]: info: Server running on port 3000 {"timestamp":"2025-09-01T18:15:01.274Z"}
+Sep 01 14:15:05 racknerd-1fba473 node[466200]: info: POST /estimates/26/stops - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T18:15:05.762Z"}
+Sep 01 14:15:26 racknerd-1fba473 node[466200]: info: POST /estimates/26/stops - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T18:15:26.152Z"}
+Sep 01 14:43:56 racknerd-1fba473 systemd[1]: Stopping MoveThatStuff CRM Backend Service...
+Sep 01 14:43:56 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Succeeded.
+Sep 01 14:43:56 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Sep 01 14:43:56 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Sep 01 14:43:56 racknerd-1fba473 node[467141]: [dotenv@17.2.1] injecting env (10) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+Sep 01 14:43:56 racknerd-1fba473 node[467141]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+Sep 01 14:43:56 racknerd-1fba473 node[467141]: info: Server running on port 3000 {"timestamp":"2025-09-01T18:43:56.719Z"}
+Sep 01 14:44:01 racknerd-1fba473 node[467141]: info: GET /estimates/26 - IP: ::ffff:127.0.0.1 {"timestamp":"2025-09-01T18:44:01.065Z"}
+Sep 01 14:44:01 racknerd-1fba473 node[467141]: info: GET /tenants/1 - IP: ::1 {"timestamp":"2025-09-01T18:44:01.146Z"}
+Sep 01 14:44:31 racknerd-1fba473 node[467141]: info: POST /estimates/26/stops - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T18:44:31.391Z"}
+Sep 01 14:45:26 racknerd-1fba473 node[467141]: info: POST /estimates/26/stops - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T18:45:26.409Z"}
+Sep 01 14:45:47 racknerd-1fba473 node[467141]: info: POST /auth/login - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T18:45:47.316Z"}
+Sep 01 14:45:47 racknerd-1fba473 node[467141]: info: Login attempt for user: admin {"timestamp":"2025-09-01T18:45:47.318Z"}
+Sep 01 14:45:47 racknerd-1fba473 node[467141]: info: Password comparison for admin: true {"timestamp":"2025-09-01T18:45:47.387Z"}
+Sep 01 14:45:47 racknerd-1fba473 node[467141]: info: Login successful for admin. Access token generated. {"timestamp":"2025-09-01T18:45:47.393Z"}
+Sep 01 14:46:15 racknerd-1fba473 node[467141]: info: POST /estimates/26/stops - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T18:46:15.378Z"}
+Sep 01 14:48:57 racknerd-1fba473 systemd[1]: Stopping MoveThatStuff CRM Backend Service...
+Sep 01 14:48:57 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Succeeded.
+Sep 01 14:48:57 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Sep 01 14:48:57 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Sep 01 14:48:57 racknerd-1fba473 node[467363]: [dotenv@17.2.1] injecting env (10) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+Sep 01 14:48:58 racknerd-1fba473 node[467363]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+Sep 01 14:48:58 racknerd-1fba473 node[467363]: info: Server running on port 3000 {"timestamp":"2025-09-01T18:48:58.157Z"}
+Sep 01 14:49:01 racknerd-1fba473 node[467363]: info: POST /estimates/26/stops - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T18:49:01.951Z"}
+Sep 01 15:08:52 racknerd-1fba473 systemd[1]: Stopping MoveThatStuff CRM Backend Service...
+Sep 01 15:08:52 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Succeeded.
+Sep 01 15:08:52 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Sep 01 15:08:52 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Sep 01 15:08:52 racknerd-1fba473 node[467819]: [dotenv@17.2.1] injecting env (10) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+Sep 01 15:08:52 racknerd-1fba473 node[467819]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+Sep 01 15:08:53 racknerd-1fba473 node[467819]: info: Server running on port 3000 {"timestamp":"2025-09-01T19:08:53.006Z"}
+Sep 01 15:10:56 racknerd-1fba473 node[467819]: info: POST /estimates/26/stops - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T19:10:56.488Z"}
+Sep 01 15:16:25 racknerd-1fba473 systemd[1]: Stopping MoveThatStuff CRM Backend Service...
+Sep 01 15:16:25 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Succeeded.
+Sep 01 15:16:25 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Sep 01 15:16:25 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Sep 01 15:16:25 racknerd-1fba473 node[468099]: [dotenv@17.2.1] injecting env (10) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+Sep 01 15:16:26 racknerd-1fba473 node[468099]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 📡 auto-backup env with Radar: https://dotenvx.com/radar
+Sep 01 15:16:26 racknerd-1fba473 node[468099]: info: Server running on port 3000 {"timestamp":"2025-09-01T19:16:26.279Z"}
+Sep 01 15:16:28 racknerd-1fba473 node[468099]: info: POST /estimates/26/stops - IP: ::ffff:23.95.137.146 {"timestamp":"2025-09-01T19:16:28.829Z"}
+Sep 01 15:16:29 racknerd-1fba473 node[468099]: error: Error adding stop: permission denied for sequence estimate_stops_id_seq - Stack: error: permission denied for sequence estimate_stops_id_seq
+Sep 01 15:16:29 racknerd-1fba473 node[468099]:     at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11
+Sep 01 15:16:29 racknerd-1fba473 node[468099]:     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+Sep 01 15:16:29 racknerd-1fba473 node[468099]:     at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:560:24 {"timestamp":"2025-09-01T19:16:29.106Z"}

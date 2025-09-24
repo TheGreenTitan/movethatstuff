@@ -1,0 +1,101 @@
+-- Logs begin at Wed 2025-08-20 05:23:21 EDT, end at Sat 2025-08-23 22:41:52 EDT. --
+Aug 23 22:38:16 racknerd-1fba473 node[248943]: internal/modules/cjs/loader.js:934
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:   throw err;
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:   ^
+Aug 23 22:38:16 racknerd-1fba473 node[248943]: Error: Cannot find module './middleware'
+Aug 23 22:38:16 racknerd-1fba473 node[248943]: Require stack:
+Aug 23 22:38:16 racknerd-1fba473 node[248943]: - /var/www/movethatstuff/backend/routes/portalRoutes.js
+Aug 23 22:38:16 racknerd-1fba473 node[248943]: - /var/www/movethatstuff/backend/index.js
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:931:15)
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:     at Function.Module._load (internal/modules/cjs/loader.js:774:27)
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:     at Object.<anonymous> (/var/www/movethatstuff/backend/routes/portalRoutes.js:4:29)
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:     at Module.require (internal/modules/cjs/loader.js:1003:19) {
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:   code: 'MODULE_NOT_FOUND',
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:   requireStack: [
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:     '/var/www/movethatstuff/backend/routes/portalRoutes.js',
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:     '/var/www/movethatstuff/backend/index.js'
+Aug 23 22:38:16 racknerd-1fba473 node[248943]:   ]
+Aug 23 22:38:16 racknerd-1fba473 node[248943]: }
+Aug 23 22:38:16 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 23 22:38:16 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 23 22:38:26 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 7.
+Aug 23 22:38:26 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 23 22:38:26 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 23 22:38:26 racknerd-1fba473 node[248975]: [dotenv@17.2.1] injecting env (9) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+Aug 23 22:38:27 racknerd-1fba473 node[248975]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Aug 23 22:38:27 racknerd-1fba473 node[248975]: internal/modules/cjs/loader.js:934
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:   throw err;
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:   ^
+Aug 23 22:38:27 racknerd-1fba473 node[248975]: Error: Cannot find module './middleware'
+Aug 23 22:38:27 racknerd-1fba473 node[248975]: Require stack:
+Aug 23 22:38:27 racknerd-1fba473 node[248975]: - /var/www/movethatstuff/backend/routes/portalRoutes.js
+Aug 23 22:38:27 racknerd-1fba473 node[248975]: - /var/www/movethatstuff/backend/index.js
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:931:15)
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:     at Function.Module._load (internal/modules/cjs/loader.js:774:27)
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:     at Object.<anonymous> (/var/www/movethatstuff/backend/routes/portalRoutes.js:4:29)
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:     at Module.require (internal/modules/cjs/loader.js:1003:19) {
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:   code: 'MODULE_NOT_FOUND',
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:   requireStack: [
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:     '/var/www/movethatstuff/backend/routes/portalRoutes.js',
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:     '/var/www/movethatstuff/backend/index.js'
+Aug 23 22:38:27 racknerd-1fba473 node[248975]:   ]
+Aug 23 22:38:27 racknerd-1fba473 node[248975]: }
+Aug 23 22:38:27 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 23 22:38:27 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 23 22:38:37 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 8.
+Aug 23 22:38:37 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 23 22:38:37 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 23 22:38:37 racknerd-1fba473 node[249006]: [dotenv@17.2.1] injecting env (9) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+Aug 23 22:38:37 racknerd-1fba473 node[249006]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 📡 auto-backup env with Radar: https://dotenvx.com/radar
+Aug 23 22:38:37 racknerd-1fba473 node[249006]: internal/modules/cjs/loader.js:934
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:   throw err;
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:   ^
+Aug 23 22:38:37 racknerd-1fba473 node[249006]: Error: Cannot find module './middleware'
+Aug 23 22:38:37 racknerd-1fba473 node[249006]: Require stack:
+Aug 23 22:38:37 racknerd-1fba473 node[249006]: - /var/www/movethatstuff/backend/routes/portalRoutes.js
+Aug 23 22:38:37 racknerd-1fba473 node[249006]: - /var/www/movethatstuff/backend/index.js
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:     at Function.Module._resolveFilename (internal/modules/cjs/loader.js:931:15)
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:     at Function.Module._load (internal/modules/cjs/loader.js:774:27)
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:     at Module.require (internal/modules/cjs/loader.js:1003:19)
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:     at require (internal/modules/cjs/helpers.js:107:18)
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:     at Object.<anonymous> (/var/www/movethatstuff/backend/routes/portalRoutes.js:4:29)
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:     at Module._compile (internal/modules/cjs/loader.js:1114:14)
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1143:10)
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:     at Module.load (internal/modules/cjs/loader.js:979:32)
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:     at Function.Module._load (internal/modules/cjs/loader.js:819:12)
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:     at Module.require (internal/modules/cjs/loader.js:1003:19) {
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:   code: 'MODULE_NOT_FOUND',
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:   requireStack: [
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:     '/var/www/movethatstuff/backend/routes/portalRoutes.js',
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:     '/var/www/movethatstuff/backend/index.js'
+Aug 23 22:38:37 racknerd-1fba473 node[249006]:   ]
+Aug 23 22:38:37 racknerd-1fba473 node[249006]: }
+Aug 23 22:38:37 racknerd-1fba473 systemd[1]: [0;1;39m[0;1;31m[0;1;39mmovethatstuff-backend.service: Main process exited, code=exited, status=1/FAILURE[0m
+Aug 23 22:38:37 racknerd-1fba473 systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mmovethatstuff-backend.service: Failed with result 'exit-code'.[0m
+Aug 23 22:38:47 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Scheduled restart job, restart counter is at 9.
+Aug 23 22:38:47 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 23 22:38:47 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 23 22:38:48 racknerd-1fba473 node[249046]: [dotenv@17.2.1] injecting env (9) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+Aug 23 22:38:48 racknerd-1fba473 node[249046]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+Aug 23 22:38:48 racknerd-1fba473 node[249046]: info: Server running on port 3000 {"timestamp":"2025-08-24T02:38:48.472Z"}
+Aug 23 22:38:57 racknerd-1fba473 systemd[1]: Stopping MoveThatStuff CRM Backend Service...
+Aug 23 22:38:57 racknerd-1fba473 systemd[1]: movethatstuff-backend.service: Succeeded.
+Aug 23 22:38:57 racknerd-1fba473 systemd[1]: Stopped MoveThatStuff CRM Backend Service.
+Aug 23 22:38:57 racknerd-1fba473 systemd[1]: Started MoveThatStuff CRM Backend Service.
+Aug 23 22:38:57 racknerd-1fba473 node[249087]: [dotenv@17.2.1] injecting env (9) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+Aug 23 22:38:57 racknerd-1fba473 node[249087]: [dotenv@17.2.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+Aug 23 22:38:57 racknerd-1fba473 node[249087]: info: Server running on port 3000 {"timestamp":"2025-08-24T02:38:57.450Z"}
+Aug 23 22:40:11 racknerd-1fba473 node[249087]: info: HEAD /portal/estimates/17?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlc3RpbWF0ZV9pZCI6MTcsInR5cGUiOiJjdXN0b21lcl92aWV3IiwiaWF0IjoxNzU2MDAyMDU1LCJleHAiOjE3NTYwODg0NTV9.RXeplFCJERMxfBsonorZGFKcGBKBqOYZQkNQiXkdFUM - IP: ::ffff:127.0.0.1 {"timestamp":"2025-08-24T02:40:11.976Z"}
+Aug 23 22:40:12 racknerd-1fba473 node[249087]: info: GET /portal/estimates/17?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlc3RpbWF0ZV9pZCI6MTcsInR5cGUiOiJjdXN0b21lcl92aWV3IiwiaWF0IjoxNzU2MDAyMDU1LCJleHAiOjE3NTYwODg0NTV9.RXeplFCJERMxfBsonorZGFKcGBKBqOYZQkNQiXkdFUM - IP: ::1 {"timestamp":"2025-08-24T02:40:12.222Z"}

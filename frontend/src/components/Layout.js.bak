@@ -1,0 +1,70 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+function Layout({ children }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+    navigate('/login');
+  };
+
+  return (
+    <div>
+      {/* Header/Navbar */}
+      <nav id="app-header" className="navbar navbar-expand-lg navbar-dark">
+        <div className="container-fluid">
+          <Link className="navbar-brand" to="/dashboard">MoveThatStuff CRM</Link>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item">
+                <button className="btn btn-link nav-link">Intake Form (Coming Soon)</button>
+              </li>
+              <li className="nav-item">
+                <button className="btn btn-danger nav-link" onClick={handleLogout}>Logout</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {/* Sidebar and Main Content */}
+      <div className="container-fluid">
+        <div className="row">
+          {/* Sidebar */}
+          <nav id="app-sidebar" className="col-md-3 col-lg-2 d-md-block sidebar">
+            <div className="position-sticky pt-3">
+              <ul className="nav flex-column">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/dashboard">Dashboard</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/customers">Customers</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/estimates">Estimates</Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/settings">Settings</Link>
+                </li>
+                {/* Add more links later */}
+              </ul>
+            </div>
+          </nav>
+
+          {/* Main Content */}
+          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            {children}
+          </main>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Layout;

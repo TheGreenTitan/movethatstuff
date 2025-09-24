@@ -1,0 +1,10 @@
+app.get('/opportunities', authenticateToken, (req, res) => {
+    const userId = req.user.id; // Assuming user belongs to a tenant; for now, use a simple mapping
+    pool.query(
+        'SELECT id, customer_id, move_date, move_type, move_service, origin_address, destination_address, origin_stairs, dest_stairs, notes, created_at FROM opportunities WHERE customer_id IN (SELECT id FROM customers WHERE tenant_id = (SELECT id FROM tenants LIMIT 1))',
+        (err, result) => {
+            if (err) return res.status(500).send(`Error fetching opportunities: ${err.message}`);
+            res.json(result.rows);
+        }
+    );
+});

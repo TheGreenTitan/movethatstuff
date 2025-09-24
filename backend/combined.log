@@ -1,0 +1,593 @@
+{"level":"info","message":"GET /reports/estimates - IP: ::1","timestamp":"2025-09-07T11:52:33.625Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T11:52:34.981Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T11:52:34.984Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T11:52:37.674Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::1","timestamp":"2025-09-07T11:52:37.712Z"}
+{"level":"info","message":"GET /reports/estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T11:56:29.256Z"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-07T11:57:47.205Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T11:57:47.238Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T11:57:49.054Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T11:57:49.100Z"}
+{"level":"info","message":"GET /reports/estimates - IP: ::1","timestamp":"2025-09-07T12:04:15.221Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:07:08.580Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:07:08.613Z"}
+{"level":"info","message":"GET /reports/estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:07:10.229Z"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-07T12:07:17.416Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:07:17.417Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:07:18.787Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:07:18.828Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:09:43.976Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:09:44.078Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:11:33.676Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:11:33.778Z"}
+{"level":"info","message":"DELETE /estimates/41/stops/31 - IP: ::1","timestamp":"2025-09-07T12:11:40.963Z"}
+{"level":"info","message":"POST /estimates/41/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:11:41.013Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:13:22.620Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:13:22.682Z"}
+{"level":"info","message":"POST /estimates/41/stops - IP: ::1","timestamp":"2025-09-07T12:13:38.201Z"}
+{"level":"info","message":"POST /estimates/41/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:13:38.513Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:13:46.010Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:13:46.066Z"}
+{"level":"info","message":"DELETE /estimates/41/stops/35 - IP: ::1","timestamp":"2025-09-07T12:14:37.466Z"}
+{"level":"info","message":"POST /estimates/41/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:14:37.519Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:14:41.501Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:14:41.541Z"}
+{"level":"info","message":"POST /estimates/41/stops - IP: ::1","timestamp":"2025-09-07T12:14:58.761Z"}
+{"level":"info","message":"POST /estimates/41/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:14:59.071Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:19:34.027Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:19:34.074Z"}
+{"level":"info","message":"DELETE /estimates/41/stops/36 - IP: ::1","timestamp":"2025-09-07T12:19:41.283Z"}
+{"level":"info","message":"POST /estimates/41/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:19:41.328Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:19:41.654Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:19:41.695Z"}
+{"level":"info","message":"POST /estimates/41/stops - IP: ::1","timestamp":"2025-09-07T12:19:50.343Z"}
+{"level":"info","message":"POST /estimates/41/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:19:50.644Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:19:51.034Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:19:51.085Z"}
+{"level":"info","message":"POST /estimates/41/stops - IP: ::1","timestamp":"2025-09-07T12:20:06.834Z"}
+{"level":"info","message":"POST /estimates/41/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:20:07.132Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:20:07.582Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:20:07.621Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:24:04.138Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:24:04.274Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:25:13.435Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:25:13.481Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:25:57.583Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:25:57.639Z"}
+{"level":"info","message":"DELETE /estimates/41/stops/38 - IP: ::1","timestamp":"2025-09-07T12:26:09.192Z"}
+{"level":"info","message":"POST /estimates/41/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:26:09.252Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:26:09.718Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:26:09.757Z"}
+{"level":"info","message":"POST /estimates/41/stops - IP: ::1","timestamp":"2025-09-07T12:26:24.769Z"}
+{"level":"info","message":"POST /estimates/41/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:26:25.011Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:26:25.455Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:26:25.497Z"}
+{"level":"info","message":"POST /auth/login - IP: ::1","timestamp":"2025-09-07T12:37:31.704Z"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-07T12:37:31.706Z"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-07T12:37:31.783Z"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-07T12:37:31.790Z"}
+{"level":"info","message":"GET /reports/estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:37:31.830Z"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-07T12:37:33.258Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:37:33.260Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:37:34.815Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:37:34.855Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:45:29.531Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:45:29.579Z"}
+{"level":"info","message":"DELETE /estimates/41/stops/39 - IP: ::1","timestamp":"2025-09-07T12:45:43.510Z"}
+{"level":"info","message":"POST /estimates/41/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:45:43.560Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:45:44.162Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:45:44.205Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-07T12:46:27.035Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:46:29.646Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:46:29.769Z"}
+{"level":"info","message":"DELETE /estimates/41/stops/37 - IP: ::1","timestamp":"2025-09-07T12:46:34.972Z"}
+{"level":"info","message":"POST /estimates/41/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:46:35.023Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:46:35.604Z"}
+{"level":"info","message":"GET /tenants/1 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:46:35.644Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:49:35.263Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:49:35.312Z"}
+{"level":"info","message":"POST /estimates/41/stops - IP: ::1","timestamp":"2025-09-07T12:49:49.142Z"}
+{"level":"info","message":"POST /estimates/41/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:49:49.445Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:49:49.958Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:49:49.998Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:52:22.687Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:52:22.733Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-07T12:53:38.439Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:53:38.484Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:53:58.529Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:53:58.531Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:53:59.728Z"}
+{"level":"info","message":"DELETE /customers/26 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:09.527Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:09.574Z"}
+{"level":"info","message":"DELETE /customers/25 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:12.055Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:12.100Z"}
+{"level":"info","message":"DELETE /customers/46 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:17.220Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:17.263Z"}
+{"level":"info","message":"DELETE /customers/29 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:19.678Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:19.717Z"}
+{"level":"info","message":"DELETE /customers/28 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:22.552Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:22.593Z"}
+{"level":"info","message":"DELETE /customers/44 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:28.381Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:28.427Z"}
+{"level":"info","message":"DELETE /customers/27 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:30.568Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:30.610Z"}
+{"level":"info","message":"DELETE /customers/23 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:33.496Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:33.535Z"}
+{"level":"info","message":"DELETE /customers/45 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:35.923Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:35.961Z"}
+{"level":"info","message":"DELETE /customers/38 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:38.508Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:38.549Z"}
+{"level":"info","message":"DELETE /customers/35 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:40.976Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:41.017Z"}
+{"level":"info","message":"DELETE /customers/32 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:43.260Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:43.300Z"}
+{"level":"info","message":"DELETE /customers/30 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:45.610Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:45.650Z"}
+{"level":"info","message":"DELETE /customers/22 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:47.925Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:47.964Z"}
+{"level":"info","message":"DELETE /customers/21 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:51.208Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:51.249Z"}
+{"level":"info","message":"DELETE /customers/20 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:53.600Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:53.640Z"}
+{"level":"info","message":"DELETE /customers/19 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:55.929Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:55.975Z"}
+{"level":"info","message":"DELETE /customers/17 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:54:58.908Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:54:58.946Z"}
+{"level":"info","message":"DELETE /customers/16 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:55:03.162Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:55:03.202Z"}
+{"level":"info","message":"DELETE /customers/15 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:55:05.406Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:55:05.446Z"}
+{"level":"info","message":"DELETE /customers/6 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:55:08.268Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:55:08.307Z"}
+{"level":"info","message":"DELETE /customers/18 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:55:10.394Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:55:10.436Z"}
+{"level":"info","message":"DELETE /customers/14 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:55:12.913Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:55:12.960Z"}
+{"level":"info","message":"DELETE /customers/13 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:55:16.558Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:55:16.595Z"}
+{"level":"info","message":"DELETE /customers/3 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:55:22.031Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:55:22.069Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:55:32.355Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:55:32.387Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:55:37.314Z"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-07T12:55:44.622Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:55:44.623Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:55:47.303Z"}
+{"level":"info","message":"GET /customers/50 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:55:49.693Z"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-07T12:55:49.697Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:55:52.092Z"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-07T12:55:52.101Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:55:54.876Z"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-07T12:56:02.298Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:56:02.303Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:56:05.826Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:56:15.170Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:56:15.171Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:56:19.540Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-07T12:56:19.579Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:59:12.094Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-07T12:59:12.130Z"}
+{"level":"info","message":"GET /estimates/40 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T12:59:13.564Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-07T12:59:13.609Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-07T13:04:20.433Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-08T10:10:39.890Z"}
+{"level":"info","message":"POST /auth/login - IP: ::1","timestamp":"2025-09-08T10:10:48.453Z"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-08T10:10:48.461Z"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-08T10:10:48.546Z"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-08T10:10:48.560Z"}
+{"level":"info","message":"GET /reports/estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T10:10:48.605Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-08T10:10:50.127Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T10:10:50.130Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-08T10:10:52.528Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T10:10:52.572Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-08T10:11:22.523Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T10:11:22.569Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-08T10:11:24.495Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T10:11:26.166Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-08T10:11:26.170Z"}
+{"level":"info","message":"GET /estimates/40 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T10:11:29.392Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-08T10:11:29.441Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T10:11:31.127Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-08T10:11:34.727Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T10:11:34.731Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-08T10:11:35.990Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T10:11:36.030Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-08T10:11:38.534Z"}
+{"level":"info","message":"DELETE /customers/48 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T10:11:45.369Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-08T10:11:45.418Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T10:11:47.445Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-08T10:11:47.446Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T10:11:48.666Z"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-08T10:11:55.398Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T10:11:55.401Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-08T10:11:59.887Z"}
+{"level":"info","message":"DELETE /customers/47 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T10:12:04.532Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-08T10:12:04.573Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T10:12:17.071Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-08T10:12:17.073Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T10:12:21.430Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-08T10:12:21.484Z"}
+{"level":"info","message":"GET /.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T13:50:01.536Z"}
+{"level":"info","message":"GET /shared/config/config.env - IP: ::1","timestamp":"2025-09-08T13:50:06.997Z"}
+{"level":"info","message":"GET /shared/config.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T13:50:07.139Z"}
+{"level":"info","message":"GET /shared/config/.env - IP: ::1","timestamp":"2025-09-08T13:50:07.820Z"}
+{"level":"info","message":"GET /shared/.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T13:50:07.959Z"}
+{"level":"info","message":"GET /config.env - IP: ::1","timestamp":"2025-09-08T13:50:08.098Z"}
+{"level":"info","message":"GET /config.js - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T13:50:15.498Z"}
+{"level":"info","message":"GET /objects/codes.php.save - IP: ::1","timestamp":"2025-09-08T13:50:15.636Z"}
+{"level":"info","message":"GET /config/config.yml - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T13:50:20.411Z"}
+{"level":"info","message":"GET /.env - IP: ::1","timestamp":"2025-09-08T13:57:49.907Z"}
+{"level":"info","message":"GET /shared/config/config.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T13:57:53.840Z"}
+{"level":"info","message":"GET /shared/config.env - IP: ::1","timestamp":"2025-09-08T13:57:53.947Z"}
+{"level":"info","message":"GET /shared/config/.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T13:57:54.440Z"}
+{"level":"info","message":"GET /shared/.env - IP: ::1","timestamp":"2025-09-08T13:57:54.540Z"}
+{"level":"info","message":"GET /config.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T13:57:54.640Z"}
+{"level":"info","message":"GET /config.js - IP: ::1","timestamp":"2025-09-08T13:57:59.944Z"}
+{"level":"info","message":"GET /objects/codes.php.save - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T13:58:00.039Z"}
+{"level":"info","message":"GET /config/config.yml - IP: ::1","timestamp":"2025-09-08T13:58:03.327Z"}
+{"level":"info","message":"GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php - IP: ::ffff:127.0.0.1","timestamp":"2025-09-08T15:20:19.243Z"}
+{"level":"info","message":"GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php - IP: ::1","timestamp":"2025-09-08T23:28:03.144Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-09T02:40:53.251Z"}
+{"level":"info","message":"GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php - IP: ::1","timestamp":"2025-09-09T02:58:54.627Z"}
+{"level":"info","message":"POST /auth/login - IP: ::ffff:127.0.0.1","timestamp":"2025-09-09T09:07:20.408Z"}
+{"level":"info","message":"Login attempt for user: waino_schaefer@twinbash.co","timestamp":"2025-09-09T09:07:20.442Z"}
+{"level":"info","message":"POST /auth/login - IP: ::1","timestamp":"2025-09-09T09:07:27.905Z"}
+{"level":"info","message":"Login attempt for user: waino_schaefer@twinbash.co","timestamp":"2025-09-09T09:07:27.907Z"}
+{"level":"info","message":"POST /auth/login - IP: ::ffff:127.0.0.1","timestamp":"2025-09-09T09:07:36.292Z"}
+{"level":"info","message":"Login attempt for user: cody.howe6","timestamp":"2025-09-09T09:07:36.295Z"}
+{"level":"info","message":"POST /auth/login - IP: ::1","timestamp":"2025-09-09T09:07:44.038Z"}
+{"level":"info","message":"Login attempt for user: cody.howe6","timestamp":"2025-09-09T09:07:44.039Z"}
+{"level":"info","message":"POST /auth/login - IP: ::ffff:127.0.0.1","timestamp":"2025-09-09T09:07:52.253Z"}
+{"level":"info","message":"Login attempt for user: cody.howe6","timestamp":"2025-09-09T09:07:52.255Z"}
+{"level":"info","message":"POST /auth/login - IP: ::1","timestamp":"2025-09-09T09:08:00.047Z"}
+{"level":"info","message":"Login attempt for user: cody.howe6","timestamp":"2025-09-09T09:08:00.048Z"}
+{"level":"info","message":"POST /auth/login - IP: ::ffff:127.0.0.1","timestamp":"2025-09-09T09:08:08.268Z"}
+{"level":"info","message":"Login attempt for user: waino_schaefer@twinbash.co","timestamp":"2025-09-09T09:08:08.269Z"}
+{"level":"info","message":"POST /auth/login - IP: ::1","timestamp":"2025-09-09T09:08:16.062Z"}
+{"level":"info","message":"Login attempt for user: waino_schaefer@twinbash.co","timestamp":"2025-09-09T09:08:16.063Z"}
+{"level":"info","message":"GET /.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-09T14:45:02.508Z"}
+{"level":"info","message":"POST /auth/login - IP: ::1","timestamp":"2025-09-09T19:26:47.717Z"}
+{"level":"info","message":"Login attempt for user: ADMIN","timestamp":"2025-09-09T19:26:47.751Z"}
+{"level":"info","message":"POST /auth/login - IP: ::ffff:127.0.0.1","timestamp":"2025-09-09T19:26:53.157Z"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-09T19:26:53.159Z"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-09T19:26:53.256Z"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-09T19:26:53.302Z"}
+{"level":"info","message":"GET /reports/estimates - IP: ::1","timestamp":"2025-09-09T19:26:53.350Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-09T19:26:54.828Z"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-09T19:26:55.380Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-09T19:26:55.382Z"}
+{"level":"info","message":"GET /intake/sources - IP: ::1","timestamp":"2025-09-09T19:27:01.852Z"}
+{"level":"info","message":"GET /intake/residence-sizes?move_type=house - IP: ::ffff:127.0.0.1","timestamp":"2025-09-09T19:27:50.335Z"}
+{"level":"info","message":"POST /intake - IP: ::1","timestamp":"2025-09-09T19:27:53.769Z"}
+{"level":"info","message":"Received source in intake POST: referral","timestamp":"2025-09-09T19:27:53.782Z"}
+{"level":"info","message":"Source lookup result for 'referral': 1 rows","timestamp":"2025-09-09T19:27:53.785Z"}
+{"level":"error","message":"Error processing intake form: column \"origin_address\" of relation \"estimates\" does not exist - Stack: error: column \"origin_address\" of relation \"estimates\" does not exist\n    at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async /var/www/movethatstuff/backend/routes/intakeRoutes.js:113:32","timestamp":"2025-09-09T19:27:53.796Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-09T19:28:07.395Z"}
+{"level":"error","message":"Error fetching estimate: permission denied for table estimate_line_items - Stack: error: permission denied for table estimate_line_items\n    at Parser.parseErrorMessage (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:285:98)\n    at Parser.handlePacket (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:122:29)\n    at Parser.parse (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:35:38)\n    at Socket.<anonymous> (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/index.js:11:42)\n    at Socket.emit (events.js:400:28)\n    at addChunk (internal/streams/readable.js:293:12)\n    at readableAddChunk (internal/streams/readable.js:267:9)\n    at Socket.Readable.push (internal/streams/readable.js:206:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)","timestamp":"2025-09-09T19:28:07.416Z"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-09T19:28:09.565Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-09T19:28:09.604Z"}
+{"level":"info","message":"GET /estimates/40 - IP: ::1","timestamp":"2025-09-09T19:28:10.908Z"}
+{"level":"error","message":"Error fetching estimate: permission denied for table estimate_line_items - Stack: error: permission denied for table estimate_line_items\n    at Parser.parseErrorMessage (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:285:98)\n    at Parser.handlePacket (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:122:29)\n    at Parser.parse (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:35:38)\n    at Socket.<anonymous> (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/index.js:11:42)\n    at Socket.emit (events.js:400:28)\n    at addChunk (internal/streams/readable.js:293:12)\n    at readableAddChunk (internal/streams/readable.js:267:9)\n    at Socket.Readable.push (internal/streams/readable.js:206:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)","timestamp":"2025-09-09T19:28:10.913Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-09T19:28:12.466Z"}
+{"level":"info","message":"GET /customers/50 - IP: ::1","timestamp":"2025-09-09T19:28:13.413Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-09T19:28:13.416Z"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-09T19:28:14.746Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-09T19:28:14.747Z"}
+{"level":"info","message":"GET /estimates/40 - IP: ::1","timestamp":"2025-09-09T19:28:15.627Z"}
+{"level":"error","message":"Error fetching estimate: permission denied for table estimate_line_items - Stack: error: permission denied for table estimate_line_items\n    at Parser.parseErrorMessage (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:285:98)\n    at Parser.handlePacket (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:122:29)\n    at Parser.parse (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:35:38)\n    at Socket.<anonymous> (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/index.js:11:42)\n    at Socket.emit (events.js:400:28)\n    at addChunk (internal/streams/readable.js:293:12)\n    at readableAddChunk (internal/streams/readable.js:267:9)\n    at Socket.Readable.push (internal/streams/readable.js:206:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)","timestamp":"2025-09-09T19:28:15.633Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-09T19:28:16.899Z"}
+{"level":"info","message":"GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php - IP: ::1","timestamp":"2025-09-09T20:22:38.012Z"}
+{"level":"info","message":"GET /.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-10T01:22:56.483Z"}
+{"level":"info","message":"GET /.env - IP: ::1","timestamp":"2025-09-11T15:45:56.088Z"}
+{"level":"info","message":"GET /shared/config/config.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-11T15:46:20.518Z"}
+{"level":"info","message":"GET /shared/config.env - IP: ::1","timestamp":"2025-09-11T15:46:20.962Z"}
+{"level":"info","message":"GET /shared/config/.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-11T15:46:21.584Z"}
+{"level":"info","message":"GET /shared/.env - IP: ::1","timestamp":"2025-09-11T15:46:21.675Z"}
+{"level":"info","message":"GET /config.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-11T15:46:21.768Z"}
+{"level":"info","message":"GET /config.js - IP: ::1","timestamp":"2025-09-11T15:46:28.931Z"}
+{"level":"info","message":"GET /objects/codes.php.save - IP: ::ffff:127.0.0.1","timestamp":"2025-09-11T15:46:29.022Z"}
+{"level":"info","message":"GET /config/config.yml - IP: ::1","timestamp":"2025-09-11T15:46:33.289Z"}
+{"level":"info","message":"GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php - IP: ::ffff:127.0.0.1","timestamp":"2025-09-12T09:46:39.550Z"}
+{"level":"info","message":"GET /.env - IP: ::1","timestamp":"2025-09-12T15:57:32.406Z"}
+{"level":"info","message":"GET /.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-13T18:23:28.068Z"}
+{"level":"info","message":"GET /v2/.env - IP: ::1","timestamp":"2025-09-13T18:23:40.412Z"}
+{"level":"info","message":"GET /.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-14T03:56:00.075Z"}
+{"level":"info","message":"GET /shared/config/config.env - IP: ::1","timestamp":"2025-09-14T03:56:36.239Z"}
+{"level":"info","message":"GET /shared/config.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-14T03:56:36.335Z"}
+{"level":"info","message":"GET /shared/config/.env - IP: ::1","timestamp":"2025-09-14T03:56:37.024Z"}
+{"level":"info","message":"GET /shared/.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-14T03:56:37.148Z"}
+{"level":"info","message":"GET /config.env - IP: ::1","timestamp":"2025-09-14T03:56:37.253Z"}
+{"level":"info","message":"GET /config.js - IP: ::ffff:127.0.0.1","timestamp":"2025-09-14T03:56:53.518Z"}
+{"level":"info","message":"GET /objects/codes.php.save - IP: ::1","timestamp":"2025-09-14T03:56:53.612Z"}
+{"level":"info","message":"GET /config/config.yml - IP: ::ffff:127.0.0.1","timestamp":"2025-09-14T03:56:58.090Z"}
+{"level":"info","message":"GET /.env - IP: ::1","timestamp":"2025-09-15T05:43:31.455Z"}
+{"level":"info","message":"POST /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php - IP: ::ffff:127.0.0.1","timestamp":"2025-09-15T05:43:33.037Z"}
+{"level":"info","message":"GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php - IP: ::1","timestamp":"2025-09-15T18:46:35.221Z"}
+{"level":"info","message":"GET /.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-16T21:11:06.541Z"}
+{"level":"info","message":"GET /.env - IP: ::1","timestamp":"2025-09-17T03:48:14.518Z"}
+{"level":"info","message":"GET /shared/config/config.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-17T03:49:39.383Z"}
+{"level":"info","message":"GET /shared/config.env - IP: ::1","timestamp":"2025-09-17T03:49:40.694Z"}
+{"level":"info","message":"GET /shared/config/.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-17T03:49:45.165Z"}
+{"level":"info","message":"GET /shared/.env - IP: ::1","timestamp":"2025-09-17T03:49:45.755Z"}
+{"level":"info","message":"GET /config.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-17T03:49:47.160Z"}
+{"level":"info","message":"GET /.env - IP: ::1","timestamp":"2025-09-18T00:25:44.671Z"}
+{"level":"info","message":"GET /shared/config/config.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T00:28:07.249Z"}
+{"level":"info","message":"GET /shared/config.env - IP: ::1","timestamp":"2025-09-18T00:28:07.710Z"}
+{"level":"info","message":"GET /shared/config/.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T00:28:15.238Z"}
+{"level":"info","message":"GET /shared/.env - IP: ::1","timestamp":"2025-09-18T00:28:15.729Z"}
+{"level":"info","message":"GET /config.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T00:28:16.297Z"}
+{"level":"info","message":"GET /config.js - IP: ::1","timestamp":"2025-09-18T00:29:46.329Z"}
+{"level":"info","message":"GET /objects/codes.php.save - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T00:29:46.542Z"}
+{"level":"info","message":"GET /config/config.yml - IP: ::1","timestamp":"2025-09-18T00:30:19.420Z"}
+{"level":"info","message":"POST /auth/login - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:14:51.088Z"}
+{"level":"info","message":"GET /auth/login - IP: ::1","timestamp":"2025-09-18T11:15:25.459Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-18T11:22:25.868Z"}
+{"level":"info","message":"POST /auth/login - IP: ::1","timestamp":"2025-09-18T11:23:00.948Z"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-18T11:23:00.963Z"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-18T11:23:01.083Z"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-18T11:23:01.095Z"}
+{"level":"info","message":"GET /reports/estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:23:01.160Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-18T11:23:03.478Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:23:42.935Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-18T11:23:42.970Z"}
+{"level":"info","message":"GET /estimates/40 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:23:44.329Z"}
+{"level":"error","message":"Error fetching estimate: permission denied for table estimate_line_items - Stack: error: permission denied for table estimate_line_items\n    at Parser.parseErrorMessage (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:285:98)\n    at Parser.handlePacket (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:122:29)\n    at Parser.parse (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:35:38)\n    at Socket.<anonymous> (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/index.js:11:42)\n    at Socket.emit (events.js:400:28)\n    at addChunk (internal/streams/readable.js:293:12)\n    at readableAddChunk (internal/streams/readable.js:267:9)\n    at Socket.Readable.push (internal/streams/readable.js:206:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)","timestamp":"2025-09-18T11:23:44.339Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-18T11:25:16.877Z"}
+{"level":"info","message":"GET /estimates/40 - IP: ::1","timestamp":"2025-09-18T11:25:19.904Z"}
+{"level":"error","message":"Error fetching estimate: permission denied for table estimate_line_items - Stack: error: permission denied for table estimate_line_items\n    at Parser.parseErrorMessage (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:285:98)\n    at Parser.handlePacket (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:122:29)\n    at Parser.parse (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:35:38)\n    at Socket.<anonymous> (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/index.js:11:42)\n    at Socket.emit (events.js:400:28)\n    at addChunk (internal/streams/readable.js:293:12)\n    at readableAddChunk (internal/streams/readable.js:267:9)\n    at Socket.Readable.push (internal/streams/readable.js:206:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)","timestamp":"2025-09-18T11:25:19.931Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:25:21.393Z"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-18T11:25:21.396Z"}
+{"level":"info","message":"GET /estimates/26 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:25:22.599Z"}
+{"level":"error","message":"Error fetching estimate: permission denied for table estimate_line_items - Stack: error: permission denied for table estimate_line_items\n    at Parser.parseErrorMessage (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:285:98)\n    at Parser.handlePacket (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:122:29)\n    at Parser.parse (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/parser.js:35:38)\n    at Socket.<anonymous> (/var/www/movethatstuff/backend/node_modules/pg-protocol/dist/index.js:11:42)\n    at Socket.emit (events.js:400:28)\n    at addChunk (internal/streams/readable.js:293:12)\n    at readableAddChunk (internal/streams/readable.js:267:9)\n    at Socket.Readable.push (internal/streams/readable.js:206:10)\n    at TCP.onStreamRead (internal/stream_base_commons.js:188:23)","timestamp":"2025-09-18T11:25:22.605Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-18T11:27:46.233Z"}
+{"level":"info","message":"GET /estimates/26 - IP: ::1","timestamp":"2025-09-18T11:27:48.800Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:27:48.923Z"}
+{"level":"info","message":"GET /reports/estimates - IP: ::1","timestamp":"2025-09-18T11:27:56.644Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:27:57.992Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-18T11:27:57.995Z"}
+{"level":"info","message":"GET /estimates/26 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:27:59.170Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-18T11:27:59.210Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-18T11:42:47.363Z"}
+{"level":"info","message":"GET /estimates/26 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:42:58.228Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-18T11:42:58.371Z"}
+{"level":"info","message":"GET /estimates/26 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:43:26.023Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-18T11:43:26.073Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-18T11:43:35.527Z"}
+{"level":"info","message":"GET /estimates/26 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:43:37.783Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-18T11:43:37.914Z"}
+{"level":"info","message":"GET /reports/estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:43:42.781Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-18T11:43:44.486Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:43:44.489Z"}
+{"level":"info","message":"GET /estimates/26 - IP: ::1","timestamp":"2025-09-18T11:43:45.684Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:43:45.730Z"}
+{"level":"info","message":"GET /estimates/26 - IP: ::1","timestamp":"2025-09-18T11:52:15.114Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:52:15.262Z"}
+{"level":"info","message":"GET /estimates/26 - IP: ::1","timestamp":"2025-09-18T11:52:56.696Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:52:56.741Z"}
+{"level":"info","message":"POST /estimates/26/stops - IP: ::1","timestamp":"2025-09-18T11:56:38.856Z"}
+{"level":"info","message":"POST /estimates/26/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T11:56:39.200Z"}
+{"level":"error","message":"Error calculating estimate: column \"cost\" does not exist - Stack: error: column \"cost\" does not exist\n    at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:395:25","timestamp":"2025-09-18T11:56:39.721Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-18T12:17:08.930Z"}
+{"level":"info","message":"GET /estimates/26 - IP: ::1","timestamp":"2025-09-18T12:18:08.535Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T12:18:08.634Z"}
+{"level":"info","message":"POST /estimates/26/stops - IP: ::1","timestamp":"2025-09-18T12:18:26.555Z"}
+{"level":"info","message":"POST /estimates/26/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-18T12:18:26.886Z"}
+{"level":"error","message":"Error calculating estimate: column \"cost\" does not exist - Stack: error: column \"cost\" does not exist\n    at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:395:25","timestamp":"2025-09-18T12:18:27.391Z"}
+{"level":"info","message":"GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php - IP: ::1","timestamp":"2025-09-19T05:18:28.759Z"}
+{"level":"info","message":"GET /.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-19T07:37:38.135Z"}
+{"level":"info","message":"GET /.env - IP: ::1","timestamp":"2025-09-19T07:37:40.896Z"}
+{"level":"info","message":"POST /auth/login - IP: ::ffff:127.0.0.1","timestamp":"2025-09-19T11:25:08.274Z"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-19T11:25:08.314Z"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-19T11:25:08.451Z"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-19T11:25:08.486Z"}
+{"level":"info","message":"GET /reports/estimates - IP: ::1","timestamp":"2025-09-19T11:25:08.531Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-19T11:25:09.955Z"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-19T11:25:09.981Z"}
+{"level":"info","message":"GET /estimates/26 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-19T11:25:11.339Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-19T11:25:11.401Z"}
+{"level":"info","message":"POST /estimates/26/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-19T11:25:16.809Z"}
+{"level":"error","message":"Error calculating estimate: column \"cost\" does not exist - Stack: error: column \"cost\" does not exist\n    at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:395:25","timestamp":"2025-09-19T11:25:17.569Z"}
+{"level":"info","message":"GET /estimates/26 - IP: ::1","timestamp":"2025-09-19T11:25:20.940Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-19T11:25:21.003Z"}
+{"level":"info","message":"DELETE /estimates/26/stops/41 - IP: ::1","timestamp":"2025-09-19T11:25:27.454Z"}
+{"level":"info","message":"POST /estimates/26/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-19T11:25:27.510Z"}
+{"level":"error","message":"Error calculating estimate: column \"cost\" does not exist - Stack: error: column \"cost\" does not exist\n    at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:395:25","timestamp":"2025-09-19T11:25:27.929Z"}
+{"level":"info","message":"POST /estimates/26/stops - IP: ::1","timestamp":"2025-09-19T11:26:19.032Z"}
+{"level":"info","message":"POST /estimates/26/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-19T11:26:19.363Z"}
+{"level":"error","message":"Error calculating estimate: column \"cost\" does not exist - Stack: error: column \"cost\" does not exist\n    at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)\n    at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:395:25","timestamp":"2025-09-19T11:26:19.955Z"}
+{"level":"info","message":"GET /reports/estimates - IP: ::1","timestamp":"2025-09-19T11:30:41.147Z"}
+{"level":"info","message":"GET /.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-19T18:40:47.655Z"}
+{"level":"info","message":"GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php - IP: ::1","timestamp":"2025-09-20T18:12:29.412Z"}
+{"level":"info","message":"GET /.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-21T01:56:27.662Z"}
+{"level":"info","message":"GET /.env - IP: ::1","timestamp":"2025-09-21T04:22:31.053Z"}
+{"level":"info","message":"GET /.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-21T11:32:27.203Z"}
+{"level":"info","message":"GET /.env - IP: ::1","timestamp":"2025-09-22T08:51:54.924Z"}
+{"level":"info","message":"GET /v2/about - IP: ::ffff:127.0.0.1","timestamp":"2025-09-22T10:44:36.631Z"}
+{"level":"info","message":"GET /v1/check-version - IP: ::1","timestamp":"2025-09-22T10:44:37.722Z"}
+{"level":"info","message":"GET /server/version - IP: ::1","timestamp":"2025-09-22T10:44:37.923Z"}
+{"level":"info","message":"GET /version - IP: ::ffff:127.0.0.1","timestamp":"2025-09-22T10:44:38.231Z"}
+{"level":"info","message":"GET /vip/i18n/api/v2/translation/products/vRNIUI/versions/1 - IP: ::1","timestamp":"2025-09-22T10:44:38.685Z"}
+{"level":"info","message":"GET /v1.0/environment - IP: ::ffff:127.0.0.1","timestamp":"2025-09-22T10:44:39.048Z"}
+{"level":"info","message":"GET /v3/meta - IP: ::1","timestamp":"2025-09-22T10:44:39.596Z"}
+{"level":"info","message":"GET /v1/version - IP: ::ffff:127.0.0.1","timestamp":"2025-09-22T10:44:39.897Z"}
+{"level":"info","message":"GET /v2/hoverfly/version - IP: ::1","timestamp":"2025-09-22T10:44:40.506Z"}
+{"level":"info","message":"GET /v1/info - IP: ::ffff:127.0.0.1","timestamp":"2025-09-22T10:44:40.758Z"}
+{"level":"info","message":"GET /status - IP: ::1","timestamp":"2025-09-22T10:44:40.963Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-22T11:21:10.957Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-22T11:24:19.681Z"}
+{"level":"info","message":"POST /auth/login - IP: ::ffff:127.0.0.1","timestamp":"2025-09-22T11:46:59.790Z"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-22T11:46:59.800Z"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-22T11:46:59.902Z"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-22T11:46:59.920Z"}
+{"level":"info","message":"GET /reports/estimates - IP: ::1","timestamp":"2025-09-22T11:46:59.963Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-22T11:47:01.606Z"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-22T11:47:01.610Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-22T11:47:04.556Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-22T11:47:04.602Z"}
+{"level":"info","message":"POST /estimates/41/stops - IP: ::ffff:127.0.0.1","timestamp":"2025-09-22T11:47:13.242Z"}
+{"level":"info","message":"POST /estimates/41/calculate - IP: ::1","timestamp":"2025-09-22T11:47:13.597Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-22T11:47:14.234Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-22T11:47:14.275Z"}
+{"level":"info","message":"DELETE /estimates/41/stops/44 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-22T11:47:22.530Z"}
+{"level":"info","message":"POST /estimates/41/calculate - IP: ::1","timestamp":"2025-09-22T11:47:22.579Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-22T11:47:22.963Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-22T11:47:23.003Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-23T10:07:06.166Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-23T10:11:04.446Z"}
+{"level":"info","message":"POST /auth/login - IP: ::1","timestamp":"2025-09-23T10:13:35.188Z"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-23T10:13:35.195Z"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-23T10:13:35.292Z"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-23T10:13:35.310Z"}
+{"level":"info","message":"GET /reports/estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T10:13:35.358Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-23T10:13:38.351Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T10:13:39.827Z"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T10:13:39.839Z"}
+{"level":"info","message":"GET /estimates/40 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T10:13:41.513Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-23T10:13:41.564Z"}
+{"level":"info","message":"GET /estimates/40 - IP: ::1","timestamp":"2025-09-23T10:15:50.342Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T10:15:50.497Z"}
+{"level":"info","message":"GET /reports/estimates - IP: ::1","timestamp":"2025-09-23T10:15:51.954Z"}
+{"level":"info","message":"POST /auth/login - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T10:15:57.875Z"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-23T10:15:57.876Z"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-23T10:15:57.944Z"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-23T10:15:57.950Z"}
+{"level":"info","message":"GET /reports/estimates - IP: ::1","timestamp":"2025-09-23T10:15:57.990Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T10:15:59.340Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-23T10:15:59.349Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T10:16:00.493Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-23T10:16:00.536Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-23T11:05:04.536Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:05:39.002Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-23T11:05:39.157Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:07:30.946Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-23T11:07:30.998Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:07:33.057Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-23T11:07:33.058Z"}
+{"level":"info","message":"GET /estimates/40 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:07:34.039Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-23T11:07:34.087Z"}
+{"level":"info","message":"GET /estimates/40 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:10:22.250Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-23T11:10:22.303Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:16:10.910Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-23T11:16:10.945Z"}
+{"level":"info","message":"POST /auth/login - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:16:18.439Z"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-23T11:16:18.441Z"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-23T11:16:18.501Z"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-23T11:16:18.512Z"}
+{"level":"info","message":"GET /reports/estimates - IP: ::1","timestamp":"2025-09-23T11:16:18.553Z"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:16:19.816Z"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-23T11:16:19.821Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:16:21.441Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-23T11:16:21.484Z"}
+{"level":"info","message":"POST /estimates/41/stops - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:16:59.797Z"}
+{"level":"info","message":"POST /auth/login - IP: ::1","timestamp":"2025-09-23T11:18:12.922Z"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-23T11:18:12.923Z"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-23T11:18:12.989Z"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-23T11:18:12.994Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:19:37.621Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-23T11:20:41.523Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:20:41.572Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-23T11:29:12.089Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:29:12.142Z"}
+{"level":"info","message":"PUT /estimates/41 - IP: ::1","timestamp":"2025-09-23T11:29:30.380Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:29:30.440Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-23T11:29:30.487Z"}
+{"level":"info","message":"PUT /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:29:38.217Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-23T11:29:38.260Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:29:38.301Z"}
+{"level":"info","message":"PUT /estimates/41 - IP: ::1","timestamp":"2025-09-23T11:29:42.498Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:29:42.539Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-23T11:29:42.579Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-23T11:29:55.541Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:29:55.593Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-23T11:35:53.891Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:35:53.942Z"}
+{"level":"info","message":"PUT /estimates/41 - IP: ::1","timestamp":"2025-09-23T11:36:01.443Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:36:01.488Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::1","timestamp":"2025-09-23T11:36:01.531Z"}
+{"level":"info","message":"PUT /estimates/41 - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:36:13.060Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-23T11:36:13.113Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:36:13.160Z"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-23T11:37:18.731Z"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:37:18.778Z"}
+{"level":"info","message":"PUT /estimates/41 - IP: ::1","timestamp":"2025-09-23T11:37:28.807Z"}
+{"level":"info","message":"POST /estimates/41/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23T11:37:28.855Z"}
+{"level":"error","message":"Error calculating estimate: o.map is not a function - Stack: Error: o.map is not a function\n    at dispatchHttpRequest (/var/www/movethatstuff/backend/node_modules/@googlemaps/google-maps-services-js/node_modules/axios/dist/node/axios.cjs:3008:25)\n    at /var/www/movethatstuff/backend/node_modules/@googlemaps/google-maps-services-js/node_modules/axios/dist/node/axios.cjs:2762:5\n    at new Promise (<anonymous>)\n    at wrapAsync (/var/www/movethatstuff/backend/node_modules/@googlemaps/google-maps-services-js/node_modules/axios/dist/node/axios.cjs:2742:10)\n    at http (/var/www/movethatstuff/backend/node_modules/@googlemaps/google-maps-services-js/node_modules/axios/dist/node/axios.cjs:2780:10)\n    at /var/www/movethatstuff/backend/node_modules/@googlemaps/google-maps-services-js/dist/adapter.js:66:9\n    at new Promise (<anonymous>)\n    at /var/www/movethatstuff/backend/node_modules/@googlemaps/google-maps-services-js/dist/adapter.js:65:12\n    at dispatchRequest (/var/www/movethatstuff/backend/node_modules/axios/lib/core/dispatchRequest.js:58:10)\n    at Axios.request (/var/www/movethatstuff/backend/node_modules/axios/lib/core/Axios.js:109:15)\n    at Axios.request (/var/www/movethatstuff/backend/node_modules/@googlemaps/google-maps-services-js/node_modules/axios/dist/node/axios.cjs:4317:41)\n    at async calculateEstimate (/var/www/movethatstuff/backend/routes/estimateRoutes.js:201:34)\n    at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:418:9","timestamp":"2025-09-23T11:37:29.681Z"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-23 06:39:38"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-23 06:42:03"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23 06:42:03"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-23 06:42:04"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23 06:42:04"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-23 06:43:03"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-23 06:43:09"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23 06:43:09"}
+{"level":"info","message":"PUT /estimates/41 - IP: ::1","timestamp":"2025-09-23 06:43:17"}
+{"level":"info","message":"POST /estimates/41/calculate - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23 06:43:17"}
+{"level":"error","message":"Error calculating estimate:  - Stack: Error\n    at dispatchHttpRequest (/var/www/movethatstuff/backend/node_modules/@googlemaps/google-maps-services-js/node_modules/axios/dist/node/axios.cjs:3008:25)\n    at /var/www/movethatstuff/backend/node_modules/@googlemaps/google-maps-services-js/node_modules/axios/dist/node/axios.cjs:2762:5\n    at new Promise (<anonymous>)\n    at wrapAsync (/var/www/movethatstuff/backend/node_modules/@googlemaps/google-maps-services-js/node_modules/axios/dist/node/axios.cjs:2742:10)\n    at http (/var/www/movethatstuff/backend/node_modules/@googlemaps/google-maps-services-js/node_modules/axios/dist/node/axios.cjs:2780:10)\n    at /var/www/movethatstuff/backend/node_modules/@googlemaps/google-maps-services-js/dist/adapter.js:66:9\n    at new Promise (<anonymous>)\n    at /var/www/movethatstuff/backend/node_modules/@googlemaps/google-maps-services-js/dist/adapter.js:65:12\n    at dispatchRequest (/var/www/movethatstuff/backend/node_modules/axios/lib/core/dispatchRequest.js:58:10)\n    at Axios.request (/var/www/movethatstuff/backend/node_modules/axios/lib/core/Axios.js:109:15)\n    at Axios.request (/var/www/movethatstuff/backend/node_modules/@googlemaps/google-maps-services-js/node_modules/axios/dist/node/axios.cjs:4317:41)\n    at async calculateEstimate (/var/www/movethatstuff/backend/routes/estimateRoutes.js:201:34)\n    at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:418:9","timestamp":"2025-09-23 06:43:17"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-23 07:19:31"}
+{"level":"info","message":"POST /auth/login - IP: ::1","timestamp":"2025-09-23 07:22:31"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-23 07:22:31"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-23 07:22:31"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-23 07:22:31"}
+{"level":"info","message":"GET /reports/estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23 07:22:31"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-23 07:22:33"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23 07:22:33"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-23 07:22:35"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23 07:22:35"}
+{"level":"info","message":"PUT /estimates/41 - IP: ::1","timestamp":"2025-09-23 07:22:46"}
+{"level":"info","message":"POST /estimates/41/calculate?full=false - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23 07:22:46"}
+{"level":"error","message":"Error calculating estimate: invalid input syntax for type numeric: \"00.991.85\" - Stack: error: invalid input syntax for type numeric: \"00.991.85\"\n    at /var/www/movethatstuff/backend/node_modules/pg-pool/index.js:45:11\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async calculateEstimate (/var/www/movethatstuff/backend/routes/estimateRoutes.js:289:9)\n    at async /var/www/movethatstuff/backend/routes/estimateRoutes.js:458:9","timestamp":"2025-09-23 07:22:46"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-23 07:31:42"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-23 07:33:39"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23 07:33:39"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-23 07:33:40"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23 07:33:40"}
+{"level":"info","message":"PUT /estimates/41 - IP: ::1","timestamp":"2025-09-23 07:33:48"}
+{"level":"info","message":"POST /estimates/41/calculate?full=false - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23 07:33:48"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-23 07:33:48"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23 07:33:48"}
+{"level":"info","message":"PUT /estimates/41 - IP: ::1","timestamp":"2025-09-23 07:33:58"}
+{"level":"info","message":"POST /estimates/41/calculate?full=false - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23 07:33:58"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-23 07:33:58"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23 07:33:58"}
+{"level":"info","message":"GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php - IP: ::1","timestamp":"2025-09-23 09:24:05"}
+{"level":"info","message":"GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php - IP: ::ffff:127.0.0.1","timestamp":"2025-09-23 20:54:40"}
+{"level":"info","message":"POST /auth/login - IP: ::1","timestamp":"2025-09-24 04:25:36"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-24 04:25:36"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-24 04:25:36"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-24 04:25:36"}
+{"level":"info","message":"GET /reports/estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 04:25:36"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-24 04:25:38"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 04:25:38"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-24 04:25:39"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 04:25:39"}
+{"level":"info","message":"PUT /estimates/41 - IP: ::1","timestamp":"2025-09-24 04:26:07"}
+{"level":"info","message":"POST /estimates/41/calculate?full=false - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 04:26:07"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-24 04:26:07"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 04:26:07"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-24 04:33:06"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-24 04:33:19"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-24 04:34:18"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 04:34:18"}
+{"level":"info","message":"PUT /estimates/41 - IP: ::1","timestamp":"2025-09-24 04:34:27"}
+{"level":"info","message":"POST /estimates/41/calculate?full=false - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 04:34:27"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-24 04:34:27"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 04:34:27"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-24 04:48:23"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-24 04:50:09"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 04:50:09"}
+{"level":"info","message":"PUT /estimates/41 - IP: ::1","timestamp":"2025-09-24 04:50:16"}
+{"level":"info","message":"POST /estimates/41/calculate?full=false - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 04:50:16"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-24 04:50:16"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 04:50:16"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-24 04:50:59"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 04:50:59"}
+{"level":"info","message":"PUT /estimates/41 - IP: ::1","timestamp":"2025-09-24 04:51:06"}
+{"level":"info","message":"POST /estimates/41/calculate?full=false - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 04:51:06"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-24 04:51:06"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 04:51:06"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-24 05:08:59"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-24 05:24:29"}
+{"level":"info","message":"GET /estimates/41 - IP: ::1","timestamp":"2025-09-24 05:25:13"}
+{"level":"info","message":"GET /tenants/my - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 05:25:13"}
+{"level":"info","message":"PUT /estimates/41 - IP: ::1","timestamp":"2025-09-24 05:25:21"}
+{"level":"error","message":"Cannot read properties of undefined (reading 'validate') - Stack: TypeError: Cannot read properties of undefined (reading 'validate')\n    at /var/www/movethatstuff/backend/middleware.js:64:30\n    at Layer.handle [as handle_request] (/var/www/movethatstuff/backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/var/www/movethatstuff/backend/node_modules/express/lib/router/route.js:144:13)\n    at /var/www/movethatstuff/backend/middleware.js:60:5\n    at Layer.handle [as handle_request] (/var/www/movethatstuff/backend/node_modules/express/lib/router/layer.js:95:5)\n    at next (/var/www/movethatstuff/backend/node_modules/express/lib/router/route.js:144:13)\n    at /var/www/movethatstuff/backend/middleware.js:52:17\n    at Query.<anonymous> (/var/www/movethatstuff/backend/node_modules/pg-pool/index.js:440:18)\n    at Query.handleReadyForQuery (/var/www/movethatstuff/backend/node_modules/pg/lib/query.js:142:14)\n    at Client._handleReadyForQuery (/var/www/movethatstuff/backend/node_modules/pg/lib/client.js:321:19)","timestamp":"2025-09-24 05:25:21"}

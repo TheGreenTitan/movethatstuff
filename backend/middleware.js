@@ -1,10 +1,11 @@
-///var/www/movethatstuff/backend/middleware.js
+///var/www/movethatstuff/backend/middleware.js//
 const jwt = require('jsonwebtoken');
 const { Pool } = require('pg');
 const Joi = require('joi');
 const moment = require('moment-timezone');
 const nodemailer = require('nodemailer');
 const twilio = require('twilio');
+const Redis = require('ioredis'); // Added for Redis
 
 require('dotenv').config();
 
@@ -16,11 +17,15 @@ const pool = new Pool({
     port: 5432,
 });
 
+const redis = new Redis(); // Connect to local Redis
+
 const secretKey = process.env.SECRET_KEY;
 
-const authenticateToken = (req, res, next) => {
+const authenticateToken = async (req, res, next) => {
     const token = req.headers['authorization']?.split(' ')[1];
     if (!token) return res.status(401).send('Access denied. No token provided.');
+    const blacklisted = await redis.get(`blacklist:${token}`);
+    if (blacklisted) return res.status(403).send('Token blacklisted.');
     jwt.verify(token, secretKey, (err, user) => {
         if (err) return res.status(403).send('Invalid token.');
         req.user = user;
@@ -43,6 +48,7 @@ const authenticateToken = (req, res, next) => {
                 req.roles = result.rows[0].roles || [];
                 req.permissions = new Set(result.rows[0].permissions || []);
                 req.tenantTimezone = result.rows[0].tenant_timezone || 'UTC';
+                if (req.tenantId !== user.tenantId) return res.status(403).send('Tenant mismatch in token.');
                 next();
             }
         );
@@ -72,4 +78,4 @@ const transporter = nodemailer.createTransport({
 
 const twilioClient = twilio(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN);
 
-module.exports = { authenticateToken, requirePermission, validate, pool, secretKey, moment, transporter, twilioClient };
+module.exports = { authenticateToken, requirePermission, validate, pool, secretKey, moment, transporter, twilioClient, redis };

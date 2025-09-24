@@ -1,6 +1,8 @@
+///var/www/movethatstuff/backend/routes/reportsRoutes.js//
 const express = require('express');
 const moment = require('moment-timezone');
 const { authenticateToken, requirePermission, pool } = require('../middleware');
+const logger = require('../logger');  // Import logger for error handling
 
 const router = express.Router();
 
@@ -10,12 +12,15 @@ router.get('/estimates', authenticateToken, requirePermission('view_reports'), (
                 COUNT(id) AS estimate_count,
                 SUM(total_cost) AS total_revenue
          FROM estimates
-         WHERE opportunity_id IN (SELECT id FROM opportunities WHERE customer_id IN (SELECT id FROM customers WHERE tenant_id = $1))
+         WHERE tenant_id = $1
          GROUP BY month
          ORDER BY month DESC`,
         [req.tenantId],
         (err, result) => {
-            if (err) return res.status(500).send(`Error generating estimate report: ${err.message}`);
+            if (err) {
+                logger.error(`Error generating estimate report: ${err.message} - Stack: ${err.stack}`);
+                return res.status(500).send(`Error generating estimate report: ${err.message}`);
+            }
             const rows = result.rows.map(row => {
                 if (row.month) {
                     row.month = moment.utc(row.month).tz(req.tenantTimezone).format('YYYY-MM');
