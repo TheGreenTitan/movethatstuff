@@ -1,4 +1,4 @@
-///var/www/movethatstuff/frontend/src/utils/api.js///
+///var/www/movethatstuff/frontend/src/utils/api.js//
 import axios from 'axios';
 
 const api = axios.create({
