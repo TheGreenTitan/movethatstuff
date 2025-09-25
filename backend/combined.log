@@ -641,3 +641,9 @@
 {"level":"info","message":"GET /reports/estimates - IP: ::1","timestamp":"2025-09-24 22:44:56"}
 {"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 22:44:57"}
 {"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-24 22:44:57"}
+{"level":"info","message":"POST /auth/login - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 22:47:27"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-24 22:47:27"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-24 22:47:27"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-24 22:47:27"}
+{"level":"info","message":"GET /reports/estimates - IP: ::1","timestamp":"2025-09-24 22:47:27"}
+{"level":"info","message":"GET /reports/estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-24 22:47:33"}
