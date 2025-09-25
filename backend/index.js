@@ -1,4 +1,4 @@
-///var/www/movethatstuff/backend/index.js//
+///var/www/movethatstuff/backend/index.js///
 require('dotenv').config(); // Load environment variables
 
 const express = require('express');
