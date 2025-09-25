@@ -13,7 +13,7 @@ const secretKey = process.env.SECRET_KEY;
 const redis = new Redis();
 
 // Email transporter (Nodemailer with Mandrill)
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   host: 'smtp.mandrillapp.com',
   port: 587,
   auth: {
