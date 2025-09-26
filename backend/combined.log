@@ -653,3 +653,46 @@
 {"level":"info","message":"GET /.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-25 09:51:48"}
 {"level":"info","message":"GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php - IP: ::1","timestamp":"2025-09-25 17:09:08"}
 {"level":"info","message":"GET /vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php - IP: ::ffff:127.0.0.1","timestamp":"2025-09-26 02:44:05"}
+{"level":"info","message":"HEAD /.env - IP: ::1","timestamp":"2025-09-26 04:57:27"}
+{"level":"info","message":"GET /.env - IP: ::ffff:127.0.0.1","timestamp":"2025-09-26 04:57:27"}
+{"level":"info","message":"HEAD /config.json - IP: ::1","timestamp":"2025-09-26 04:57:27"}
+{"level":"info","message":"GET /config.json - IP: ::ffff:127.0.0.1","timestamp":"2025-09-26 04:57:27"}
+{"level":"info","message":"HEAD /settings.py - IP: ::1","timestamp":"2025-09-26 04:57:27"}
+{"level":"info","message":"GET /settings.py - IP: ::ffff:127.0.0.1","timestamp":"2025-09-26 04:57:28"}
+{"level":"info","message":"HEAD /application.yml - IP: ::1","timestamp":"2025-09-26 04:57:28"}
+{"level":"info","message":"GET /application.yml - IP: ::ffff:127.0.0.1","timestamp":"2025-09-26 04:57:28"}
+{"level":"info","message":"POST /auth/login - IP: ::1","timestamp":"2025-09-26 05:03:07"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-26 05:03:07"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-26 05:03:07"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-26 05:03:07"}
+{"level":"info","message":"GET /reports/estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-26 05:03:07"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-26 05:03:09"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-26 05:03:09"}
+{"level":"info","message":"GET /reports/estimates - IP: ::1","timestamp":"2025-09-26 05:03:20"}
+{"level":"info","message":"POST /auth/login - IP: ::ffff:127.0.0.1","timestamp":"2025-09-26 05:03:37"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-26 05:03:37"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-26 05:03:37"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-26 05:03:37"}
+{"level":"info","message":"GET /reports/estimates - IP: ::1","timestamp":"2025-09-26 05:03:37"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-26 05:03:39"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-26 05:03:39"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-26 05:48:38"}
+{"level":"info","message":"GET /customers - IP: ::ffff:127.0.0.1","timestamp":"2025-09-26 05:49:15"}
+{"level":"info","message":"POST /auth/login - IP: ::1","timestamp":"2025-09-26 05:49:20"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-26 05:49:20"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-26 05:49:21"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-26 05:49:21"}
+{"level":"info","message":"GET /reports/estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-26 05:49:21"}
+{"level":"info","message":"POST /auth/login - IP: ::1","timestamp":"2025-09-26 05:49:46"}
+{"level":"info","message":"Login attempt for user: admin","timestamp":"2025-09-26 05:49:46"}
+{"level":"info","message":"Password comparison for admin: true","timestamp":"2025-09-26 05:49:46"}
+{"level":"info","message":"Login successful for admin. Access token generated.","timestamp":"2025-09-26 05:49:46"}
+{"level":"info","message":"GET /reports/estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-26 05:49:46"}
+{"level":"info","message":"GET /reports/estimates - IP: ::1","timestamp":"2025-09-26 05:50:08"}
+{"level":"info","message":"GET /estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-26 05:50:29"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-26 05:50:29"}
+{"level":"info","message":"GET /reports/estimates - IP: ::ffff:127.0.0.1","timestamp":"2025-09-26 05:50:30"}
+{"level":"info","message":"GET /customers - IP: ::1","timestamp":"2025-09-26 05:50:30"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-26 05:55:39"}
+{"level":"info","message":"Server running on port 3000","timestamp":"2025-09-26 05:58:21"}
+{"level":"info","message":"GET /estimates - IP: ::1","timestamp":"2025-09-26 06:06:35"}

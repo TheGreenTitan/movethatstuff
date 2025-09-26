@@ -46,11 +46,12 @@ const authenticateToken = async (req, res, next) => {
         return res.status(403).json({ error: 'Invalid token' });
       }
 
-      // Fetch user details including tenant_id and permissions
+      // Fetch user details including tenant_id and permission names
       const result = await pool.query(
-        'SELECT u.id, u.username, u.tenant_id, array_agg(rp.permission_id) as permission_ids FROM users u ' +
+        'SELECT u.id, u.username, u.tenant_id, array_agg(p.name) as permissions FROM users u ' +
         'JOIN user_roles ur ON u.id = ur.user_id ' +
         'JOIN role_permissions rp ON ur.role_id = rp.role_id ' +
+        'JOIN permissions p ON rp.permission_id = p.id ' +
         'WHERE u.id = $1 GROUP BY u.id',
         [user.id]
       );
@@ -62,7 +63,7 @@ const authenticateToken = async (req, res, next) => {
       const userData = result.rows[0];
       req.user = { id: userData.id, username: userData.username };
       req.tenantId = userData.tenant_id;
-      req.permissions = new Set(userData.permission_ids || []); // For quick lookup
+      req.permissions = new Set(userData.permissions || []); // For quick lookup
 
       // Fetch tenant timezone
       const tenantResult = await pool.query('SELECT timezone FROM tenants WHERE id = $1', [req.tenantId]);
