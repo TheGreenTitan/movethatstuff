@@ -1,4 +1,4 @@
-///var/www/movethatstuff/frontend/src/components/Login.js//
+///var/www/movethatstuff/frontend/src/components/Login.js///
 import React, { useState } from 'react';
 import api from '../utils/api';
 import { useNavigate } from 'react-router-dom';
